@@ -11,6 +11,11 @@ class BookcaseMaterialsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for($i=1;$i<=50;$i++) {
+            DB::table('bookcase_materials')->insert([
+                'bookcase_id' => rand(1,4),
+                'material_id' => $i,
+            ]);
+        }
     }
 }

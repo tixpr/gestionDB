@@ -11,6 +11,16 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $roles = [
+            'Administrador',
+            'Docente',
+            'Alumno',
+            'Invitado'
+        ];
+        for($i=0;$i<=3;$i++) {
+            DB::table('roles')->insert([
+                'name' => $roles[$i],
+            ]);
+        }
     }
 }

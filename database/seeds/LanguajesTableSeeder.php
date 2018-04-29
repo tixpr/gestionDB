@@ -11,12 +11,15 @@ class LanguajesTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i=1;$i<20;$i++) {
-            DB::table('authors')->insert([
-                'author' => "Autor nro".$i,
-                'author' => "Auto nro".$i,
-                //'author' => rand(1, 4),
-                'user_id' => $i
+        $languajes = [
+            'Ingles',
+            'Castellano',
+            'Chino'
+        ];
+
+        for($i=0;$i<=2;$i++) {
+            DB::table('languages')->insert([
+                'language'=> $languajes[$i],
             ]);
         }
     }

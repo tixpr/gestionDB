@@ -11,6 +11,15 @@ class MaterialTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $types = [
+            'Libro',
+            'Revistas',
+            'Tesis'
+        ];
+        for($i=0;$i<=2;$i++) {
+            DB::table('material_types')->insert([
+                'type' => $types[$i],
+            ]);
+        }
     }
 }

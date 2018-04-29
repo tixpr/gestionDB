@@ -11,6 +11,17 @@ class AreasTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $areas = [
+            'Comunicacion',
+            'Arte',
+            'Quimica',
+            'Fisica',
+            'Matematica'
+        ];
+        for($i=0;$i<=4;$i++) {
+            DB::table('areas')->insert([
+                'area' => $areas[$i],
+            ]);
+        }
     }
 }

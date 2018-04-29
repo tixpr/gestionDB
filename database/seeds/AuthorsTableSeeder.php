@@ -11,12 +11,9 @@ class AuthorsTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i=1;$i<20;$i++) {
+        for($i=1;$i<=10;$i++) {
             DB::table('authors')->insert([
-                'author' => "Autor nro".$i,
-                'author' => "Auto nro".$i,
-                //'author' => rand(1, 4),
-                'user_id' => $i
+                'author' => 'Autor Nro: '.$i,
             ]);
         }
     }

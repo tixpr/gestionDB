@@ -11,6 +11,11 @@ class UserViewMaterialsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for($i=1;$i<=50;$i++) {
+            DB::table('user_view_materials')->insert([
+                'user_id' => rand(1,20),
+                'material_id' => $i,
+            ]);
+        }
     }
 }

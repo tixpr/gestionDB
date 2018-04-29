@@ -11,6 +11,11 @@ class MaterialAreasTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for($i=1;$i<=50;$i++) {
+            DB::table('material_areas')->insert([
+                'area_id' => rand(1,5),
+                'material_id' => $i,
+            ]);
+        }
     }
 }
