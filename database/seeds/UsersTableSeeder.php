@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         for($i=1;$i<=20;$i++) {
             DB::table('users')->insert([
                 'name' => $lastnames[rand(0,4)]." ".$lastnames[rand(0,4)]." ".$names[rand(0,4)],
-                'email' => "usuario0".$i.'@uncp.edu.pe',
+                'email' => "rata0".$i.'@uncp.edu.pe',
                 'password' => bcrypt('usuario'),
             ]);
         }
