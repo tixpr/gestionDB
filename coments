@@ -1,0 +1,7 @@
+User::find(12);
+User::findOrFail(12);
+User::find([1,2,3,6,5]);
+User::create(['name'=>'test','email'=>'test@gmail.com','password'=>'123456']);
+$temp = User::find(506);
+$temp->update(['name'=>'Nombre Update']);
+
