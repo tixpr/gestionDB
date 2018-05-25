@@ -22,6 +22,7 @@ class Role extends Model
         'id',
         'name',
     ];
+
     /**
      * Si en modelo existe los timestamps created_at y updated_at.
      *
@@ -36,4 +37,8 @@ class Role extends Model
     protected $hidden = [
         'id'
     ];
+    public function users()
+	{
+		return $this->belongsToMany(User::class, 'user_roles');
+    }
 }
