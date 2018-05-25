@@ -22,6 +22,11 @@ class Role extends Model
         'id',
         'name',
     ];
+        public function roles()
+	{
+		return $this->belongsToMany(Role::class, 'user_roles');
+    }
+
     /**
      * Si en modelo existe los timestamps created_at y updated_at.
      *

@@ -23,6 +23,15 @@ class Bookcase extends Model
         'name',
         'user_id'
     ];
+        public function material()
+	{
+		return $this->belongsToMany(Role::class, 'bookcase_materials');
+    }
+    public function users()
+    {
+        return $this->hasMany(user::class);
+    }
+
     /**
      * Si en modelo existe los timestamps created_at y updated_at.
      *

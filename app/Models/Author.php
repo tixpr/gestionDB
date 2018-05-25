@@ -22,6 +22,10 @@ class Author extends Model
         'id',
         'author',
     ];
+    public function material()
+    {
+        return $this->belongsToMany(Role::class, 'material_authors');
+    }
     /**
      * Si en modelo existe los timestamps created_at y updated_at.
      *
