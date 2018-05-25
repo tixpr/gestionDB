@@ -36,4 +36,8 @@ class Role extends Model
     protected $hidden = [
         'id'
     ];
+    public function users()
+    {
+        return $this->belongstomany(User::class,'user_roles');
+    }
 }

@@ -53,6 +53,7 @@ class User extends Authenticatable
     public function views()
     {
         return $this->belongsToMany(Material::class, 'user_view_materials');
+        foreach($user->materials as $material){var_dump($material->title);}
     }
     
 }
