@@ -36,4 +36,8 @@ class MaterialType extends Model
     protected $hidden = [
         'id'
     ];
+    public function materials()
+    {
+        return $this->belongsToMany(MaterialType::class);
+    }
 }
