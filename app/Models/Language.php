@@ -36,4 +36,8 @@ class Language extends Model
     protected $hidden = [
         'id'
     ];
+    public function material()
+    {
+        return $this->hasMany(Material::class);
+    }
 }
