@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Language extends Model
 {
     /**
@@ -12,7 +9,6 @@ class Language extends Model
      * @var string
      */
     protected $table = 'languages';
-
     /**
      * Atributos asignables.
      *
@@ -36,4 +32,8 @@ class Language extends Model
     protected $hidden = [
         'id'
     ];
+    public function materials()
+    {
+        return $this->hasMany(Material::class);
+    }
 }

@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Bookcase extends Model
 {
     /**
@@ -12,7 +9,6 @@ class Bookcase extends Model
      * @var string
      */
     protected $table = 'bookcases';
-
     /**
      * Atributos asignables.
      *
@@ -40,5 +36,9 @@ class Bookcase extends Model
     public function materials()
     {
         return $this->belongsToMany(Material::class, 'bookcase_materials');
+    }
+    public function users()
+    {
+        return $this->belongsTo(User::class);
     }
 }

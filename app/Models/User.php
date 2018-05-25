@@ -1,21 +1,16 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 class User extends Authenticatable
 {
     use Notifiable;
-
     /**
      * Tabla usada por el modelo en la base de datos.
      *
      * @var string
      */
     protected $table = 'users';
-
     /**
      * Atributos asignables.
      *

@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class MaterialType extends Model
 {
     /**
@@ -12,7 +9,6 @@ class MaterialType extends Model
      * @var string
      */
     protected $table = 'material_types';
-
     /**
      * Atributos asignables.
      *
@@ -36,4 +32,8 @@ class MaterialType extends Model
     protected $hidden = [
         'id'
     ];
+    public function materials()
+    {
+        return $this->hasMany(Material::class);
+    }
 }

@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Area extends Model
 {
     /**
@@ -12,7 +9,6 @@ class Area extends Model
      * @var string
      */
     protected $table = 'areas';
-
     /**
      * Atributos asignables.
      *
@@ -36,4 +32,8 @@ class Area extends Model
     protected $hidden = [
         'id'
     ];
+    public function materials()
+	{
+		return $this->belongsToMany(Material::class, 'material_areas');
+    }
 }

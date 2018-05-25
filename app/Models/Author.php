@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Author extends Model
 {
      /**
@@ -12,7 +9,6 @@ class Author extends Model
      * @var string
      */
     protected $table = 'authors';
-
     /**
      * Atributos asignables.
      *
@@ -36,4 +32,8 @@ class Author extends Model
     protected $hidden = [
         'id'
     ];
+    public function materials()
+	{
+		return $this->belongsToMany(Material::class, 'material_authors');
+    }
 }

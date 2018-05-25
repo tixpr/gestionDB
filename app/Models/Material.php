@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Material extends Model
 {
     /**
@@ -12,7 +9,6 @@ class Material extends Model
      * @var string
      */
     protected $table = 'materials';
-
     /**
      * Atributos asignables.
      *
@@ -52,5 +48,25 @@ class Material extends Model
     public function areas()
     {
         return $this->belongsToMany(Area::class,'material_areas');
+    }
+    public function userviews()
+    {
+        return $this->belongsToMany(User::class, 'user_view_materials');
+    }
+    public function users()
+	{
+		return $this->belongsTo(User::class);
+    }
+    public function materialtypes()
+	{
+		return $this->belongsTo(MaterialType::class);
+    }
+    public function languages()
+	{
+		return $this->belongsTo(Language::class);
+    }
+    public function bookcases()
+	{
+		return $this->belongsToMany(Bookcase::class, 'bookcase_materials');
     }
 }
