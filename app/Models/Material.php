@@ -45,6 +45,10 @@ class Material extends Model
     protected $hidden = [
         'id'
     ];
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function authors()
 	{
 		return $this->belongsToMany(Author::class, 'material_authors');
@@ -52,5 +56,9 @@ class Material extends Model
     public function areas()
     {
         return $this->belongsToMany(Area::class,'material_areas');
+    }
+    public function bookcases()
+    {
+        return $this->belongsToMany(Bookcases::class, 'bookcase_materials');
     }
 }
