@@ -40,5 +40,7 @@ class Bookcase extends Model
     public function materials()
     {
         return $this->belongsToMany(Material::class, 'bookcase_materials');
+
     }
+
 }

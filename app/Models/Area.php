@@ -36,4 +36,8 @@ class Area extends Model
     protected $hidden = [
         'id'
     ];
+    public function materials()
+    {
+        return $this->belongsTo(Material::class,'materials_areas');
+    }
 }
