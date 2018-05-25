@@ -53,4 +53,24 @@ class Material extends Model
     {
         return $this->belongsToMany(Area::class,'material_areas');
     }
+    public function views()
+    {
+        return $this->belongsToMany(User::class,'user_view_materials');
+    }
+    public function bookcases()
+    {
+        return $this->belongsToMany(Bookcase::class,'bookcase_materials');
+    }
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+    public function languages()
+    {
+        return $this->hasMany(language::class);
+    }
+    public function materialTypes()
+    {
+        return $this->hasMany(MaterialType::class);
+    }
 }
