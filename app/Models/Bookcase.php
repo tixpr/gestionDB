@@ -38,7 +38,19 @@ class Bookcase extends Model
         'id'
     ];
     public function materials()
+
     {
+
         return $this->belongsToMany(Material::class, 'bookcase_materials');
+
     }
+
+    public function users()
+
+    {
+
+        return $this->belongsTo(User::class);
+
+    }
+
 }
