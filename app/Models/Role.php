@@ -36,9 +36,4 @@ class Role extends Model
     protected $hidden = [
         'id'
     ];
-    public function users()
-	{
-		return $this->belongsToMany(User::class, 'user_roles');
-    }
-   
 }
