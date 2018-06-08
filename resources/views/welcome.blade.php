@@ -65,10 +65,11 @@
         </style>
     </head>
     <body>
+    <button id="btn">
         <div id="contenido">
             </div>
             <script>
-              function obtenerMateriales(){
+              function obtenerMateriales(e){
                   var majax =new Majax();
                   majax.get(
 
@@ -87,5 +88,13 @@
               );
             
             </script>
+    
+    
+    
+    
+    
+    
+    
+    
     </body>
 </html>
