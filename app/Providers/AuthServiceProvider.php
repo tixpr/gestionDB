@@ -1,7 +1,16 @@
 <?php
 namespace App\Providers;
+<<<<<<< HEAD
 use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Route;
+=======
+
+use Laravel\Passport\Passport;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Route;
+>>>>>>> palacios-rojas
+>>>>>>> dev
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 class AuthServiceProvider extends ServiceProvider
