@@ -9,32 +9,32 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <script src="/js/majax.js"></script>
+		<script src="/js/majax.js"></script>
     </head>
     <body>
-        <button id="contenido">
-            Obtener Datos
-        </button>
-        <div id="contenido">
-        </div>
-        <script>
-        Majax.setConfig(2,'6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
-            function obtenerMateriales(e){
-                e.preventDefault();
-                var majax=new Majax();
-                majax.get(
-                '/api/materials',
-                {
-                    valid: function(r){
-                        console.info(r);
-                    },
-                    error: function(error){
-                        console.error(error);
-                    }
-                }
-                );
-            }
-            document.getElementById('btn').addEventListener('click',obtenerMateriales)
-        </script>
+		<button id="btn">
+			Obtener datos
+		</button>
+		<div id="contenido">
+		</div>
+		<script>
+			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
+			function obtenerMateriales(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/materials',
+					{
+						valid: function(r){
+							console.info(r);
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('btn').addEventListener('click',obtenerMateriales);
+		</script>
     </body>
 </html>
