@@ -3,10 +3,7 @@
 namespace App\Providers;
 
 use Laravel\Passport\Passport;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Route;
->>>>>>> palacios-rojas
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
