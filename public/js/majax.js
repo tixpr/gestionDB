@@ -50,7 +50,7 @@ var Majax = function () {
 				}
 				this.header = new Headers();
 				if (this.is_authenticate) {
-					this.header.set('Authorization', this.token_type + ' ' + this.access_token);
+					this.header.set('Authorization', this.token_type + ' ' + this.access_token)
 				}
 			} else {
 				alert('Fetch no soportado, Favor de actualizar su navegador');
