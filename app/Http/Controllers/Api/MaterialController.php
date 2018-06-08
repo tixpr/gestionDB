@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
+<<<<<<< HEAD
+=======
+use App\Http\Resources\Api\Material as MaterialResource;
+>>>>>>> 09f7e7fb3d7689c95cc58255b8b6f64ce26a637c
 
 class MaterialController extends Controller
 {
@@ -15,6 +19,7 @@ class MaterialController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         return Material::orderBy('title','asc')->get();
         
     }
@@ -27,6 +32,9 @@ class MaterialController extends Controller
     public function create()
     {
         //
+=======
+        return MaterialResource::collection(Material::orderBy('title','asc')->get());
+>>>>>>> 09f7e7fb3d7689c95cc58255b8b6f64ce26a637c
     }
 
     /**
@@ -52,6 +60,7 @@ class MaterialController extends Controller
     }
 
     /**
+<<<<<<< HEAD
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -63,6 +72,8 @@ class MaterialController extends Controller
     }
 
     /**
+=======
+>>>>>>> 09f7e7fb3d7689c95cc58255b8b6f64ce26a637c
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
