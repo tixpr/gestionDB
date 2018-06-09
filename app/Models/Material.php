@@ -65,7 +65,7 @@ class Material extends Model
     {
         return $this->belongsTo(Language::class,'language_id');
     }
-    public function materialtype()
+    public function material_type()
     {
         return $this->belongsTo(MaterialType::class,'material_type_id');
     }

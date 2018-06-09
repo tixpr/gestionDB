@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Material;
-use App\Http\Resources\Api\Materials as MaterialResource;
+use App\Models\Language;
+use App\Http\Resources\Api\Language as LanguageResource;
 
-class MaterialController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        return MaterialResource::collection(Material::orderBy('title','asc')->get());
+        return LanguageResource::collection(Language::orderBy('id','asc')->get());
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +40,6 @@ class MaterialController extends Controller
     {
         //
     }
-
 
     /**
      * Update the specified resource in storage.

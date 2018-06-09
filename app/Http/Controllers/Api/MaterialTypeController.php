@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Material;
-use App\Http\Resources\Api\Materials as MaterialResource;
+use App\Models\MaterialType;
+use App\Http\Resources\Api\MaterialType as MaterialTypeResource;
 
-class MaterialController extends Controller
+class MaterialTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        return MaterialResource::collection(Material::orderBy('title','asc')->get());
+        return MaterialTypeResource::collection(MaterialType::orderBy('id','asc')->get());
     }
+
 
 
     /**
