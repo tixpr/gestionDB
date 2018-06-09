@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Http\Resources\Api;
+
 use Illuminate\Http\Resources\Json\JsonResource;
+
 class Language extends JsonResource
 {
     /**

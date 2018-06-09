@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\Route;
 =======
 
 use Laravel\Passport\Passport;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 >>>>>>> palacios-rojas
+>>>>>>> dev
+=======
 >>>>>>> dev
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
