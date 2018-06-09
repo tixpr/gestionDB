@@ -29,6 +29,5 @@ class AuthServiceProvider extends ServiceProvider
 		Route::middleware(['cors','api'])->group(function(){
 			Passport::routes();	
 		});
-		//
     }
 }
