@@ -4,3 +4,29 @@ Client Secret: KpxLKnLnwC9O19we5Dckbj2CQIbNzJaFxDPmCbru
 Password grant client created successfully.
 Client ID: 2
 Client Secret: iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD
+
+
+
+
+conmigo jaja
+Encryption keys already exist. Use the --force option to overwrite them.
+Personal access client created successfully.
+Client ID: 1
+Client Secret: A4Orn64AZokwVUH8VZOCkheMSCD990sgp6ylgcbw
+Password grant client created successfully.
+Client ID: 2
+Client Secret: qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq
+
+C:\Users\JuanCarlos\Desktop\CLASES\gestionDB>php artisan passport:install
+Encryption keys already exist. Use the --force option to overwrite them.
+Personal access client created successfully.
+Client ID: 3
+Client Secret: clW9DMZMPXedlkytZwDgBPdaWLBnlIhoVcsLX9v6
+Password grant client created successfully.
+Client ID: 4
+Client Secret: sPzDLvNP74o86himWKI8h29jz4kSU8daznv7st4N
+Client ID: 5
+Client Secret: AsrHSE0wV2QzMaTPObQpf6WPOVyDunbntb4FOKi3
+Password grant client created successfully.
+Client ID: 6
+Client Secret: AODNq0t1HpdjmdUCAKa4JZEtbEqhoQ1ZLOEtP
