@@ -25,7 +25,7 @@
         <div id="contenido">
         </div>
         <script>
-            Majax.setConfig(2,'GOp0YZulCy3AAgjbNJtwxTHfrRRgS8hHHX5mzB2N','');
+            Majax.setConfig(2,'ekCvyZMCb488RcVgJpcq4RZ5kOSu6MYG6TmsjbLl','');
             function obetenerMateriales(e) {
                 e.preventDefault();
                 var majax= new Majax();
@@ -44,7 +44,7 @@
             document.getElementById('btn').addEventListener('click',obetenerMateriales);
         </script>
         <script>
-            Majax.setConfig(2,'GOp0YZulCy3AAgjbNJtwxTHfrRRgS8hHHX5mzB2N','');
+            Majax.setConfig(2,'ekCvyZMCb488RcVgJpcq4RZ5kOSu6MYG6TmsjbLl','');
             function obetenerIdioma(e) {
                 e.preventDefault();
                 var majax= new Majax();
@@ -63,7 +63,7 @@
             document.getElementById('btnl').addEventListener('click',obetenerIdioma);
         </script>
         <script>
-            Majax.setConfig(2,'GOp0YZulCy3AAgjbNJtwxTHfrRRgS8hHHX5mzB2N','');
+            Majax.setConfig(2,'ekCvyZMCb488RcVgJpcq4RZ5kOSu6MYG6TmsjbLl','');
             function obetenerTipoMaterial(e) {
                 e.preventDefault();
                 var majax= new Majax();
