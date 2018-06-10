@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Models;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * Tabla usada por el modelo en la base de datos.
@@ -54,5 +58,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Material::class, 'user_view_materials');
     }
-    
 }
