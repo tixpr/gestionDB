@@ -10,21 +10,23 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="/css/estilos.css" rel="stylesheet" type="text/css"> 
+        <link href="/css/style.css" rel="stylesheet" type="text/css"> 
         <script src="/js/majax.js"></script>
         
     </head>
     <body>
-    <div id="contenedor">
-        <button id="btn">
-            Obtener  Datos Materials
-        </button>
-        <button id="btn1">
-            Obtener  Datos Languages
-        </button>
-        <button id="btn2">
-            Obtener  Datos TypeMaterial
-        </button>
+    <div class="content" id="content">
+        <section class="section">
+            <button id="btn_Materials">
+                Obtener  Datos Materials
+            </button>
+            <button id="btn_Languages">
+                Obtener  Datos Languages
+            </button>
+            <button id="btn_TypeMaterials">
+                Obtener  Datos TypeMaterial
+            </button>
+        </section>
         
      </div>
         <script>
@@ -46,7 +48,7 @@
             );
             
         }
-        document.getElementById('btn').addEventListener('click',obtenerMateriales);
+        document.getElementById('btn_Materials').addEventListener('click',obtenerMateriales);
         function obtenerLenguajes(e){
             e.preventDefault();
             var majax= new Majax();
@@ -64,7 +66,7 @@
             );
 
         }
-        document.getElementById('btn1').addEventListener('click',obtenerLenguajes);
+        document.getElementById('btn_Languages').addEventListener('click',obtenerLenguajes);
         function obtenerMaterialType(e){
             e.preventDefault();
             var majax= new Majax();
@@ -81,7 +83,7 @@
 
             );
         }
-        document.getElementById('btn2').addEventListener('click',obtenerMaterialType);
+        document.getElementById('btn_TypeMaterial').addEventListener('click',obtenerMaterialType);
         
         </script>
         
