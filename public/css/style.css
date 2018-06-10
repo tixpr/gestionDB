@@ -16,11 +16,11 @@ body {
     border-radius: 0.75em;
 }
 .content button{
-    display: table-row;
     font-size: 1.1em;
     font-family: Arial, Helvetica, sans-serif;
     color: #00cf00;
     background: #000308;
     border-radius: 0.75em;
     border-color: #b90303;
+    
 }
