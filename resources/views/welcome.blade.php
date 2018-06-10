@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+	
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,9 +13,15 @@
 		<script src="/js/majax.js"></script>
     </head>
     <body>
-		<button id="btn">
-			Obtener datos
+		<button id="btn"style="background:lightgreen">
+			 MATERIALES
 		</button>
+		<button id="btn1"style="background:yellow">
+             IDIOMAS
+        </button>
+        <button id="btn2"style="background:orange">
+            TIPO DE MATERIAL
+        </button>
 		<div id="contenido">
 		</div>
 		<script>
@@ -36,5 +43,47 @@
 			}
 			document.getElementById('btn').addEventListener('click',obtenerMateriales);
 		</script>
+		 <script>
+        Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+        function obtenerLenguajes(e){
+            e.preventDefault();
+            var majax= new Majax();
+            majax.get(
+                '/api/languages',
+                {
+                    valid: function(r){
+                        console.info(r);
+                    },
+                    error: function(error){
+                        console.error(error);
+                    }
+                }
+
+            );
+
+        }
+        document.getElementById('btn1').addEventListener('click',obtenerLenguajes);
+        </script>
+
+        <script>
+        Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+        function obtenerMaterialType(e){
+            e.preventDefault();
+            var majax= new Majax();
+            majax.get(
+                '/api/materialstype',
+                {
+                    valid: function(r){
+                        console.info(r);
+                    },
+                    error: function(error){
+                        console.error(error);
+                    }
+                }
+
+            );
+        }
+        document.getElementById('btn2').addEventListener('click',obtenerMaterialType);
+        </script>
     </body>
 </html>

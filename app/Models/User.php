@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Models;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dev
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
