@@ -68,7 +68,11 @@
             );
 
         }
+
         document.getElementById('btn_Languages').addEventListener('click',obtenerLanguage);
+
+
+
         function obtenerMaterialType(e){
             e.preventDefault();
             var majax= new Majax();
