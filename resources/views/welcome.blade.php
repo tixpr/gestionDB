@@ -16,17 +16,17 @@
     </head>
     <body>
     <div class="content" id="content">
-        <section class="section_btn">
+       
             <button id="btn_Materials">
                 Obtener  Datos Materials
             </button>
             <button id="btn_Languages">
                 Obtener  Datos Languages
             </button>
-            <button id="btn_TypeMaterials">
+            <button id="btn_MaterialTypes">
                 Obtener  Datos TypeMaterial
             </button>
-        </section>
+        
         
      </div>
         <script>
@@ -49,11 +49,11 @@
             
         }
         document.getElementById('btn_Materials').addEventListener('click',obtenerMateriales);
-        function obtenerLenguajes(e){
+        function obtenerLanguage(e){
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-                '/api/languages',
+                '/api/Languages',
                 {
                     valid: function(r){
                         console.info(r);
@@ -66,12 +66,12 @@
             );
 
         }
-        document.getElementById('btn_Languages').addEventListener('click',obtenerLenguajes);
+        document.getElementById('btn_Languages').addEventListener('click',obtenerLanguage);
         function obtenerMaterialType(e){
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-                '/api/materialstype',
+                '/api/MaterialTypes',
                 {
                     valid: function(r){
                         console.info(r);
@@ -83,7 +83,7 @@
 
             );
         }
-        document.getElementById('btn_TypeMaterial').addEventListener('click',obtenerMaterialType);
+        document.getElementById('btn_MaterialTypes').addEventListener('click',obtenerMaterialType);
         
         </script>
         
