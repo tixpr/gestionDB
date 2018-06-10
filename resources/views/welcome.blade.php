@@ -1,24 +1,12 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-		<script src="/js/majax.js"></script>
-    </head>
-    <body>
-		<button id="btn">
-			Obtener datos
+@section('content')
+	<div id="contenido">
+		<button id="btn-1">
+			Obtener Materials
 		</button>
-		<div id="contenido">
-		</div>
 		<script>
-			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			Majax.setConfig(1, 'bGfL9hVnurTx5sNdtaqbAveVQYVlVVTPbQypw6N4','');
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -27,6 +15,11 @@
 					{
 						valid: function(r){
 							console.info(r);
+							ds1 =  document.getElementById('vista');
+								r.data.forEach(function (s) {
+									ds1.innerHTML = ds1.innerHTML +"<div class='mat'>"+"<ul>"+"<li>"+"Titulo: "+ s.titulo+"</li>"+"<li>"+" Idioma: "+ s.idioma+"</li>"+"<li>"+"Tipo: "+ s.tipo +"</li>"+"</ul>"+"</div>";
+								});
+							console.info(r.data);
 						},
 						error: function(error){
 							console.error(error);
@@ -34,7 +27,67 @@
 					}
 				);
 			}
-			document.getElementById('btn').addEventListener('click',obtenerMateriales);
+			document.getElementById('btn-1').addEventListener('click',obtenerMateriales);
 		</script>
-    </body>
-</html>
+
+		<button id="btn-2">
+			Obtener Languages
+		</button>
+		<script>
+			Majax.setConfig(1, 'bGfL9hVnurTx5sNdtaqbAveVQYVlVVTPbQypw6N4','');
+			function obtenerLanguages(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/languages',
+					{
+						valid: function(r){
+							console.info(r);
+							ds1 =  document.getElementById('vista');
+								r.data.forEach(function (s) {
+									ds1.innerHTML = ds1.innerHTML +"<div class='lan'>"+"Idioma: " + s.idioma + "</div>";
+								});
+							console.info(r.data);
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('btn-2').addEventListener('click',obtenerLanguages);
+		</script>
+
+		<button id="btn-3">
+			Obtener MaterialTypes
+		</button>
+		<script>
+			Majax.setConfig(1, 'bGfL9hVnurTx5sNdtaqbAveVQYVlVVTPbQypw6N4','');
+			function obtenerMaterialTypes(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/materialTypes',
+					{
+						valid: function(r){
+							console.info(r);
+							ds1 =  document.getElementById('vista');
+								r.data.forEach(function (s) {
+									ds1.innerHTML = ds1.innerHTML +"<div class='lan'>"+"Tipo de material: " + s.tipo + "</div>";
+								});
+							console.info(r.data);
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('btn-3').addEventListener('click',obtenerMaterialTypes);
+		</script>
+
+		<div id="vista">
+			<ul></ul>
+		</div>
+	</div>
+@endsection

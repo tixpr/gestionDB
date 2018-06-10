@@ -1,0 +1,74 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 100px;
+} 
+body > .container {
+  padding: 100px 20px 0;
+}
+code {
+  font-size: 80%;
+}
+#contenido{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#btn-1{
+  background-color: #FFB300;
+  color: #3c3c3c;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #3c3c3c;
+  border-radius: 8px;
+}
+#btn-1:hover{
+  background-color: #3c3c3c;
+  color: #FFB300;
+  text-transform: uppercase;
+}
+#btn-2{
+  background-color: #606060;
+  color: #FDD835;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #FDD835;
+  border-radius: 10px;
+}
+#btn-2:hover{
+  background-color: #FDD835;
+  color: #606060;
+  text-transform: uppercase;
+}
+#btn-3{
+  background-color: #3c3c3c;
+  color: #FFB300;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #FFB300;
+  border-radius: 10px;
+}
+#btn-3:hover{
+  background-color: #FFB300;
+  color: #3c3c3c;
+  text-transform: uppercase;
+}
+#vista{
+  width: 100%;
+  justify-content: left;
+}
+#vista>div{
+  border: 1px solid #FFB300;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  color: #3c3c3c;
+}
+#vista>div>ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
