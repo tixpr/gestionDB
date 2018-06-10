@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Material;
-use App\Http\Resources\Api\Material as MaterialResource;
+use App\Models\User;
+use App\Http\Resources\Api\User as UserResource;
 
-class MaterialController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        return MaterialResource::collection(Material::orderBy('title','asc')->get());
+        return UserResource::collection(User::orderBy('id','asc')->get());
     }
-
 
     /**
      * Store a newly created resource in storage.

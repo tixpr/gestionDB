@@ -25,3 +25,6 @@ Route::middleware('cors')->group(function (){
 Route::middleware('cors')->group(function (){
     Route::get('materialtypes','Api\MaterialTypeController@index');
 });
+Route::middleware('cors')->group(function (){
+    Route::get('user','Api\UserController@index');
+});
