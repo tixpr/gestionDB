@@ -15,7 +15,7 @@ body {
     margin-top: -10px;
     border-radius: 0.75em;
 }
-.content button:hober{
+.content button:hover {
     font-size: 1.1em;
     font-family: Arial, Helvetica, sans-serif;
     color: #00cf00;
