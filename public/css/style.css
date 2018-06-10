@@ -15,12 +15,21 @@ body {
     margin-top: -10px;
     border-radius: 0.75em;
 }
-.content button:hover {
+body .content button{
+
     font-size: 1.1em;
     font-family: Arial, Helvetica, sans-serif;
-    color: #00cf00;
+    color: #06a506;
     background: #000308;
     border-radius: 0.75em;
     border-color: #b90303;
+    
+}
+.content button:hover {
+    font-size: 1.2em;
+    color: #00cf00;
+    background: #000b1f;
+    border-radius: 0.80em;
+    border-color: #02c96c;
     
 }

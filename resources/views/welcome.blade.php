@@ -58,7 +58,7 @@
                 '/api/Languages',
                 {
                     valid: function(r){
-                        console.table(r);
+                        console.info(r);
                     },
                     error: function(error){
                         console.error(error);
