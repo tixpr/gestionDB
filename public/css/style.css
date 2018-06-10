@@ -1,19 +1,26 @@
-*{
+
+style{
+
     background: #000
 }
+body {
+    background: #000308;
+}
 .content{
-    display: table-cell;
-    color: aliceblue;
+    
+    display:table-cell;
     background: #054d77;
-    
     width: 100%;
-    margin:0.5555em;/*18-16*/ 
-    padding: 0.5555em;/*10-18*/
-    color:#f2f2f2;
-    
+    padding: 0.735em;
+    margin-top: -10px;
     border-radius: 0.75em;
 }
 .content button{
-    color: #a8a602;
-    background-attachment: fixed;
+    display: table-row;
+    font-size: 1.1em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #00cf00;
+    background: #000308;
+    border-radius: 0.75em;
+    border-color: #b90303;
 }

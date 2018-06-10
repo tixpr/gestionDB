@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>TAREA</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@
                 '/api/materials',
                 {
                     valid: function(r){
-                        console.info(r);
+                        console.table(r);
                     },
                     error: function(error){
                         console.error(error);
@@ -46,6 +46,8 @@
                 }
 
             );
+
+
             
         }
         document.getElementById('btn_Materials').addEventListener('click',obtenerMateriales);
@@ -56,7 +58,7 @@
                 '/api/Languages',
                 {
                     valid: function(r){
-                        console.info(r);
+                        console.table(r);
                     },
                     error: function(error){
                         console.error(error);
