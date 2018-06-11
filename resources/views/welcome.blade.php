@@ -9,23 +9,23 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-		<link href="/css/estilo.css" rel="stylesheet" type="text/css">
+		<link href="/css/estilos.css" rel="stylesheet">
 		<script src="/js/majax.js"></script>
     </head>
     <body>
 	<div id="contenedor">
-        <button id="btn01" class="boton">
-            Obtener datos
+        <button id="btn1" class="boton">
+            Obtener Datos
         </button>
-        <button id="btn02" class="boton">
-            Obtener datos lenguajes
+        <button id="btn2" class="boton">
+            Obtener Datos De Lenguajes
         </button>
-        <button id="btn03" class="boton">
-            Obtener datos Tipomaterial
+        <button id="btn3" class="boton">
+            Obtener Datos De TipoDeMaterial
         </button>
     </div>
         <script>
-            Majax.setConfig(2, 'Rs3KbBqSyEsV39Pd9LdyAX6EVHg5kUnuf6SuMZsQ','');
+            Majax.setConfig(2, 'u8eZrTBppnU4JXdPUymRDHynS5KApTvMV4rTYni3','');
             function obtenerMateriales(e){
                 e.preventDefault();
                 var majax = new Majax();
@@ -36,7 +36,7 @@
                             console.info(r);
                             ds1 = document.getElementById('s1');
                             r.data.forEach(function(s){
-                                ds1.innerHTML = ds1.innerHTML + "TITULO: "+ s.titulo + "  IDIOMA: "+ s.idioma + "  TIPO: "+ s.tipo;
+                                ds1.innerHTML = ds1.innerHTML + "<div>"+"<ul>"+"TITULO: "+ s.titulo +"</ul>"+"<ul>"+ "  IDIOMA: "+ s.idioma +"</ul>" +"<ul>"+"  TIPO: "+ s.tipo+"</ul>"+"</div>";
                             });
                             console.info(r.data);
                         },
@@ -46,11 +46,11 @@
                     }
                 );
             }
-            document.getElementById('btn01').addEventListener('click',obtenerMateriales);
+            document.getElementById('btn1').addEventListener('click',obtenerMateriales);
         </script>
 
         <script>
-            Majax.setConfig(2, 'Rs3KbBqSyEsV39Pd9LdyAX6EVHg5kUnuf6SuMZsQ','');
+            Majax.setConfig(2, 'u8eZrTBppnU4JXdPUymRDHynS5KApTvMV4rTYni3','');
             function obtenerLanguages(e){
                 e.preventDefault();
                 var majax = new Majax();
@@ -61,7 +61,7 @@
                             console.info(r);
                             ds1 = document.getElementById('s1');
                             r.data.forEach(function(s){
-                                ds1.innerHTML = ds1.innerHTML +"  IDIOMA: "+ s.lenguaje;
+                                ds1.innerHTML = ds1.innerHTML +"<div>"+"  IDIOMA: "+"</div>"+ s.language;
                             });
                             console.info(r.data);
                         },
@@ -71,11 +71,11 @@
                     }
                 );
             }
-            document.getElementById('btn02').addEventListener('click',obtenerLanguages);
+            document.getElementById('btn2').addEventListener('click',obtenerLanguages);
         </script>
 
         <script>
-            Majax.setConfig(2, 'Rs3KbBqSyEsV39Pd9LdyAX6EVHg5kUnuf6SuMZsQ','');
+            Majax.setConfig(2, 'u8eZrTBppnU4JXdPUymRDHynS5KApTvMV4rTYni3','');
             function obtenerMaterialType(e){
                 e.preventDefault();
                 var majax = new Majax();
@@ -86,7 +86,7 @@
                             console.info(r);
                             ds1 = document.getElementById('s1');
                             r.data.forEach(function(s){
-                                ds1.innerHTML = ds1.innerHTML +"TIPO: "+ s.tipo + "</br>";
+                                ds1.innerHTML = ds1.innerHTML +"<div>"+"TIPO: "+"</div>"+ s.type;
                             });
                             console.info(r.data);
                         },
@@ -96,7 +96,7 @@
                     }
                 );
             }
-            document.getElementById('btn03').addEventListener('click',obtenerMaterialType);
+            document.getElementById('btn3').addEventListener('click',obtenerMaterialType);
         </script>
         <div id="s1"></div>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\MaterialType;
+use App\Http\Resources\Api\MaterialType as MaterialTypeResource;
 
 class MaterialTypeController extends Controller
 {

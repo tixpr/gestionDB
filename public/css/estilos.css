@@ -1,25 +1,25 @@
 body{
-    background: #15c3f8;
+    background: darksalmon;
 }
 #contenedor{
-    display:table;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0 auto;
+
 }
-button{
-    display: table-cell;
-    width: 100%;
+.boton{
+    width: 300px;
     margin:0.5555em;
     font-size: 1.125em; 
     padding: 0.5555em;
-    color:#f2f2f2;
-    border:4px solid #f2f2f2;
-    background: #0489b1;
+    color: slateblue;
+    border: 2px solid slateblue;
+    background: skyblue;
     border-radius: 0.5555em;
-    -o-transition:background 1s,color 1s;
-    -moz-transition: background, color 1s;
-    -webkit-transition:background, color 1s;
 }
-button:hover{
-    background: #f2f2f2;
-    color:#0489b1;
+
+.boton:hover{
+    background: #33FF54;
+    color:#F39C12;
 }
