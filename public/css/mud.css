@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(172, 168, 159);
+}
+
+#contenido{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+#btn{
+    margin: 50px;
+    height: 50px;
+    border-radius:  100px;
+    padding: 5px;
+    border: 1px solid rgb(6, 31, 6);
+    color: rgb(3, 0, 5);
+    
+    background-color: rgb(155, 216, 139);
+    
+}
+#btn1{
+    margin: 50px;
+    height: 50px;
+    border-radius:  100px;
+    border: 1px solid rgb(6, 31, 6);
+    color: rgb(3, 0, 5);
+    background-color: rgb(155, 216, 139);
+}
+#btn2{
+    margin: 50px;
+    border: 1px solid rgb(6, 31, 6);
+    border-radius:  100px;
+    height: 50px;
+    color: rgb(3, 0, 5);
+    background-color: rgb(155, 216, 139);
+}
