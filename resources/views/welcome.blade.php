@@ -11,20 +11,12 @@
 
     </head>
     <body>
-        <section id="buttons">
-            <button id="btn1">
-                Obtener Material
-            </button>
-            <button id="btn2">
-                Obtener Idiomas
-            </button>
-            <button id="btn3">
-                Obtener Tipo Material
-            </button>
-            <button id="btn4">
-                Usuarios
-            </button>
-        </section>
+        <ul id="buttons">
+            <a id="btn1"><p>MATERIAL</p></a>
+            <a id="btn2"><p>IDIOMAS</p></a>
+            <a id="btn3"><p>TIPO DE MATERIALES</p></a>
+            <a id="btn4"><p>USUARIOS</p></a>
+        </ul>
         <script>
             Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
             function obetenerMateriales(e) {
@@ -119,7 +111,6 @@
                             document.getElementById('s2').style.display = 'none';
                             document.getElementById('s3').style.display = 'none';
                             document.getElementById('s4').style.display = 'flex';
-                            //document.getElementsByClassName('tarjeta').style.border='1px solid darkviolet';
                             ds4 =   document.getElementById('s4');
                             r.data.forEach(function (s) {
                                 ds4.innerHTML = ds4.innerHTML +"<div class='tarjeta'>"+"<h1>"+s.nombre+"</h1>"+"<h2>"+s.email+"</h2>"+"</div>";

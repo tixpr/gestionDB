@@ -1,85 +1,105 @@
+html{
+    background: linear-gradient(to right, #333333 , black);
+}
+* {
+    font-family: 'Lucida Console', Monospace;
+}
+html,body{
+    overflow-x: hidden;
+    color:black;
+    height:100%;
+    width:101%;
+    margin: 0;
+    padding: 0;
+}
 #buttons{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: row;
+    margin: 0;
+    position: fixed;
+    width: 97%;
+    left: 0;
+    top: 0;
+    z-index: 900;
+    background-color: rgba(255,255,255,0.4);
 }
-button{
-    margin: 10px;
-    font-size: 20px;
-    width: 20%;
-    padding: 10px;
-    border-radius: 10px;
+a{
+    width: 25%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    margin: 0;
+    list-style: none;
 }
-#btn1{
-    background-color: green;
-    color: white;
+p{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 10px;
+    cursor: default;
 }
 #btn1:hover{
-    background-color: black;
-    color: white;
-}
-#btn2{
-    background-color: blue;
+    background-color: #DB1A28;
     color: white;
 }
 #btn2:hover{
-    background-color: black;
-    color: white;
-}
-#btn3{
-    background-color: red;
+    background-color: #DB1A28;
     color: white;
 }
 #btn3:hover{
-    background-color: black;
-    color: white;
-}
-#btn4{
-    background-color: darkviolet;
+    background-color: #DB1A28;
     color: white;
 }
 #btn4:hover{
-    background-color: black;
+    background-color: #DB1A28;
     color: white;
 }
 section{
-    flex-direction: column;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 #s1>div{
-    border: 2px solid green;
+    border-left: 2px solid green;
     color: green;
 }
 #s2>div{
-    border: 2px solid blue;
-    color: blue;
+    border-left: 2px solid dodgerblue;
+    color: dodgerblue;
 }
 #s3>div{
-    border: 2px solid red;
-    color: red;
+    border-left: 2px solid #DB1A28;
+    color: #DB1A28;
 }
 #s4>div{
-    border: 2px solid darkviolet;
-    color: darkviolet;
+    border-left: 2px solid yellow;
+    color: yellow;
 }
 .tarjeta{
     display: flex;
-    width: 500px;
+    width: 350px;
     height: 100px;
-    border: 2px solid black;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin: 15px;
     padding: 5px;
 }
 .tarjeta>h1{
-    margin: 5px;
+    margin: 3px;
     text-align: center;
     font-size: 25px;
+    word-break: break-all;
 }
 .tarjeta>h2{
-    margin: 5px;
+    margin: 3px;
     text-align: center;
     font-size: 15px;
     word-break: break-all;
