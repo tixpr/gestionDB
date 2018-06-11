@@ -1,6 +1,6 @@
 Personal access client created successfully.
 Client ID: 1
-Client Secret: KpxLKnLnwC9O19we5Dckbj2CQIbNzJaFxDPmCbru
+Client Secret: 8oYkyRIpx6GBrtjPObS2ie5cXMPvTk4pdTvipjMT
 Password grant client created successfully.
 Client ID: 2
-Client Secret: iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD
+Client Secret: XVkLHrMhCPJPk49zFFJPNHJY1rFeM9bv3VSeR2iv
