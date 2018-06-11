@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\language;
 use App\Http\Resources\Api\Language as LanguageResource;
 
-class languageController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.

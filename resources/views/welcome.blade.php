@@ -19,7 +19,7 @@
 		
 		
 		<script>
-			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			Majax.setConfig(2, 'TlVHvggAEpYIFGvNLhSu7d0qw2SVHIoXTigN1mia','');
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -28,6 +28,9 @@
 					{
 						valid: function(r){
 							console.info(r);
+                            for(i=0;i<r.data.length;i++){
+                                document.getElementById('s1').innerHTML=document.getElementById('s1').innerHTML+r.data[i].titulo+r.data[i].idioma+r.data[i].tipo+"<br>";
+                            }
 						},
 						error: function(error){
 							console.error(error);
@@ -41,7 +44,7 @@
              OBTENER IDIOMAS 
         </button>
 		 <script>
-        Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+        Majax.setConfig(2,'TlVHvggAEpYIFGvNLhSu7d0qw2SVHIoXTigN1mia','');
         function obtenerIdiomas(e){
             e.preventDefault();
             var majax= new Majax();
@@ -65,7 +68,7 @@
             OBTENER TIPOS DE MATERIAL
         </button>
         <script>
-        Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+        Majax.setConfig(2,'TlVHvggAEpYIFGvNLhSu7d0qw2SVHIoXTigN1mia','');
         function obtenerTipodeMateriales(e){
             e.preventDefault();
             var majax= new Majax();
@@ -84,5 +87,6 @@
         }
         document.getElementById('btn2').addEventListener('click',obtenerTipodeMateriales);
         </script>
+        <div id="s1"></div>
     </body>
 </html>
