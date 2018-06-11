@@ -26,11 +26,13 @@
                     '/api/materials',
                     {
                         valid:function (r) {
+                            // Esta Parte del Codigo es para que se oculten los otros cuando uses el Boton
                             document.getElementById('s1').style.display = 'flex';
                             document.getElementById('s2').style.display = 'none';
                             document.getElementById('s3').style.display = 'none';
                             document.getElementById('s4').style.display = 'none';
                             //document.getElementsByClassName('tarjeta').style.border='1px solid green';
+                            //Esta parte es para imprimir en el HTML
                             ds1 =   document.getElementById('s1');
                             r.data.forEach(function (s) {
                                 ds1.innerHTML = ds1.innerHTML +"<div class='tarjeta'>"+"<h1>"+s.titulo+"</h1>"+"<h2>"+s.idioma+"</h2>"+"<h2>"+s.resumen+"</h2>"+"</div>";
