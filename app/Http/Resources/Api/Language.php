@@ -17,3 +17,4 @@ class Language extends JsonResource
         return ['idioma' => $this->language];
     }
 }
+
