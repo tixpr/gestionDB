@@ -16,14 +16,8 @@
 		<button id="btn"style="background:lightgreen">
 			 MATERIALES
 		</button>
-		<button id="btn1"style="background:yellow">
-             IDIOMAS
-        </button>
-        <button id="btn2"style="background:orange">
-            TIPO DE MATERIAL
-        </button>
-		<div id="contenido">
-		</div>
+		
+		
 		<script>
 			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
 			function obtenerMateriales(e){
@@ -43,9 +37,12 @@
 			}
 			document.getElementById('btn').addEventListener('click',obtenerMateriales);
 		</script>
+		<button id="btn1"style="background:yellow">
+             IDIOMAS
+        </button>
 		 <script>
         Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
-        function obtenerLenguajes(e){
+        function obtenerIdiomas(e){
             e.preventDefault();
             var majax= new Majax();
             majax.get(
@@ -62,12 +59,14 @@
             );
 
         }
-        document.getElementById('btn1').addEventListener('click',obtenerLenguajes);
+        document.getElementById('btn1').addEventListener('click',obtenerIdiomas);
         </script>
-
+<button id="btn2"style="background:orange">
+            TIPO DE MATERIAL
+        </button>
         <script>
         Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
-        function obtenerMaterialType(e){
+        function obtenerTipodeMateriales(e){
             e.preventDefault();
             var majax= new Majax();
             majax.get(
@@ -83,7 +82,7 @@
 
             );
         }
-        document.getElementById('btn2').addEventListener('click',obtenerMaterialType);
+        document.getElementById('btn2').addEventListener('click',obtenerTipodeMateriales);
         </script>
     </body>
 </html>
