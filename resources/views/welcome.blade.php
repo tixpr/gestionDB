@@ -46,11 +46,7 @@
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-<<<<<<< HEAD
-                '/api/language',
-=======
                 '/api/languages',
->>>>>>> a149452c5d4769b16f8d85034ab6608beec30723
                 {
                     valid: function(r){
                         console.info(r);
@@ -74,11 +70,7 @@
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-<<<<<<< HEAD
-                '/api/materialtype',
-=======
                 '/api/materialstype',
->>>>>>> a149452c5d4769b16f8d85034ab6608beec30723
                 {
                     valid: function(r){
                         console.info(r);

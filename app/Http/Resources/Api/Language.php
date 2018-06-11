@@ -14,14 +14,6 @@ class Language extends JsonResource
      */
     public function toArray($request)
     {
-<<<<<<< HEAD:app/Http/Resources/Api/Language.php
-        return [
-			
-			'Idioma'		=>	$this->language,
-			
-		];
-=======
         return ['idioma' => $this->language];
->>>>>>> a149452c5d4769b16f8d85034ab6608beec30723:app/Http/Resources/Api/Language.php
     }
 }
