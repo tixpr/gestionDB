@@ -18,7 +18,7 @@
 		<div id="contenido">
 		</div>
 		<script>
-			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			Majax.setConfig(2, 'u8eZrTBppnU4JXdPUymRDHynS5KApTvMV4rTYni3','');
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
