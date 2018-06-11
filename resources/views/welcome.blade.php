@@ -9,87 +9,105 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <script src="/js/majax.js">
+        </script>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
+        <button id="btn1">
+            Obtener Datos
+        </button>
+        <button id="btn2">
+            Obtener Idiomas
+        </button>
+        <button id="btn3">
+            Obtener Material
+        </button>
+        <button id="btn4">
+            Obtener Usuario
+        </button>
+        <script>
+            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
+            function obetenerMateriales(e) {
+                e.preventDefault();
+                var majax= new Majax();
+                majax.get(
+                    '/api/materials',
+                    {
+                        valid:function (r) {
+                            console.info(r);
+                            document.getElementById('ver1').innerHTML=JSON.stringify(r);
+                        },
+                        error: function(error){
+                            console.error(error);
+                        }
+                    }
+                );
+            }
+            document.getElementById('btn1').addEventListener('click',obetenerMateriales);
+        </script>
+        <script>
+            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
+            function obetenerIdioma(e) {
+                e.preventDefault();
+                var majax= new Majax();
+                majax.get(
+                    '/api/languages',
+                    {
+                        valid:function (r) {
+                            console.info(r);
+                            document.getElementById('ver2').innerHTML=JSON.stringify(r);
+                        },
+                        error: function(error){
+                            console.error(error);
+                        }
+                    }
+                );
+            }
+            document.getElementById('btn2').addEventListener('click',obetenerIdioma);
+        </script>
+        <script>
+            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
+            function obetenerTipoMaterial(e) {
+                e.preventDefault();
+                var majax= new Majax();
+                majax.get(
+                    '/api/materialtypes',
+                    {
+                        valid:function (r) {
+                            console.info(r);
+                            document.getElementById('ver3').innerHTML=JSON.stringify(r);
+                        },
+                        error: function(error){
+                            console.error(error);
+                        }
+                    }
+                );
+            }
+            document.getElementById('btn3').addEventListener('click',obetenerTipoMaterial);
+        </script>
+        <script>
+            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
+            function obetenerUsuarios(e) {
+                e.preventDefault();
+                var majax= new Majax();
+                majax.get(
+                    '/api/user',
+                    {
+                        valid:function (r) {
+                            console.info(r);
+                            document.getElementById('ver4').innerHTML=JSON.stringify(r);
+                        },
+                        error: function(error){
+                            console.error(error);
+                        }
+                    }
+                );
+            }
+            document.getElementById('btn4').addEventListener('click',obetenerUsuarios);
+        </script>
+        <div id="ver1"></div>
+        <div id="ver2"></div>
+        <div id="ver3"></div>
+        <div id="ver4"></div>
     </body>
 </html>
