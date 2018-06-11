@@ -14,7 +14,7 @@
     </head>
     <body>
 		<button id="btn"style="background:lightgreen">
-			 MATERIALES
+			 OBTENER MATERIALES
 		</button>
 		
 		
@@ -38,7 +38,7 @@
 			document.getElementById('btn').addEventListener('click',obtenerMateriales);
 		</script>
 		<button id="btn1"style="background:yellow">
-             IDIOMAS
+             OBTENER IDIOMAS 
         </button>
 		 <script>
         Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
@@ -62,7 +62,7 @@
         document.getElementById('btn1').addEventListener('click',obtenerIdiomas);
         </script>
 <button id="btn2"style="background:orange">
-            TIPO DE MATERIAL
+            OBTENER TIPOS DE MATERIAL
         </button>
         <script>
         Majax.setConfig(2,'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
