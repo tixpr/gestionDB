@@ -1,0 +1,24 @@
+body{
+    background: #fcffd8;
+}
+#contenedor{
+    display:table;
+    margin: 5 auto;
+}
+button{
+    justify-content: center;
+    display: table-cell;
+    width: 100%;
+    margin:0.5555em;
+    font-size: 1.125em; 
+    padding: 0.5555em;
+    color:#05023b;
+    border:5px solid #01e0b0;
+    background: #f1da0b;
+    border-radius: 3.5555em;
+   
+}
+button:hover{
+    background: #c02d1a;
+    color:#0489b1;
+}

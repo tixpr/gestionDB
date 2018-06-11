@@ -11,9 +11,10 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 		<script src="/js/majax.js"></script>
+        <link href={{asset('css/estilos.css')}} rel="stylesheet" type="text/css">
     </head>
     <body>
-		<button id="btn"style="background:lightgreen">
+		<button id="btn">
 			 OBTENER MATERIALES
 		</button>
 		
@@ -40,7 +41,7 @@
 			}
 			document.getElementById('btn').addEventListener('click',obtenerMateriales);
 		</script>
-		<button id="btn1"style="background:yellow">
+		<button id="btn1">
              OBTENER IDIOMAS 
         </button>
 		 <script>
@@ -53,18 +54,22 @@
                 {
                     valid: function(r){
                         console.info(r);
+                        ds2 = document.getElementById('s1');
+							r.data.forEach(function(s){
+								ds2.innerHTML = ds2.innerHTML + " Idioma: "+ s.idioma;
+							});
                     },
-                    error: function(error){
+                     error :function(error){
                         console.error(error);
-                    }
+                    
                 }
-
+}
             );
 
         }
         document.getElementById('btn1').addEventListener('click',obtenerIdiomas);
         </script>
-<button id="btn2"style="background:orange">
+<button id="btn2">
             OBTENER TIPOS DE MATERIAL
         </button>
         <script>
@@ -77,6 +82,10 @@
                 {
                     valid: function(r){
                         console.info(r);
+                        ds3 = document.getElementById('s1');
+							r.data.forEach(function(s){
+								ds3.innerHTML = ds3.innerHTML + " TIPO: "+ s.tipo;
+							});
                     },
                     error: function(error){
                         console.error(error);
