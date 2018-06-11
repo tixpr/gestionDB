@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::middleware('cors')->group(function(){
     Route::get('materials','Api\MaterialController@index');
-    Route::get('languages','Api\LanguageController@index');
-    Route::get('materialstype','Api\MaterialtypeController@index');
+    Route::get('language','Api\LanguageController@index');
+    Route::get('materialtype','Api\MaterialtypeController@index');
 });

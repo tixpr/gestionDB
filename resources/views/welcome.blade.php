@@ -46,7 +46,7 @@
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-                '/api/languages',
+                '/api/language',
                 {
                     valid: function(r){
                         console.info(r);
@@ -70,7 +70,7 @@
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-                '/api/materialstype',
+                '/api/materialtype',
                 {
                     valid: function(r){
                         console.info(r);
