@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(95, 10, 173);
+
+}
+#contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+#btn1{
+    margin: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 5px;
+    border:1px rgb(95, 10, 173);
+    color: red;
+    background-color: palegreen;
+
+}
+#btn2{
+    margin: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 5px;
+    border:1px rgb(95, 10, 173);
+    color: red;
+    background-color: palegreen;
+}
+#btn3{
+    margin: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 5px;
+    border:1px rgb(95, 10, 173);
+    color: red;
+    background-color: palegreen;
+}
