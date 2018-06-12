@@ -23,7 +23,7 @@ Route::middleware('cors')->group(function(){
     Route::get('languages','Api\LanguageController@index');
 });
 Route::middleware('cors')->group(function(){
-    Route::get('materialTypes','Api\MaterialTypeController@index');
+    Route::get('material_types','Api\MaterialTypeController@index');
 });
 Route::middleware('cors')->group(function(){
     Route::get('users','Api\UserController@index');
