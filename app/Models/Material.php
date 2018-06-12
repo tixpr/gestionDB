@@ -52,11 +52,15 @@ class Material extends Model
     public function areas()
     {
         return $this->belongsToMany(Area::class,'material_areas');
-	}
-	public function language()
+    }
+    public function views()
 	{
-		return $this->belongsTo(Language::class,'language_id');
-	}
+		return $this->belongsToMany(Author::class, 'user_view_materials');
+    }
+    public function bookcases()
+	{
+		return $this->belongsToMany(Author::class, 'bookcases_materials');
+    }
 	public function material_type()
 	{
 		return $this->belongsTo(MaterialType::class,'material_type_id');
