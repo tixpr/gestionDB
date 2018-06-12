@@ -4,7 +4,7 @@ namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Language extends JsonResource
+class MaterialType extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,7 +16,7 @@ class Language extends JsonResource
     {
         return [
             'id'    => $this->id,
-            'idioma'=> $this->language,
+            'tipo'=> $this->type,
         ];
     }
 }

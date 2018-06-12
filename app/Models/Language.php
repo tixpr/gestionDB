@@ -38,6 +38,6 @@ class Language extends Model
     ];
     public function materials()
     {
-        return $this->hasMany(Material::class);
+        return $this->belongsTo(Material::class);
     }
 }

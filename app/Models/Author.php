@@ -37,7 +37,7 @@ class Author extends Model
         'id'
     ];
     public function materials()
-	{
-		return $this->belongsToMany(Material::class, 'material_authors');
+    {
+        return $this->belongsToMany(Material::class, 'material_authors');
     }
 }

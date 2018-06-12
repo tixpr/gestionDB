@@ -38,6 +38,6 @@ class Area extends Model
     ];
     public function materials()
     {
-        return $this->belongsToMany(Material::class,'material_areas');
+        return $this->belongsToMany(Material::class, 'material_areas');
     }
 }
