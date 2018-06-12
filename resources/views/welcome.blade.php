@@ -36,6 +36,7 @@
                 {
                     valid: function(r){
                         console.info(r);
+                        document.getElementById('mostrar3').innerHTML=JSON.stringify(r);
                     },
                     error: function(error){
                         console.error(error);
@@ -57,9 +58,11 @@
                 {
                     valid: function(r){
                         console.info(r);
+                        document.getElementById('mostrar3').innerHTML=JSON.stringify(r);
                     },
                     error: function(error){
                         console.error(error);
+                        
                     }
                 }
 
@@ -79,6 +82,7 @@
                 {
                     valid: function(r){
                         console.info(r);
+                        document.getElementById('mostrar3').innerHTML=JSON.stringify(r);
                     },
                     error: function(error){
                         console.error(error);
@@ -89,5 +93,8 @@
         }
         document.getElementById('btn2').addEventListener('click',obtenerMaterialType);
         </script>
+        <section id="mostrar1"></section>
+        <section id="mostrar2"></section>
+        <section id="mostrar3"></section>
     </body>
 </html>
