@@ -8,88 +8,79 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link rel="stylesheet" href="/css/estilos.css" type="text/css">
+        <script src="/js/majax.js">
+        </script>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+        <section id="botones">
+            <p id="botona">Obetener Materiales</p>
+            <p id="botonb">Obtener Idiomas</p>
+            <p id="botonc">Obtener Tipo de Material</p>
+        </section>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
+        <script>
+            Majax.setConfig(2,'OW3ugblUSnLhzF4pdAseonjgFW5DQ7jUujrY59ua','');
+            function obtenerMaterial(e) {
+                e.preventDefault();
+                var majax= new Majax();
+                majax.get(
+                    '/api/material',
+                    {
+                        valid:function (r) {
+                            console.info(r);
+                            document.getElementById('mostrar1').innerHTML=JSON.stringify(r);
+                        },
+                        error: function(error){
+                            console.error(error);
+                        }
+                    }
+                );
+            }
+            document.getElementById('botona').addEventListener('click',obtenerMaterial);
+        </script>
+        <script>
+            Majax.setConfig(2,'OW3ugblUSnLhzF4pdAseonjgFW5DQ7jUujrY59ua','');
+            function obtenerIdioma(e) {
+                e.preventDefault();
+                var majax= new Majax();
+                majax.get(
+                    '/api/language',
+                    {
+                        valid:function (r) {
+                            console.info(r);
+                            document.getElementById('mostrar2').innerHTML=JSON.stringify(r);
+                        },
+                        error: function(error){
+                            console.error(error);
+                        }
+                    }
+                );
+            }
+            document.getElementById('botonb').addEventListener('click',obtenerIdioma);
+        </script>
+        <script>
+            Majax.setConfig(2,'OW3ugblUSnLhzF4pdAseonjgFW5DQ7jUujrY59ua','');
+            function obtenerTipoMaterial(e) {
+                e.preventDefault();
+                var majax= new Majax();
+                majax.get(
+                    '/api/materialtype',
+                    {
+                        valid:function (r) {
+                            console.info(r);
+                            document.getElementById('mostrar3').innerHTML=JSON.stringify(r);
+                        },
+                        error: function(error){
+                            console.error(error);
+                        }
+                    }
+                );
+            }
+            document.getElementById('botonc').addEventListener('click',obtenerTipoMaterial);
+        </script>
+        <section id="mostrar1"></section>
+        <section id="mostrar2"></section>
+        <section id="mostrar3"></section>
     </body>
 </html>
