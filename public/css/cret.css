@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(115, 219, 214);
+}
+#boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#btn{
+    border:3px dotted #EAE8F3;
+    font-family: Franklin Gothic Medium;
+    margin: 75px;
+    height: 100px;
+    color: rgb(9, 10, 10);
+    background-color: rgb(255, 160, 71);
+}
+#btn1{
+    border:3px dotted #EAE8F3;
+    font-family: Franklin Gothic Medium;
+    margin: 75px;
+    height: 100px;
+    color: rgb(10, 12, 12);
+    background-color: rgb(255, 160, 71);
+}
+#btn2{
+    border:3px dotted #EAE8F3;
+    font-family: Franklin Gothic Medium;
+    margin: 75px;
+    height: 100px;
+    color: rgb(17, 19, 19);
+    background-color: rgb(255, 160, 71);
+}
+
+#btn:hover {
+    background:  rgb(173, 10, 10);
+
+}
+#btn1:hover {
+    background:  rgb(173, 10, 10);
+
+}
+#btn2:hover {
+    background:  rgb(173, 10, 10);
+
+}

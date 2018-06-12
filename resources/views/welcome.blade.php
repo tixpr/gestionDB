@@ -11,25 +11,25 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 		<script src="/js/majax.js"></script>
-		<link href={{asset('css/disenio.css')}} rel="stylesheet" type="text/css">
+		<link href={{asset('css/cret.css')}} rel="stylesheet" type="text/css">
 		
     </head>
     <body>
 		<div id="boton">
 			<button id="btn">
-				Obtener datos generales.
+				GET DATES .
 			</button>
 			<button id="btn1">
-				Obtener lenguaje.
+				GET lenguage.
 			</button>
 			<button id="btn2">
-				Obetener tipos de materiales.
+				GET types_materials.
 			</button>
 		</div>
 		<div id="contenido">
 		</div>
 		<script>
-			Majax.setConfig(2, 'j5P39w70XikKLtaVEPiJdEr3C1atcV0qzHM0mZ2A','');
+			Majax.setConfig(2, 'EKV7Yeqx9IX8ZiWhwBREzyPRPYZ61Fxfs8X79LC9','');
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -38,9 +38,9 @@
 					{
 						valid: function(r){
 							console.info(r);
-							ds1 = document.getElementById('s1');
+							xs1 = document.getElementById('cn');
 							r.data.forEach(function(s){
-								ds1.innerHTML = ds1.innerHTML + "  TITULO: "+ s.titulo + "  IDIOMA: "+ s.idioma + "  TIPO: "+ s.tipo;
+								xs1.innerHTML = xs1.innerHTML + "  TITULO: "+ s.titulo + "  IDIOMA: "+ s.idioma + "  TIPO: "+ s.tipo;
 							});
 							console.info(r.data);
 						},
@@ -59,7 +59,7 @@
 		<div id="contenido">
 		</div>
 		<script>
-			Majax.setConfig(2, 'j5P39w70XikKLtaVEPiJdEr3C1atcV0qzHM0mZ2A','');
+			Majax.setConfig(2, 'EKV7Yeqx9IX8ZiWhwBREzyPRPYZ61Fxfs8X79LC9','');
 			function obtenerLanguages(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -68,9 +68,9 @@
 					{
 						valid: function(r){
 							console.info(r);
-							ds2 = document.getElementById('s1');
+							xs2 = document.getElementById('cn');
 							r.data.forEach(function(s){
-								ds2.innerHTML = ds2.innerHTML + " Idioma: "+ s.lenguaje;
+								xs2.innerHTML = xs2.innerHTML + " Idioma: "+ s.lenguaje;
 							});
 							console.info(r.data);
 						},
@@ -88,7 +88,7 @@
 		<div id="contenido">
 		</div>
 		<script>
-			Majax.setConfig(2, 'j5P39w70XikKLtaVEPiJdEr3C1atcV0qzHM0mZ2A','');
+			Majax.setConfig(2, 'EKV7Yeqx9IX8ZiWhwBREzyPRPYZ61Fxfs8X79LC9','');
 			function obtenerMaterialTypes(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -97,9 +97,9 @@
 					{
 						valid: function(r){
 							console.info(r);
-							ds3 = document.getElementById('s1');
+							xs3 = document.getElementById('cn');
 							r.data.forEach(function(s){
-								ds3.innerHTML = ds3.innerHTML + " TIPO: "+ s.tipo;
+								xs3.innerHTML = xs3.innerHTML + " TIPO: "+ s.tipo;
 							});
 							console.info(r.data);
 						},
@@ -112,6 +112,6 @@
 			document.getElementById('btn2').addEventListener('click',obtenerMaterialTypes);
 
 		</script>
-		<div id="s1"></div>
+		<div id="cn"></div>
     </body>
 </html>
