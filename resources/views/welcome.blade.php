@@ -9,87 +9,95 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <script src="/js/majax.js"></script>
+        <link href="css/color.css" rel="stylesheet">
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+		<button id="boton1">
+			Obtener datos
+		</button>
+		<button id="boton2">
+			Obtener Datos de Lenguaje
+		</button>
+		<button id="boton3">
+			Obtener Datos Tipo Material
+		</button>
+		<div id="contenido">
+		</div>
+		<script>
+			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			function obtenerMateriales(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/materials',
+					{
+						valid: function(r){
+							console.info(r);
+							ds1 = document.getElementById('s1');
+							r.data.forEach(function(s){
+								ds1.innerHTML = ds1.innerHTML + "  TITULO: "+ s.titulo + "  IDIOMA: "+ s.idioma + "  TIPO: "+ s.tipo + "  RESUMEN: "+ s.resumen + "</br>";
+							});
+							console.info(r.data);
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('boton1').addEventListener('click',obtenerMateriales);
+		</script>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+		<script>
+			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			function obtenerLenguaje(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/languages',
+					{
+						valid: function(r){
+							console.info(r);
+							ds1 = document.getElementById('s1');
+							r.data.forEach(function(s){
+								ds1.innerHTML = ds1.innerHTML + " Idioma: "+ s.idioma + "</br>";
+							});
+							console.info(r.data);
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('boton2').addEventListener('click',obtenerLenguaje);
+		</script>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
+		<script>
+			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			function obtenerTipoMaterial(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/materialstype',
+					{
+						valid: function(r){
+							console.info(r);
+							ds1 = document.getElementById('s1');
+							r.data.forEach(function(s){
+								ds1.innerHTML = ds1.innerHTML + " TIPO: "+ s.tipo + "</br>";
+							});
+							console.info(r.data);
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('boton3').addEventListener('click',obtenerTipoMaterial);
+		</script>
+		<div id="s1"></div>
     </body>
 </html>

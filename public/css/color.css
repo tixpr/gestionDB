@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(133, 133, 133);
+}
+#boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#btn1{
+    margin: 75px;
+    width: 500px;
+    height: 500px;
+    color: rgb(247, 253, 249);
+    background-color: rgb(65, 65, 65);
+}
+#btn2{
+    margin: 75px;
+    width: 500px;
+    height: 500px;
+    color: rgb(247, 253, 249);
+    background-color: rgb(65, 65, 65);
+}
+#btn3{
+    margin: 75px;
+    width: 500px;
+    height: 500px;
+    color: rgb(247, 253, 249);
+    background-color: rgb(65, 65, 65);
+}
