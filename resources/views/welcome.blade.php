@@ -13,13 +13,13 @@
         <link href="css/color.css" rel="stylesheet">
     </head>
     <body>
-		<button id="boton1">
+		<button id="boto1">
 			Obtener datos
 		</button>
-		<button id="boton2">
+		<button id="boto2">
 			Obtener Datos de Lenguaje
 		</button>
-		<button id="boton3">
+		<button id="boto3">
 			Obtener Datos Tipo Material
 		</button>
 		<div id="contenido">
@@ -46,7 +46,7 @@
 					}
 				);
 			}
-			document.getElementById('boton1').addEventListener('click',obtenerMateriales);
+			document.getElementById('boto1').addEventListener('click',obtenerMateriales);
 		</script>
 
 		<script>
@@ -71,7 +71,7 @@
 					}
 				);
 			}
-			document.getElementById('boton2').addEventListener('click',obtenerLenguaje);
+			document.getElementById('boto2').addEventListener('click',obtenerLenguaje);
 		</script>
 
 		<script>
@@ -96,7 +96,7 @@
 					}
 				);
 			}
-			document.getElementById('boton3').addEventListener('click',obtenerTipoMaterial);
+			document.getElementById('boto3').addEventListener('click',obtenerTipoMaterial);
 		</script>
 		<div id="s1"></div>
     </body>
