@@ -1,8 +1,10 @@
 'use strict';
 
+/*
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+*/
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -266,8 +268,6 @@ var Majax = function () {
 						break;
 				}
 			}
-			var h = __host_api || '';
-			url = h + url;
 			this.request_fncs = fncs;
 			this.request_type = 'GET';
 			this.request_url = url;
@@ -296,8 +296,6 @@ var Majax = function () {
 			this.request_type = 'POST';
 			this.request_url = url;
 			this.request_data = data;
-			var h = __host_api || '';
-			url = h + url;
 			var __body = null;
 			this.header.set('X-Requested-With', 'XMLHttpRequest');
 			if (data) {
@@ -348,7 +346,6 @@ var Majax = function () {
 			this.request_url = url;
 			this.request_data = data;
 			var h = __host_api || '';
-			url = h + url;
 			var __body = null;
 			this.header.set('X-Requested-With', 'XMLHttpRequest');
 			if (data) {
@@ -396,8 +393,6 @@ var Majax = function () {
 			this.request_type = 'DELETE';
 			this.request_url = url;
 			this.request_data = data;
-			var h = __host_api || '';
-			url = h + url;
 			fetch(url, {
 				method: 'DELETE',
 				headers: this.header,
@@ -545,5 +540,5 @@ var Majax = function () {
 	return Majax;
 }();
 
-exports.default = Majax;
+//exports.default = Majax;
 ;
