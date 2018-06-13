@@ -4,11 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
         <script src="/js/majax.js"></script>
         <link rel="stylesheet" href="/css/styles.css">
-
     </head>
     <body>
         <ul id="buttons">
@@ -26,16 +24,10 @@
                     '/api/materials',
                     {
                         valid:function (r) {
-                            // Esta Parte del Codigo es para que se oculten los otros cuando uses el Boton
-                            document.getElementById('s1').style.display = 'flex';
-                            document.getElementById('s2').style.display = 'none';
-                            document.getElementById('s3').style.display = 'none';
-                            document.getElementById('s4').style.display = 'none';
-                            //document.getElementsByClassName('tarjeta').style.border='1px solid green';
-                            //Esta parte es para imprimir en el HTML
+                            document.getElementById('s1').innerHTML = null;
                             ds1 =   document.getElementById('s1');
                             r.data.forEach(function (s) {
-                                ds1.innerHTML = ds1.innerHTML +"<div class='tarjeta'>"+"<h1>"+s.titulo+"</h1>"+"<h2>"+s.idioma+"</h2>"+"<h2>"+s.resumen+"</h2>"+"</div>";
+                                ds1.innerHTML = ds1.innerHTML +"<div class='tarjeta1'>"+"<h1 id='libros'>"+s.titulo+"</h1>"+"<h2>"+s.idioma+"</h2>"+"<h2>"+s.resumen+"</h2>"+"</div>";
                             });
                         },
                         error: function(error){
@@ -55,14 +47,10 @@
                     '/api/languages',
                     {
                         valid:function (r) {
-                            document.getElementById('s1').style.display = 'none';
-                            document.getElementById('s2').style.display = 'flex';
-                            document.getElementById('s3').style.display = 'none';
-                            document.getElementById('s4').style.display = 'none';
-                            //document.getElementsByClassName('tarjeta').style.border='1px solid blue';
-                            ds2 =   document.getElementById('s2');
+                            document.getElementById('s1').innerHTML = null;
+                            ds2 =   document.getElementById('s1');
                             r.data.forEach(function (s) {
-                                ds2.innerHTML = ds2.innerHTML +"<div class='tarjeta'>"+"<h1>"+s.id+"</h1>"+"<h2>"+s.idioma+"</h2>"+"</div>";
+                                ds2.innerHTML = ds2.innerHTML +"<div class='tarjeta2'>"+"<h1>"+s.id+"</h1>"+"<h2>"+s.idioma+"</h2>"+"</div>";
                             });
                         },
                         error: function(error){
@@ -82,14 +70,10 @@
                     '/api/materialtypes',
                     {
                         valid:function (r) {
-                            document.getElementById('s1').style.display = 'none';
-                            document.getElementById('s2').style.display = 'none';
-                            document.getElementById('s3').style.display = 'flex';
-                            document.getElementById('s4').style.display = 'none';
-                            //document.getElementsByClassName('tarjeta').style.border='1px solid red';
-                            ds3 =   document.getElementById('s3');
+                            document.getElementById('s1').innerHTML = null;
+                            ds3 =   document.getElementById('s1');
                             r.data.forEach(function (s) {
-                                ds3.innerHTML = ds3.innerHTML +"<div class='tarjeta'>"+"<h1>"+s.id+"</h1>"+"<h2>"+s.tipo+"</h2>"+"</div>";
+                                ds3.innerHTML = ds3.innerHTML +"<div class='tarjeta3'>"+"<h1>"+s.id+"</h1>"+"<h2>"+s.tipo+"</h2>"+"</div>";
                             });
                         },
                         error: function(error){
@@ -109,13 +93,10 @@
                     '/api/user',
                     {
                         valid:function (r) {
-                            document.getElementById('s1').style.display = 'none';
-                            document.getElementById('s2').style.display = 'none';
-                            document.getElementById('s3').style.display = 'none';
-                            document.getElementById('s4').style.display = 'flex';
-                            ds4 =   document.getElementById('s4');
+                            document.getElementById('s1').innerHTML = null;
+                            ds4 =   document.getElementById('s1');
                             r.data.forEach(function (s) {
-                                ds4.innerHTML = ds4.innerHTML +"<div class='tarjeta'>"+"<h1>"+s.nombre+"</h1>"+"<h2>"+s.email+"</h2>"+"</div>";
+                                ds4.innerHTML = ds4.innerHTML +"<div class='tarjeta4'>"+"<h1 id='usuarios'>"+s.nombre+"</h1>"+"<h2>"+s.email+"</h2>"+"</div>";
                             });
                         },
                         error: function(error){
@@ -127,8 +108,5 @@
             document.getElementById('btn4').addEventListener('click',obetenerUsuario);
         </script>
         <section id="s1"></section>
-        <section id="s2"></section>
-        <section id="s3"></section>
-        <section id="s4"></section>
     </body>
 </html>

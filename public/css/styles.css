@@ -36,6 +36,10 @@ a{
     margin: 0;
     list-style: none;
 }
+a:hover{
+    background-color: #DB1A28;
+    color: white;
+}
 p{
     display: flex;
     flex-direction: column;
@@ -43,22 +47,7 @@ p{
     padding: 0 10px;
     cursor: default;
 }
-#btn1:hover{
-    background-color: #DB1A28;
-    color: white;
-}
-#btn2:hover{
-    background-color: #DB1A28;
-    color: white;
-}
-#btn3:hover{
-    background-color: #DB1A28;
-    color: white;
-}
-#btn4:hover{
-    background-color: #DB1A28;
-    color: white;
-}
+
 section{
     display: flex;
     margin-top: 50px;
@@ -68,22 +57,6 @@ section{
     flex-wrap: wrap;
 }
 #s1>div{
-    border-left: 2px solid green;
-    color: green;
-}
-#s2>div{
-    border-left: 2px solid dodgerblue;
-    color: dodgerblue;
-}
-#s3>div{
-    border-left: 2px solid #DB1A28;
-    color: #DB1A28;
-}
-#s4>div{
-    border-left: 2px solid yellow;
-    color: yellow;
-}
-.tarjeta{
     display: flex;
     width: 350px;
     height: 100px;
@@ -93,15 +66,36 @@ section{
     margin: 15px;
     padding: 5px;
 }
-.tarjeta>h1{
+#s1>div>h1{
     margin: 3px;
     text-align: center;
     font-size: 25px;
+}
+#usuarios{
+    word-break: break-word;
+}
+#libros{
     word-break: break-all;
 }
-.tarjeta>h2{
+#s1>div>h2{
     margin: 3px;
     text-align: center;
     font-size: 15px;
     word-break: break-all;
+}
+.tarjeta1{
+    color: forestgreen;
+    border-left: 2px solid forestgreen;
+}
+.tarjeta2{
+    color: dodgerblue;
+    border-left: 2px solid dodgerblue;
+}
+.tarjeta3{
+    color: #DB1A28;
+    border-left: 2px solid #DB1A28;
+}
+.tarjeta4{
+    color: yellow;
+    border-left: 2px solid yellow;
 }
