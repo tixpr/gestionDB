@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
-use App\Http\Resources\Api\Material as MaterialResource;
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView};
+use App\Http\Requests\UserMaterialsViewRequest;
+use DB;
 class MaterialController extends Controller
 {
     /**
@@ -57,5 +59,18 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function postUserMaterialsView(){
+
+    }
+    public function getUserMaterialsView(UserMaterialsViewRequest $request){
+        $resultados = Material::select ('materials.title',
+        DB::raw('materials.title, count(user_view_materials.id) as vistas')) 
+        ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
+        ->where('materials.user_id',$request->user_id)
+        ->groupBy('materials.title')
+        ->orderBy('vistas', 'desc')
+        ->get();
+            return UserMaterialsView::collection($resultados);
     }
 }

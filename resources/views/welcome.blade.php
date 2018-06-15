@@ -29,8 +29,11 @@
         
         
      </div>
+     <div class="contenido" id = "contenido">aqui iran los datos</div>
         <script>
         Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
+        // var contenido = document.queryselector('div#contenido')
+        var contenido = document.getElementById('contenido');
         function obtenerMateriales(e){
             e.preventDefault();
             var majax= new Majax();
@@ -38,7 +41,27 @@
                 '/api/materials',
                 {
                     valid: function(r){
-                        console.table(r);
+                        console.table(r.data);
+                        contenido.innerHTML='';
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('li');
+                            var contenedor = document.createElement('div');
+                            var titulo = document.createElement('h4');
+                            var resumen = document.createElement('p');
+                            var tipo = document.createElement('span');
+                            var idioma = document.createElement('span');
+                            titulo.innerHTML = 'Titulo: '+ r.data[i].titulo + "("+(i+1)+")";
+                            resumen.innerHTML = 'Resumen: '+ r.data[i].resumen;
+                            tipo.innerHTML = 'Tipo: '+ r.data[i].tipo;
+                            idioma.innerHTML = 'Idioma: '+ r.data[i].idioma;
+                            contenedor.appendChild(titulo);
+                            contenedor.appendChild(resumen);
+                            contenedor.appendChild(tipo);
+                            contenedor.appendChild(idioma);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            
+                        }
                     },
                     error: function(error){
                         console.error(error);
@@ -58,7 +81,21 @@
                 '/api/Languages',
                 {
                     valid: function(r){
-                        console.info(r);
+                        console.table(r);
+                        contenido.innerHTML='';
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('li');
+                            var contenedor = document.createElement('div');
+                            var language = document.createElement('h4');
+                            // var language = document.createElement('p');
+                            language.innerHTML = 'Idioma '+(i+1)+' :'+ r.data[i];
+                            // language.innerHTML = 'Language: '+ r.data[i].language;
+                            contenedor.appendChild(language);
+                            // contenedor.appendChild(language);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            
+                        }
                     },
                     error: function(error){
                         console.error(error);
@@ -81,6 +118,20 @@
                 {
                     valid: function(r){
                         console.info(r);
+                        contenido.innerHTML='';
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('li');
+                            var contenedor = document.createElement('div');
+                            var type = document.createElement('h4');
+                            // var language = document.createElement('p');
+                            type.innerHTML = 'Idioma '+(i+1)+' :'+ r.data[i];
+                            // language.innerHTML = 'Language: '+ r.data[i].language;
+                            contenedor.appendChild(type);
+                            // contenedor.appendChild(language);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            
+                        }
                     },
                     error: function(error){
                         console.error(error);

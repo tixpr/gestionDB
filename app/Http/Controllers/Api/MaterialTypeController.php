@@ -75,4 +75,5 @@ class MaterialTypeController extends Controller
     {
         //
     }
+    
 }

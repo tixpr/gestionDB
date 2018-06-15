@@ -4,7 +4,7 @@ style{
     background: #000
 }
 body {
-    background: #000308;
+    background: #27c2ff;
 }
 .content{
     
@@ -32,4 +32,12 @@ body .content button{
     border-radius: 0.80em;
     border-color: #02c96c;
     
+}
+.contenido{
+    color: #c7001b;
+    font-weight: bold;
+    font-size: 30px;
+    border: 5px;
+    border-color: #054d77;
+
 }
