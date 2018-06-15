@@ -76,6 +76,7 @@ class MaterialController extends Controller
 		->orderBy('vistas','desc')
 		->get();
 		return UserMaterialsView::collection($resultados);
-	}
+    }
+  
 	
 }

@@ -26,12 +26,7 @@
 		<ul id="contenido">
 		</ul>
 		<script>
-<<<<<<< HEAD
 			Majax.setConfig(2, 'LL6U6oFRXdRvUPlViyjgR8gS9jCrEBnprWHXO7yJ','');
-=======
-			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
-			var contenido = document.getElementById('contenido');
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -39,37 +34,23 @@
 					'/api/materials',
 					{
 						valid: function(r){
-<<<<<<< HEAD
 							for(var i=0, n=r.data.length;i<n;i++){
-=======
-							//console.info(r.data);
-							contenido.innerHTML = '';
-							for(var i = 0, n = r.data.length; i<n; i++){
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 								var temp = document.createElement('li');
 								var contenedor = document.createElement('div');
 								var titulo = document.createElement('h4');
 								var resumen = document.createElement('p');
 								var tipo = document.createElement('span');
 								var idioma = document.createElement('span');
-<<<<<<< HEAD
 								titulo.innerHTML = 'Titulo: ->'+r.data[i].titulo;
 								resumen.innerHTML = 'Resumen: ->'+r.data[i].resumen;
 								tipo.innerHTML = 'Tipo: ->'+r.data[i].tipo;
 								idioma.innerHTML = 'Idioma: ->'+r.data[i].idioma;
-=======
-								titulo.innerHTML = 'Titulo: '+r.data[i].titulo + "(" + i + ")";
-								resumen.innerHTML = 'Resumen: '+r.data[i].resumen;
-								tipo.innerHTML = 'Tipo: '+r.data[i].tipo;
-								idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 								contenedor.appendChild(titulo);
 								contenedor.appendChild(resumen);
 								contenedor.appendChild(tipo);
 								contenedor.appendChild(idioma);
 								temp.appendChild(contenedor);
 								contenido.appendChild(temp);
-<<<<<<< HEAD
 
 							}
 						},
@@ -134,8 +115,6 @@
 								
 								temp2.appendChild(contenedor2);
 								contenido.appendChild(temp2);
-=======
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 							}
 						},
 						error: function(error){
