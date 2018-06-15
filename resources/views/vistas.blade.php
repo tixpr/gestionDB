@@ -13,14 +13,19 @@
 		<script src="/js/majax.js"></script>
     </head>
     <body>
-		<button id="btn">
-			Obtener datos
+		<button id="formulario">
+        <input type="number" name="user_id" id="user_id">
+        <button type="submit">
+			Obtener 
 		</button>
 		<div id="contenido">
 		</div>
 		<script>
+        var formulario = document.getElementById('formulario');
 			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
-			function obtenerMateriales(e){
+			var contenido = document.getElementById('contenido')
+            formulario.addEventListener('submit',obtenerDatos,false);
+            function obtenerDatos(e){
 				e.preventDefault();
 				var majax = new Majax();
 				majax.get(
@@ -49,11 +54,14 @@
 						error: function(error){
 							console.error(error);
 						}
-					}
+					},
+                    {
+                        Type:'form',
+                        Data:'formulario',
+                    }
 				);
 			}
 			document.getElementById('btn').addEventListener('click',obtenerMateriales);
 		</script>
     </body>
 </html>
-
