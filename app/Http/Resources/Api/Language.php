@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Http\Resources\Api;
+
 use Illuminate\Http\Resources\Json\JsonResource;
+
 class Language extends JsonResource
 {
     /**
@@ -11,8 +14,6 @@ class Language extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'lenguaje'  => $this->language
-        ];
+        return $this->language;
     }
 }

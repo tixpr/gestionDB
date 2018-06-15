@@ -52,17 +52,6 @@ class Material extends Model
     public function areas()
     {
         return $this->belongsToMany(Area::class,'material_areas');
-<<<<<<< HEAD
-    }
-    public function language()
-    {
-        return $this->belongsToMany(Languaje::class,'language_id');
-    }
-    public function material_type()
-    {
-        return $this->belongsToMany(MaterialType::class,'material_type_id');
-    }
-=======
 	}
 	public function language()
 	{
@@ -72,5 +61,4 @@ class Material extends Model
 	{
 		return $this->belongsTo(MaterialType::class,'material_type_id');
 	}
->>>>>>> 7f79a8a76e384b2befb3e2cbaf8bcea0dbcf26ec
 }
