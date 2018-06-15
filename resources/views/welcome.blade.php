@@ -34,12 +34,25 @@
 					'/api/materials',
 					{
 						valid: function(r){
-							console.info(r);
-							ds1 = document.getElementById('s1');
-							r.data.forEach(function(s){
-								ds1.innerHTML = ds1.innerHTML + "  Título: "+ s.titulo + "  Idioma: "+ s.idioma + "  Tipo: "+ s.tipo + "</br>"+ "</br>";
-							});
-							console.info(r.data);
+							for(var i=0, n=r.data.length;i<n;i++){
+								var temp = document.createElement('li');
+								var contenedor = document.createElement('div');
+								var titulo = document.createElement('h4');
+								var resumen = document.createElement('p');
+								var tipo = document.createElement('span');
+								var idioma = document.createElement('span');
+								titulo.innerHTML = 'Titulo: ->'+r.data[i].titulo;
+								resumen.innerHTML = 'Resumen: ->'+r.data[i].resumen;
+								tipo.innerHTML = 'Tipo: ->'+r.data[i].tipo;
+								idioma.innerHTML = 'Idioma: ->'+r.data[i].idioma;
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(resumen);
+								contenedor.appendChild(tipo);
+								contenedor.appendChild(idioma);
+								temp.appendChild(contenedor);
+								contenido.appendChild(temp);
+
+							}
 						},
 						error: function(error){
 							console.error(error);
@@ -59,12 +72,19 @@
 					'/api/languages',
 					{
 						valid: function(r){
-							console.info(r);
-							ds1 = document.getElementById('s1');
-							r.data.forEach(function(s){
-								ds1.innerHTML = ds1.innerHTML + " Idioma: "+ s.id;
-							});
-							console.info(r.data);
+							
+							for(var i=0, n=r.data.length;i<n;i++){
+								var temp1 = document.createElement('li');
+								var contenedor1 = document.createElement('div');
+								var idioma = document.createElement('h4');
+								
+								idioma.innerHTML = 'Idioma: ->'+r.data[i].id;
+							
+								contenedor1.appendChild(idioma);
+								
+								temp1.appendChild(contenedor1);
+								contenido.appendChild(temp1);
+							}
 						},
 						error: function(error){
 							console.error(error);
@@ -84,12 +104,18 @@
 					'/api/materialTypes',
 					{
 						valid: function(r){
-							console.info(r);
-							ds1 = document.getElementById('s1');
-							r.data.forEach(function(s){
-								ds1.innerHTML = ds1.innerHTML + " Tipo: "+ s.tipo;
-							});
-							console.info(r.data);
+							for(var i=0, n=r.data.length;i<n;i++){
+								var temp2 = document.createElement('li');
+								var contenedor2 = document.createElement('div');
+								var tippo = document.createElement('h4');
+								
+								tippo.innerHTML = 'Tipo: ->'+r.data[i].tipo;
+							
+								contenedor2.appendChild(tippo);
+								
+								temp2.appendChild(contenedor2);
+								contenido.appendChild(temp2);
+							}
 						},
 						error: function(error){
 							console.error(error);
