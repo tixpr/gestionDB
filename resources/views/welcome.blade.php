@@ -32,12 +32,36 @@
 					'/api/materials',
 					{
 						valid: function(r){
+							/*console.infor(r.data);
+					
 							console.info(r);
 							ds1 = document.getElementById('s1');
 							r.data.forEach(function(s){
 								ds1.innerHTML = ds1.innerHTML + "TITULO:  " + s.titulo + "  IDIOMA: " + s.idioma + "  TIPO: " + s.tipo +"</br>"+"</br>";
 							});
-							console.info(r.data);
+							console.info(r.data);*/
+							contenido.innerHTML='';
+							for(var i=0, n=r.data.length;i<n; i++){
+								var temp=document.createElement('div');
+								var contenedor=document.createElement('div');
+								var titulo=document.createElement('h4');
+								var resumen=document.createElement('p');
+								var tipo=document.createElement('span');
+								var idioma=document.createElement('span');
+								titulo.innerHTML='Titulo: '+r.data[i].titulo;
+								resumen.innerHTML='Resumen: '+r.data[i].resumen;
+								tipo.innerHTML='Tipo: '+r.data[i].tipo;
+								idioma.innerHTML='Idioma: '+r.data[i].idioma;
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(resumen);
+								contenedor.appendChild(tipo);
+								contenedor.appendChild(idioma);
+								temp.appendChild(contenedor);
+								contenido.appendChild(temp);
+
+
+
+							}
 						},
 						error: function(error){
 							console.error(error);
