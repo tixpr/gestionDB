@@ -26,8 +26,11 @@
         </button>
         
      </div>
+     <ul id="contenido">
+     </ul>
         <script>
         Majax.setConfig(2,'XoGSUHl0etc7fFwFp5R2rEYslNQVnFXp5eWeuXsf','');
+        var contenido=document.getElementById('contenido');
         function obtenerMateriales(e){
             e.preventDefault();
             var majax= new Majax();
@@ -35,8 +38,27 @@
                 '/api/materials',
                 {
                     valid: function(r){
-                        console.info(r);
-                        document.getElementById('mostrar3').innerHTML=JSON.stringify(r);
+                        //console.info(r.data);
+                        contenido.innerHTML='';
+                        for(var i=0,n=r.data.lenght; i<n ; i++){
+                           var temp=document.createElement('li');
+                           var contenedor= document.createElement('div');
+                           var titulo = document.createElement('h4');
+                           var resumen=document.createElement('p');
+                           var tipo=document.createElemnt('span');
+                           var idioma=document.createElement('span');
+                           titulo.innerHTML='Titulo: '+r.data[i].titulo; 
+                           resumen.innerHTML='Resumen: '+r.data[i].resumen;    
+                           tipo.innerHTML='Tipo: '+r.data[i].tipo;    
+                           idioma.innerHTML='Idioma: '+r.data[i].idioma;
+                           contenedor.appendChild(titulo);
+                           contenedor.appendChild(resumen); 
+                           contenedor.appendChild(tipo); 
+                           contenedor.appendChild(idioma); 
+                           temp.appendChild(contenedor);
+                           contenido.appendChild(temp);
+                        }
+                        
                     },
                     error: function(error){
                         console.error(error);
