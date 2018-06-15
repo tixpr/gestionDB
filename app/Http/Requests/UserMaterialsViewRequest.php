@@ -13,7 +13,11 @@ class UserMaterialsViewRequest extends FormRequest
      */
     public function authorize()
     {
+<<<<<<< HEAD
         return false;
+=======
+        return true;
+>>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
     }
 
     /**
@@ -24,7 +28,11 @@ class UserMaterialsViewRequest extends FormRequest
     public function rules()
     {
         return [
+<<<<<<< HEAD
             //
+=======
+            'user_id'	=>	'required|exists:users,id'
+>>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
         ];
     }
 }

@@ -17,6 +17,7 @@
 		<button id="btn">
 			Obtener datos
 		</button>
+<<<<<<< HEAD
 		<button id="btn1">
 			Obtener Lenguaje
 		</button>
@@ -28,6 +29,13 @@
 		</div>
 		<script>
 			Majax.setConfig(2, 'Pg6GIQYO4mZwtBojCcLzcpp1OBM6arKNeluPpIPP','');
+=======
+		<ul id="contenido">
+		</ul>
+		<script>
+			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			var contenido = document.getElementById('contenido');
+>>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -35,6 +43,7 @@
 					'/api/materials',
 					{
 						valid: function(r){
+<<<<<<< HEAD
 							for(var i=0, n=r.data.length; i<n;i++){
 var temp = document.createElement('li');
 var contenedor = document.createElement('div');
@@ -53,6 +62,28 @@ contenedor.appendChild(idioma);
 temp.appendChild(contenedor);
 contenido.appendChild(temp);
 }
+=======
+							//console.info(r.data);
+							contenido.innerHTML = '';
+							for(var i = 0, n = r.data.length; i<n; i++){
+								var temp = document.createElement('li');
+								var contenedor = document.createElement('div');
+								var titulo = document.createElement('h4');
+								var resumen = document.createElement('p');
+								var tipo = document.createElement('span');
+								var idioma = document.createElement('span');
+								titulo.innerHTML = 'Titulo: '+r.data[i].titulo + "(" + i + ")";
+								resumen.innerHTML = 'Resumen: '+r.data[i].resumen;
+								tipo.innerHTML = 'Tipo: '+r.data[i].tipo;
+								idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(resumen);
+								contenedor.appendChild(tipo);
+								contenedor.appendChild(idioma);
+								temp.appendChild(contenedor);
+								contenido.appendChild(temp);
+							}
+>>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 						},
 						error: function(error){
 							console.error(error);
