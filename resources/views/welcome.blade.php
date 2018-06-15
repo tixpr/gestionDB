@@ -13,7 +13,7 @@
 		<link href="css/mud.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-	<div id="contenido">
+	
 		<button id="btn">
 			Obtener datos
 		</button>
@@ -24,6 +24,7 @@
 			Obtener Tipo de Material
 			
 		</button>
+		<div id="contenido"+>
 		</div>
 		<script>
 			Majax.setConfig(2, 'Pg6GIQYO4mZwtBojCcLzcpp1OBM6arKNeluPpIPP','');
@@ -34,12 +35,24 @@
 					'/api/materials',
 					{
 						valid: function(r){
-							console.info(r);
-							d1 = document.getElementById('dis');
-							r.data.forEach(function(s){
-								d1.innerHTML = d1.innerHTML + "  Titulo: " + s.titulo+"  Idioma: " + s.idioma+"  Tipo: " + s.tipo + "</br>";
-							});
-							console.info(r.data);
+							for(var i=0, n=r.data.length; i<n;i++){
+var temp = document.createElement('li');
+var contenedor = document.createElement('div');
+var titulo = document.createElement('h4');
+var resumen = document.createElement('p');
+var tipo = document.createElement('span');
+var idioma = document.createElement('span');
+titulo.innerHTML='Titulo: '+r.data[i].titulo;
+resumen.innerHTML='Resumen: '+r.data[i].resumen;
+tipo.innerHTML='Tipo: '+r.data[i].tipo;
+idioma.innerHTML='Idioma: '+r.data[i].idioma;
+contenedor.appendChild(titulo);
+contenedor.appendChild(resumen);
+contenedor.appendChild(tipo);
+contenedor.appendChild(idioma);
+temp.appendChild(contenedor);
+contenido.appendChild(temp);
+}
 						},
 						error: function(error){
 							console.error(error);
@@ -58,12 +71,16 @@
 					'/api/languages',
 					{
 						valid: function(r){
-							console.info(r);
-							d2 = document.getElementById('dis');
-							r.data.forEach(function(s){
-								d2.innerHTML = d2.innerHTML + " Tipo: " + s.tipo + "</br>";
-							});
-							console.info(r.data);
+						
+							for(var i=0, n=r.data.length; i<n;i++){
+var temp1 = document.createElement('li');
+var contenedor1 = document.createElement('div');
+var idioma = document.createElement('span');
+idioma.innerHTML='Idioma: '+r.data[i].id;
+contenedor1.appendChild(idioma);
+temp1.appendChild(contenedor1);
+contenido.appendChild(temp1);
+}
 						},
 						error: function(error){
 							console.error(error);
@@ -82,12 +99,15 @@
 					'/api/materialtype',
 					{
 						valid: function(r){
-							console.info(r);
-							d3 = document.getElementById('dis');
-							r.data.forEach(function(s){
-								d3.innerHTML = d3.innerHTML + " Tipo: " + s.tipo + "</br>";
-							});
-							console.info(r.data);
+							for(var i=0, n=r.data.length; i<n;i++){
+var temp2 = document.createElement('li');
+var contenedor2 = document.createElement('div');
+var tipo = document.createElement('span');
+tipo.innerHTML='tipo: '+r.data[i].tipo;
+contenedor2.appendChild(tipo);
+temp2.appendChild(contenedor2);
+contenido.appendChild(temp2);
+}
 						},
 						error: function(error){
 							console.error(error);
