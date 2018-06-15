@@ -15,14 +15,8 @@ class UserMaterialsView extends JsonResource
     public function toArray($request)
     {
         return [
-<<<<<<< HEAD
-            'titulo' => $this->title,
-            'vistas'  => $this->vistas,
-        ];
-=======
 			'titulo'	=>	$this->title,
 			'vistas'	=>	$this->vistas
 		];
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
     }
 }

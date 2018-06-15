@@ -16,8 +16,4 @@ Route::get('/', function () {
 });
 Route::get('/vistas', function () {
     return view('vistas');
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321

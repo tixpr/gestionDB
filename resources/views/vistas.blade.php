@@ -10,26 +10,6 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 		<script src="/js/majax.js"></script>
-<<<<<<< HEAD
-		<link href="css/jose.css" rel="stylesheet" type="text/css">
-
-    </head>
-    <body>
-		<form id="formulario">
-            <input type="number" name="user_id" id="user_id">
-            <button type="submit">
-                Obtener
-            </button>
-
-        </form>
-		<div id="contenido">
-		</div>
-		<script>
-            var formulario = document.getElementById('formulario');
-			Majax.setConfig(2, 'LL6U6oFRXdRvUPlViyjgR8gS9jCrEBnprWHXO7yJ','');
-            var contenido = document.getElementById('contenido');
-            formulario.addEventListener('submit',obtenerDatos,false);
-=======
     </head>
     <body>
 		<form id="formulario">
@@ -45,7 +25,6 @@
 			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
 			var contenido = document.getElementById('contenido');
 			formulario.addEventListener('submit',obtenerDatos,false);
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 			function obtenerDatos(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -54,27 +33,12 @@
 					{
 						valid: function(r){
 							console.info(r.data);
-<<<<<<< HEAD
-                            contenido.innerHTML = '';
-=======
 							contenido.innerHTML = '';
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 						},
 						error: function(error){
 							console.error(error);
 						}
 					},
-<<<<<<< HEAD
-                    {
-                        type: 'form',
-                        data: formulario
-                    }
-				);
-			}
-			
-		</script>
-	
-=======
 					{
 						type: 'form',
 						data: formulario
@@ -82,6 +46,5 @@
 				);
 			}
 		</script>
->>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
     </body>
 </html>
