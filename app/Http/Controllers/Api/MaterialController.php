@@ -8,6 +8,10 @@ use App\Models\Material;
 use DB;
 use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView};
 use App\Http\Requests\UserMaterialsViewRequest;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 class MaterialController extends Controller
 {
     /**
@@ -63,6 +67,7 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         //
+<<<<<<< HEAD
     }
     public function postUserMaterialsView()
     {
@@ -82,4 +87,21 @@ class MaterialController extends Controller
                  return UserMaterialsView::collection($resultados);
             
     }
+=======
+	}
+
+	public function getUserMaterialsView(UserMaterialsViewRequest $request)
+	{
+		$resultados = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as vistas')
+			)
+		->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+		->where('materials.user_id',$request->user_id)
+		->groupBy('materials.title')
+		->orderBy('vistas','desc')
+		->get();
+		return UserMaterialsView::collection($resultados);
+	}
+	
+>>>>>>> 2dc8c2b98e13a7099569d1d48fbff628f5b4b321
 }
