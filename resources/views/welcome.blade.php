@@ -32,8 +32,24 @@
 					'/api/materials',
 					{
 						valid: function(r){
-							console.info(r);
-                            document.getElementById("m").innerHTML=JSON.stringify(r);
+							for(var i=0, n=r.data.length; i<n; i++){
+								var temp=document.createElement('lo');
+								var contenedor=document.createElement('div');
+								var titulo=document.createElement('h3');
+								var idioma=document.createElement('p');
+								var tipo=document.createElement('p');
+								var resumen=document.createElement('p');
+								titulo.innerHTML='Titulo:'+r.data[i].titulo;
+								idioma.innerHTML='Idioma: '+r.data[i].idioma;
+								tipo.innerHTML='Tipo: '+r.data[i].tipo;
+								resumen.innerHTML='Resumen:'+r.data[i].resumen;
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(idioma);
+								contenedor.appendChild(tipo);
+								contenedor.appendChild(resumen);
+								temp.appendChild(contenedor);
+								contenido.appendChild(temp);
+							}
 						},
 						error: function(error){
 							console.error(error);
@@ -42,9 +58,7 @@
 				);
 			}
 			document.getElementById('btn1').addEventListener('click',obtenerMateriales);
-        </script>
-        <div id="m">
-        </div>  
+        </script> 
         <script>
 			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
 			function obtenerIdiomas(e){
@@ -54,8 +68,15 @@
 					'/api/languages',
 					{
 						valid: function(r){
-							console.info(r);
-                            document.getElementById("i").innerHTML=JSON.stringify(r);
+                            for(var i=0, n=r.data.length; i<n; i++){
+								var temp1=document.createElement('lo');
+								var contenedor1=document.createElement('div');
+								var idioma=document.createElement('p');
+								idioma.innerHTML='Idioma: '+r.data[i].idioma;
+								contenedor1.appendChild(idioma);
+								temp1.appendChild(contenedor1);
+								contenido.appendChild(temp1);
+							}
 						},
 						error: function(error){
 							console.error(error);
@@ -64,9 +85,7 @@
 				);
 			}
 			document.getElementById('btn2').addEventListener('click',obtenerIdiomas);
-        </script>
-        <div id="i">
-        </div>  
+        </script> 
         <script>
 			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
 			function obtenerTiposMateriales(e){
@@ -76,8 +95,15 @@
 					'/api/materialTypes',
 					{
 						valid: function(r){
-							console.info(r);
-                            document.getElementById("t").innerHTML=JSON.stringify(r);
+							for(var i=0, n=r.data.length; i<n; i++){
+								var temp2=document.createElement('lo');
+								var contenedor2=document.createElement('div');
+								var tipo=document.createElement('p');
+								tipo.innerHTML='Tipo: '+r.data[i].tipo;
+								contenedor2.appendChild(tipo);
+								temp2.appendChild(contenedor2);
+								contenido.appendChild(temp2);
+							}
 						},
 						error: function(error){
 							console.error(error);
@@ -87,8 +113,6 @@
 			}
 			document.getElementById('btn3').addEventListener('click',obtenerTiposMateriales);
         </script>
-        <div id="t">
-        </div>  
         <script>
 			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
 			function obtenerUsuarios(e){
@@ -98,8 +122,18 @@
 					'/api/users',
 					{
 						valid: function(r){
-							console.info(r);
-                            document.getElementById("u").innerHTML=JSON.stringify(r);
+							for(var i=0, n=r.data.length; i<n; i++){
+								var temp3=document.createElement('lo');
+								var contenedor3=document.createElement('div');
+								var nombre=document.createElement('p');
+								var correo=document.createElement('p');
+								nombre.innerHTML='Nombre: '+r.data[i].nombre;
+								correo.innerHTML='Correo: '+r.data[i].correo;
+								contenedor3.appendChild(nombre);
+								contenedor3.appendChild(correo);
+								temp3.appendChild(contenedor3);
+								contenido.appendChild(temp3);
+							}
 						},
 						error: function(error){
 							console.error(error);
@@ -109,7 +143,5 @@
 			}
 			document.getElementById('btn4').addEventListener('click',obtenerUsuarios);
         </script>
-        <div id="u">
-        </div>
     </body>
 </html>

@@ -28,3 +28,6 @@ Route::middleware('cors')->group(function(){
 Route::middleware('cors')->group(function(){
     Route::get('users','Api\UserController@index');
 });
+Route::middleware('cors')->group(function(){
+    Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
+});

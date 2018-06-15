@@ -5,10 +5,6 @@ html{
     margin: 0px;
     padding: 0px;
 }
-div#contenido{
-    width: 200px;
-    margin-top: 50px;
-}
 div#contenido ul li{
     margin-top: 15px;
     font-family: cursive;
@@ -24,4 +20,30 @@ div#contenido ul li{
 }
 div#contenido ul li:hover{
     padding-left: 50px;
+}
+div#contenido h3{
+    padding-top: 20px;
+    font: 24px "Algerian", bold;
+    color: rgb(2, 28, 53);
+}
+div#contenido p{
+    font: 18px "Comic Sans", cursive;
+    color: rgb(2, 28, 53);
+}
+form#formulario button{
+    margin-top: 15px;
+    font-family: cursive;
+    font-size: 18px;
+    background-color: grey;
+    color: black;
+    width: 160px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px 20px 20px 20px;
+    padding-left: center;
+    box-shadow: 5px 10px 10px darkslategray;
+}
+form#formulario button:hover{
+    background-color:  rgb(5, 172, 172);
+    color: black;
 }
