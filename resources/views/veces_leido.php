@@ -15,9 +15,9 @@
     </head>
     <body>
 		<form id="formulario">
-            <input type="number" name="user_id" id="user_id">
+            <input type="string" name="user_name" id="user_name">
             <button type="submit">
-                Obtener
+                Aguanttaaaa
             </button>
 
         </form>
@@ -32,12 +32,25 @@
 				e.preventDefault();
 				var majax = new Majax();
 				majax.get(
-					'/api/user_materials_view',
+					'/api/users',
 					{
 						valid: function(r){
-							console.info(r.data);
-                            contenido.innerHTML = '';
-						},
+							
+							for(var i=0, n=r.data.length;i<n;i++){
+								var temp1 = document.createElement('li');
+								var contenedor1 = document.createElement('div');
+								var titulo = document.createElement('h4');
+                                var vecesleido = document.createElement('h4');
+
+				
+								titulo.innerHTML = 'Titulo del Material: ->'+r.data[i].titulo;
+                                vecesleido.innerHTML = 'Veces leido: ->'+r.data[i].veces_leido;
+                                contenedor1.appendChild(titulo);
+								contenedor1.appendChild(vecesleido);
+								
+								temp1.appendChild(contenedor1);
+								contenido.appendChild(temp1);
+							}},
 						error: function(error){
 							console.error(error);
 						}

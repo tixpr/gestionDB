@@ -75,16 +75,5 @@ class LanguageController extends Controller
     {
         //
     }
-    public function getMaterials()
-	{
-		$resultados = Language::select(
-			DB::raw('languages.language, count(materials.id) as vistas')
-			)
-		->join('materials', 'languages.id', '=', 'materials.language_id')
-	
-		->groupBy('languages.language')
-		->orderBy('idiom','desc')
-		->get();
-		return UserMaterialsView::collection($resultados);
-	}
+ 
 }
