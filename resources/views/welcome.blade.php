@@ -26,6 +26,9 @@
             <button id="btn_MaterialTypes">
                 Obtener  Datos TypeMaterial
             </button>
+            <button id="btn_ObtenerMaterialPorIdioma">
+                Obtener  Datos Material Por Idioma
+            </button>
         
         
      </div>
@@ -34,6 +37,24 @@
         Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
         // var contenido = document.queryselector('div#contenido')
         var contenido = document.getElementById('contenido');
+
+        function obtenerMaterialPorIdioma(e){
+            e.preventDefault();
+            var majax= new Majax();
+            majax.get(
+                '/api/Languages',
+                {
+                    valid:function(r){
+                        console.table(r.data);
+                    }
+                }
+            )
+        }
+        document.getElementById('btn_ObtenerMaterialPorIdioma').addEventListener('click',obtenerMaterialPorIdioma);
+        
+    
+
+
         function obtenerMateriales(e){
             e.preventDefault();
             var majax= new Majax();
