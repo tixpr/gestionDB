@@ -19,7 +19,6 @@
             <b id="btn1"><li>MATERIALES</li></b>
             <b id="btn2"><li>IDIOMAS</li></b>
             <b id="btn3"><li>TIPO DE MATERIALES</li></b>
-            <b id="btn4"><li>USUARIOS</li></b>
             <b id="btn5" value="Actualizar pagina" onclick="window.location.reload()"><li>REFRESCAR</li></b>
         </ul>
         </div>
@@ -112,36 +111,6 @@
 				);
 			}
 			document.getElementById('btn3').addEventListener('click',obtenerTiposMateriales);
-        </script>
-        <script>
-			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
-			function obtenerUsuarios(e){
-				e.preventDefault();
-				var majax = new Majax();
-				majax.get(
-					'/api/users',
-					{
-						valid: function(r){
-							for(var i=0, n=r.data.length; i<n; i++){
-								var temp3=document.createElement('lo');
-								var contenedor3=document.createElement('div');
-								var nombre=document.createElement('p');
-								var correo=document.createElement('p');
-								nombre.innerHTML='Nombre: '+r.data[i].nombre;
-								correo.innerHTML='Correo: '+r.data[i].correo;
-								contenedor3.appendChild(nombre);
-								contenedor3.appendChild(correo);
-								temp3.appendChild(contenedor3);
-								contenido.appendChild(temp3);
-							}
-						},
-						error: function(error){
-							console.error(error);
-						}
-					}
-				);
-			}
-			document.getElementById('btn4').addEventListener('click',obtenerUsuarios);
         </script>
     </body>
 </html>

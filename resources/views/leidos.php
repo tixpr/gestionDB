@@ -14,36 +14,37 @@
 
     </head>
     <body>
-        <form id="formulario">
-            <input type="number" name="user_id" id="user_id">
+		<form id="formulario">
+            <input type="search" name="user_name" placeholder="Buscar Nombres..." size="30">
             <button type="submit">
-                OBTENER
+                OBTENER LECTURAS
             </button>
+
         </form>
-       <div id="contenido">
-        </div>
-        <script>
-			var formulario = document.getElementById('formulario');
+		<div id="contenido">
+		</div>
+		<script>
+            var formulario = document.getElementById('formulario');
 			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
-			var contenido = document.getElementById('contenido');
-			formulario.addEventListener('submit',obtenerDatos,false);
+            var contenido = document.getElementById('contenido');
+            formulario.addEventListener('submit',obtenerDatos,false);
 			function obtenerDatos(e){
 				e.preventDefault();
 				var majax = new Majax();
 				majax.get(
-					'/api/user_materials_view',
+					'/api/users_material',
 					{
 						valid: function(r){
 							for(var i=0, n=r.data.length;i<n;i++){
 								var temp = document.createElement('lo');
 								var contenedor = document.createElement('div');
 								var titulo = document.createElement('h3');
-                                var vistas = document.createElement('h3');
-				
+                                var lecturas = document.createElement('h3');
+
 								titulo.innerHTML = 'Titulo del Material: ->'+r.data[i].titulo;
-                                vistas.innerHTML = 'Vistas Totales: ->'+r.data[i].vistas;
+                                lecturas.innerHTML = 'Veces leido: ->'+r.data[i].lecturas_totales;
                                 contenedor.appendChild(titulo);
-								contenedor.appendChild(vistas);
+								contenedor.appendChild(lecturas);
 								
 								temp.appendChild(contenedor);
 								contenido.appendChild(temp);
@@ -52,12 +53,13 @@
 							console.error(error);
 						}
 					},
-					{
-						type: 'form',
-						data: formulario
-					}
+                    {
+                        type: 'form',
+                        data: formulario
+                    }
 				);
 			}
+			
 		</script>
     </body>
 </html>

@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
 use DB;
-use App\Http\Resources\Api\{Material as MaterialResource,UserMaterialsView};
+use App\Http\Resources\Api\{Material as MaterialResource,UserMaterialsView,User};
 use App\Http\Requests\UserMaterialsViewRequest;
 
 class MaterialController extends Controller
@@ -96,6 +97,16 @@ class MaterialController extends Controller
 		->orderBy('vistas','desc')
 		->get();
 		return UserMaterialsView::collection($resultados);
-	}
-	
+    }
+    public function getUser()
+	{   
+		$resultadoss = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as lecturas_totales')
+			)
+		->join('users', 'users.id', '=', 'materials.user_id')
+        ->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+		->groupBy('materials.title')
+		->get();
+        return User::collection($resultadoss);
+    }
 }

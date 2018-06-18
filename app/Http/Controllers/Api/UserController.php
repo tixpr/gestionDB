@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use DB;
 use App\Http\Resources\Api\User as UserResource;
+
 
 class UserController extends Controller
 {
@@ -63,4 +65,23 @@ class UserController extends Controller
     {
         //
     }
+   /* public function getUsersMaterial(UserMaterialsReadRequest $request)
+	{
+		$resultados = User::select(
+			DB::raw('materials.title, count(materials.id) as leidos')
+			)
+		->join('materials', 'user.materials_id', '=', 'materials.id')
+		->where('user.name',$request->user_name)
+		->groupBy('materials.title')
+		->orderBy('leidos','desc')
+		->get();
+		return UsersMaterial::collection($resultados);
+    }*/
+    public function formulario(){
+        $users = User::with('name','id')->get(); 
+ //algo general...
+
+ //enviamos los datos a la vista
+        return view('leidos', compact('$users'));
+  }
 }
