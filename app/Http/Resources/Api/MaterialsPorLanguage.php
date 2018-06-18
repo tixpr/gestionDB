@@ -16,8 +16,6 @@ class MaterialsPorLanguage extends JsonResource
     {
         return [
             'id' => $this ->language_id,
-            
-            
             'language'	=>	$this->language,
 			'cant_material' => $this->cant_material
         ];
