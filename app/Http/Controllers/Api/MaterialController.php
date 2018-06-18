@@ -80,13 +80,13 @@ class MaterialController extends Controller
     //  ordenada descendentemente
 
         /*
-        select ma.title,count(ma.user_id) 
-        from materials as  ma inner join languages as  id
-        on ma.language_id = id.id  
-        where ma.user_id=3 group by(ma.title)
-
-
-        
+                    
+            select  materials.language_id,languages.language ,count (materials.id) as cant_material
+            from materials inner join languages 
+            on materials.language_id = languages.id
+            group by materials.language_id,languages.language
+            order by (cant_material) desc;
+             
         */
     public function getUserMaterialsLanguageView(){
         $resultados = Material::select('materials.title',
@@ -102,12 +102,14 @@ class MaterialController extends Controller
     // el titulo de material y la cantidad de veces que ha leido el material
     // este servicio tendra como entrada el nombre del usuario
     /*
-
-    select materials.title,count(materials.user_id) 
-    from materials 
-    inner join user on materials.user_id = users.id 
-    group by (materials.title)
-    
+        select users.name, materials.title, count(user_view_materials.id) as vistas
+        from materials inner join users
+        on materials.user_id = users.id 
+        inner join user_view_materials 
+        on users.id = user_view_materials.user_id
+        -- where users.name = 'campo a ingresar'
+        group by ( materials.title,users.name)
+        order by vistas desc;
     */
     
     
