@@ -32,25 +32,63 @@
         
         
      </div>
-     <div class="contenido" id = "contenido">aqui iran los datos</div>
+     <div class="container_dialog">
+        <dialog close class = "dialog" id = "dialog">
+            <div class="contenido" id = "contenido">
+
+            </div>
+        </dialog>
+     </div>
         <script>
         Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
         // var contenido = document.queryselector('div#contenido')
         var contenido = document.getElementById('contenido');
-
+        const modal = document.getElementById('dialog');
         function obtenerMaterialPorIdioma(e){
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-                '/api/Languages',
+                '/api/MaterialPorIdioma',
                 {
                     valid:function(r){
                         console.table(r.data);
+                        contenido.innerHTML='';
+                        
+                           
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('div');
+                            var contenedor = document.createElement('div');
+                            var id = document.createElement('span');
+                            var idioma = document.createElement('span');
+                            var cant_material = document.createElement('span');
+                            id.innerHTML = '' + r.data[i].id;
+                            idioma.innerHTML = ' Idioma ' + r.data[i].language+'</br>';
+                            cant_material.innerHTML = 'Cantidad de Materiales ' + r.data[i].cant_material+'</br>';
+                            contenedor.appendChild(id);
+                            contenedor.appendChild(idioma);
+                            contenedor.appendChild(cant_material);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            // '<dialog open>'+temp+'</dialog>'
+                            
+                        }
+                        var button = document.createElement('button');
+                        
+                        button.innerHTML='Salir';
+                        
+                        button.id=('btn_salir');    
+                        contenido.appendChild(button);
+                        document.getElementById('btn_salir')
+                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
+                        
                     }
                 }
             )
         }
         document.getElementById('btn_ObtenerMaterialPorIdioma').addEventListener('click',obtenerMaterialPorIdioma);
+        document.getElementById('btn_ObtenerMaterialPorIdioma')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
+        
         
     
 
@@ -65,7 +103,7 @@
                         console.table(r.data);
                         contenido.innerHTML='';
                         for (var i = 0, n = r.data.length; i<n; i++) {
-                            var temp = document.createElement('li');
+                            var temp = document.createElement('div');
                             var contenedor = document.createElement('div');
                             var titulo = document.createElement('h4');
                             var resumen = document.createElement('p');
@@ -82,7 +120,15 @@
                             temp.appendChild(contenedor);
                             contenido.appendChild(temp);
                             
+                            
                         }
+                        var button = document.createElement('button');
+                        button.innerHTML='Salir';                        
+                        button.id=('btn_salir');    
+                        contenido.appendChild(button);
+                        document.getElementById('btn_salir')
+                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
+                    
                     },
                     error: function(error){
                         console.error(error);
@@ -95,6 +141,8 @@
             
         }
         document.getElementById('btn_Materials').addEventListener('click',obtenerMateriales);
+        document.getElementById('btn_Materials')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
         function obtenerLanguage(e){
             e.preventDefault();
             var majax= new Majax();
@@ -105,18 +153,22 @@
                         console.table(r);
                         contenido.innerHTML='';
                         for (var i = 0, n = r.data.length; i<n; i++) {
-                            var temp = document.createElement('li');
+                            var temp = document.createElement('div');
                             var contenedor = document.createElement('div');
                             var language = document.createElement('h4');
-                            // var language = document.createElement('p');
                             language.innerHTML = 'Idioma '+(i+1)+' :'+ r.data[i];
-                            // language.innerHTML = 'Language: '+ r.data[i].language;
                             contenedor.appendChild(language);
-                            // contenedor.appendChild(language);
                             temp.appendChild(contenedor);
                             contenido.appendChild(temp);
                             
                         }
+                        var button = document.createElement('button');
+                        button.innerHTML='Salir';                        
+                        button.id=('btn_salir');    
+                        contenido.appendChild(button);
+                        document.getElementById('btn_salir')
+                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
+                    
                     },
                     error: function(error){
                         console.error(error);
@@ -128,7 +180,8 @@
         }
 
         document.getElementById('btn_Languages').addEventListener('click',obtenerLanguage);
-
+        document.getElementById('btn_Languages')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
 
 
         function obtenerMaterialType(e){
@@ -141,18 +194,23 @@
                         console.info(r);
                         contenido.innerHTML='';
                         for (var i = 0, n = r.data.length; i<n; i++) {
-                            var temp = document.createElement('li');
+                            var temp = document.createElement('div');
                             var contenedor = document.createElement('div');
                             var type = document.createElement('h4');
-                            // var language = document.createElement('p');
                             type.innerHTML = 'Idioma '+(i+1)+' :'+ r.data[i];
-                            // language.innerHTML = 'Language: '+ r.data[i].language;
                             contenedor.appendChild(type);
                             // contenedor.appendChild(language);
                             temp.appendChild(contenedor);
                             contenido.appendChild(temp);
                             
                         }
+                        var button = document.createElement('button');
+                        button.innerHTML='Salir';                        
+                        button.id=('btn_salir');    
+                        contenido.appendChild(button);
+                        document.getElementById('btn_salir')
+                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
+                        
                     },
                     error: function(error){
                         console.error(error);
@@ -162,7 +220,9 @@
             );
         }
         document.getElementById('btn_MaterialTypes').addEventListener('click',obtenerMaterialType);
-        
+        document.getElementById('btn_MaterialTypes')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
+
         </script>
         
     </body>

@@ -4,7 +4,7 @@ style{
     background: #000
 }
 body {
-    background: #27c2ff;
+    background: #014c69;
 }
 .content{
     
@@ -34,10 +34,37 @@ body .content button{
     
 }
 .contenido{
+    
     color: #c7001b;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 1.5em;
     border: 5px;
     border-color: #054d77;
+    margin-bottom: 45px;
+}
+.dialog{
+    /* width: 50%; */
+    
+    position: relative;
+    background: #000b1f;
+    color: #b90303;
+    border-radius: 15px;
+}
+.contenido div{
+    width: 90%;
+}
+.contenido div div {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    margin-bottom: 10px;
+    /* position: absolute; */
 
+}
+.contenido button{
+    /* display: flex; */
+    position: relative;
+    /* align-self: flex-end; */
+    background: #00a349bb;
+    font-size: 1.2em;
+    float: right;
 }

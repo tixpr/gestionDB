@@ -14,6 +14,7 @@ class LanguageController extends Controller
     public function index()
     {
         return LanguageResource::collection(Language::orderBy('id','asc')->get());
+        
     }
     /**
      * Show the form for creating a new resource.
