@@ -84,20 +84,32 @@ class MaterialController extends Controller
         from materials as  ma inner join languages as  id
         on ma.language_id = id.id  
         where ma.user_id=3 group by(ma.title)
+
+
+        
         */
     public function getUserMaterialsLanguageView(){
         $resultados = Material::select('materials.title',
-        DB::raw('materials.title', 'count(materials.user_id) as cantidadMaterial'))
+        DB::raw('materials.title', 'count(materials.user_id) as idioma'))
         ->join('languages','materials.language_id','=','languages.id')
-        ->where('ma.user_id','=','3')
         ->groupBy('materials.title')
-        ->orderBy('cantidadMaterial','desc')
+        // ->orderBy('idioma','asc')
         ->get();
-        return Request::collection($resultados);
+        return MaterialsPorLanguage::collection($resultados);
     }
     // realizar un servivio y su respectiva vista para obtener los 
     // materiales leidos por un usuario en el cual se mostrara 
     // el titulo de material y la cantidad de veces que ha leido el material
     // este servicio tendra como entrada el nombre del usuario
+    /*
+
+    select materials.title,count(materials.user_id) 
+    from materials 
+    inner join user on materials.user_id = users.id 
+    group by (materials.title)
+    
+    */
+    
+    
     
 }
