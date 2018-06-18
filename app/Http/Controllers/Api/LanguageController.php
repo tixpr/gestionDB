@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Language;
-use App\Http\Resources\Api\Language as LanguageResource;
+use App\Http\Resources\Api\{Language as LanguageResource, MaterialsLanguagesQuantity as MaterialsLanguagesResource};
+
+use DB;
 class LanguageController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -83,4 +86,7 @@ class LanguageController extends Controller
     {
         //
     }
+
+  
+    
 }

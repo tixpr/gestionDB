@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
-use App\Http\Resources\Api\Material as MaterialResource;
-
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, MaterialsLanguagesQuantity as MaterialsLanguagesResource};
+use App\Http\Requests\UserMaterialsViewRequest;
+use App\Http\Requests\MaterialsLanguagesQuantity;
+use DB;
 class MaterialController extends Controller
 {
     /**
@@ -63,17 +65,25 @@ class MaterialController extends Controller
     {
         //
     }
-    public function getUserMaterialsView(){
 
-    }
-    public function postUserMaterialsView(Request $request){
-        Material::select(DB::raw('materials.title,count(user_view_material.id) as vistas'))
-                ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
-                ->where('materials.user_id',$request->usen_id)
-                ->groupBy('materials.title')
-                ->orderBy('vistas')
-                ->get();
-
+    public function getUserMaterialsView(UserMaterialsViewRequest $request){
         
+        $resultados=Material::select(DB::raw('materials.title, count(user_view_materials.id) as vistas'))
+                ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
+                ->where('materials.user_id',$request->user_id)
+                ->groupBy('materials.title')
+                ->orderBy('vistas','desc')
+                ->get();
+                return UserMaterialsView::collection($resultados);      
+    }
+    public function getMaterialsLanguagesQuantity(MaterialsLanguagesQuantity $request){
+        
+        $resultados=Material::select(DB::raw('materials.language_id, languages.language , count(materials.id) as cantidad'))
+                ->join('languages','materials.language_id','=','languages.id')
+                ->where('languages.id',$request->id)
+                ->groupBy('materials.language_id', 'languages.language')
+                ->orderBy('cantidad','desc')
+                ->get();
+                return MaterialsLanguagesResource::collection($resultados);      
     }
 }

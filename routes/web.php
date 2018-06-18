@@ -13,4 +13,14 @@
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
+Route::get('/vistas', function () {
+    return view('vistas');
+    
+});
+Route::get('/cantidad', function () {
+    return view('cantidad');
+    
+});
+

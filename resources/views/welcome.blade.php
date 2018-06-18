@@ -24,6 +24,9 @@
         <button id="btn2">
             Obtener  Datos TypeMaterial
         </button>
+        <button id="btn3">
+            Obtener  Idioma * Material
+        </button>
         
      </div>
      <ul id="contenido">
@@ -40,13 +43,14 @@
                     valid: function(r){
                         //console.info(r.data);
                         contenido.innerHTML='';
-                        for(var i=0,n=r.data.lenght; i<n ; i++){
+                        for(var i=0,n=r.data.length; i<n ; i++){
                            var temp=document.createElement('li');
                            var contenedor= document.createElement('div');
                            var titulo = document.createElement('h4');
                            var resumen=document.createElement('p');
-                           var tipo=document.createElemnt('span');
+                           var tipo=document.createElement('span');
                            var idioma=document.createElement('span');
+                           var salto=document.createElement('br');
                            titulo.innerHTML='Titulo: '+r.data[i].titulo; 
                            resumen.innerHTML='Resumen: '+r.data[i].resumen;    
                            tipo.innerHTML='Tipo: '+r.data[i].tipo;    
@@ -54,6 +58,7 @@
                            contenedor.appendChild(titulo);
                            contenedor.appendChild(resumen); 
                            contenedor.appendChild(tipo); 
+                           contenedor.appendChild(salto);
                            contenedor.appendChild(idioma); 
                            temp.appendChild(contenedor);
                            contenido.appendChild(temp);
@@ -79,8 +84,16 @@
                 '/api/languages',
                 {
                     valid: function(r){
-                        console.info(r);
-                        document.getElementById('mostrar3').innerHTML=JSON.stringify(r);
+                        contenido.innerHTML='';
+                        for(var i=0,n=r.data.length; i<n ; i++){
+                           var temp=document.createElement('li');
+                           var contenedor= document.createElement('div');
+                           var lenguaje = document.createElement('h4');  
+                           lenguaje.innerHTML='Idioma: '+r.data[i].lenguaje;
+                           contenedor.appendChild(lenguaje); 
+                           temp.appendChild(contenedor);    
+                           contenido.appendChild(temp);
+                        }
                     },
                     error: function(error){
                         console.error(error);
@@ -103,8 +116,16 @@
                 '/api/materialstype',
                 {
                     valid: function(r){
-                        console.info(r);
-                        document.getElementById('mostrar3').innerHTML=JSON.stringify(r);
+                        contenido.innerHTML='';
+                        for(var i=0,n=r.data.length; i<n ; i++){
+                           var temp=document.createElement('li');
+                           var contenedor= document.createElement('div');
+                           var tipo = document.createElement('h4');  
+                           tipo.innerHTML='Tipo: '+r.data[i].tipo;
+                           contenedor.appendChild(tipo); 
+                           temp.appendChild(contenedor);    
+                           contenido.appendChild(temp);
+                        }
                     },
                     error: function(error){
                         console.error(error);
@@ -115,8 +136,5 @@
         }
         document.getElementById('btn2').addEventListener('click',obtenerMaterialType);
         </script>
-        <section id="mostrar1"></section>
-        <section id="mostrar2"></section>
-        <section id="mostrar3"></section>
     </body>
 </html>

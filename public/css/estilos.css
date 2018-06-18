@@ -30,3 +30,9 @@ section{
     color: white;
     text-shadow: 2px 2px 4px #000000;
 }
+#contenido{
+    color: bisque;
+    text-shadow: 2px 2px 4px #000000;
+    font-size:1.5em;
+    background:rgb(23, 28, 23,0.2);
+}
