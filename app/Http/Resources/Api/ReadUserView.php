@@ -14,6 +14,12 @@ class ReadUserView extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        
+        
+        return [
+            'nombre' => $this->name,
+            'titulo' => $this->title,
+            'cantidad leida'=>$this->leidos
+        ];
     }
 }

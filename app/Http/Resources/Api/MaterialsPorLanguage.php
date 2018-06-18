@@ -19,7 +19,7 @@ class MaterialsPorLanguage extends JsonResource
             
             
             'language'	=>	$this->language,
-			'cant_material' => $this->cant_material,
+			'cant_material' => $this->cant_material
         ];
     }
 }

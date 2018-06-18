@@ -13,7 +13,7 @@ class UserMaterialsReadRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class UserMaterialsReadRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|exists:users,id'
+            'user_id' => 'required|exists:users,id'
         ];
     }
 }

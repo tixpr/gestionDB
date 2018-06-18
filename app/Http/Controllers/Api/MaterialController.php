@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
-use App\Http\Resources\Api\{Material as MaterialResource,UserMaterialsReadRequest, ReadUser,UserMaterialsView, MaterialsPorLanguage};
-use App\Http\Requests\UserMaterialsViewRequest;
+use App\Http\Resources\Api\{Material as MaterialResource, ReadUserView,UserMaterialsView, MaterialsPorLanguage};
+use App\Http\Requests\{UserMaterialsViewRequest, UserMaterialsReadRequest};
 use DB;
 class MaterialController extends Controller
 {
@@ -113,16 +113,16 @@ class MaterialController extends Controller
         order by vistas desc;
     */
 
-     public function getMaterialsViewUser(UserMaterialsReadRequest $request){
+     public function getMaterialsReadUser(UserMaterialsReadRequest $request){
         $resultados = Material::select(
         DB::raw('users.name, materials.title, count(user_view_materials.material_id) as leidos'))
         ->join('users','materials.user_id','=','users.id')
         ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
-        ->where('users.name',$request->name)
+        ->where('users.id',$request->user_id)
         ->groupBy('users.name','materials.title')
         ->orderBy('leidos','desc')
         ->get();
-        return ReadUser::collection($resultados);
+        return ReadUserView::collection($resultados);
     }
     
     

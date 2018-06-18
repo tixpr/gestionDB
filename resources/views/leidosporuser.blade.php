@@ -46,7 +46,7 @@
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-                '/api/materialsViewUser',
+                '/api/materialsReadUser',
                 {
                     valid: function(r){
                         console.table(r.data);
