@@ -30,7 +30,7 @@
         
      </div> -->
      <form action="" id = "formulario">
-        <input type="number" name="materials" id="user_id">
+        <input type="text" name="materials" id="user_id">
         <button type="submit">Obtener</button>
      
      </form>
@@ -46,7 +46,7 @@
             e.preventDefault();
             var majax= new Majax();
             majax.get(
-                '/api/MaterialPorIdioma',
+                '/api/materialsViewUser',
                 {
                     valid: function(r){
                         console.table(r.data);

@@ -44,6 +44,13 @@
         // var contenido = document.queryselector('div#contenido')
         var contenido = document.getElementById('contenido');
         const modal = document.getElementById('dialog');
+        var button = document.createElement('button');
+        button.innerHTML='Cerrar';                        
+        button.id=('btn_salir');    
+        dialog.appendChild(button);
+        document.getElementById('btn_salir')
+        .addEventListener('click',()=>{dialog.removeAttribute('open')});
+    
         function obtenerMaterialPorIdioma(e){
             e.preventDefault();
             var majax= new Majax();
@@ -72,14 +79,6 @@
                             // '<dialog open>'+temp+'</dialog>'
                             
                         }
-                        var button = document.createElement('button');
-                        
-                        button.innerHTML='Salir';
-                        
-                        button.id=('btn_salir');    
-                        contenido.appendChild(button);
-                        document.getElementById('btn_salir')
-                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
                         
                     }
                 }
@@ -122,13 +121,7 @@
                             
                             
                         }
-                        var button = document.createElement('button');
-                        button.innerHTML='Salir';                        
-                        button.id=('btn_salir');    
-                        contenido.appendChild(button);
-                        document.getElementById('btn_salir')
-                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
-                    
+                        
                     },
                     error: function(error){
                         console.error(error);
@@ -162,13 +155,7 @@
                             contenido.appendChild(temp);
                             
                         }
-                        var button = document.createElement('button');
-                        button.innerHTML='Salir';                        
-                        button.id=('btn_salir');    
-                        contenido.appendChild(button);
-                        document.getElementById('btn_salir')
-                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
-                    
+                        
                     },
                     error: function(error){
                         console.error(error);
@@ -199,15 +186,10 @@
                             var type = document.createElement('h4');
                             type.innerHTML = 'Idioma '+(i+1)+' :'+ r.data[i];
                             contenedor.appendChild(type);
-                            // contenedor.appendChild(language);
                             temp.appendChild(contenedor);
                             contenido.appendChild(temp);
                             
                         }
-                        var button = document.createElement('button');
-                        button.innerHTML='Salir';                        
-                        button.id=('btn_salir');    
-                        contenido.appendChild(button);
                         document.getElementById('btn_salir')
                         .addEventListener('click',()=>{dialog.removeAttribute('open')});
                         

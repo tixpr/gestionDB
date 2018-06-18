@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, MaterialsPorLanguage};
+use App\Http\Resources\Api\{Material as MaterialResource,UserMaterialsReadRequest, ReadUser,UserMaterialsView, MaterialsPorLanguage};
 use App\Http\Requests\UserMaterialsViewRequest;
 use DB;
 class MaterialController extends Controller
@@ -102,16 +102,28 @@ class MaterialController extends Controller
     // el titulo de material y la cantidad de veces que ha leido el material
     // este servicio tendra como entrada el nombre del usuario
     /*
-        select users.name, materials.title, count(user_view_materials.id) as vistas
+        
+        select users.name, materials.title, count(user_view_materials.material_id) as vistas
         from materials inner join users
         on materials.user_id = users.id 
         inner join user_view_materials 
-        on users.id = user_view_materials.user_id
-        -- where users.name = 'campo a ingresar'
+        on materials.id = user_view_materials.material_id
+        where users.name = 'DE LA CRUZ FERNANDEZ JUANA'
         group by ( materials.title,users.name)
         order by vistas desc;
     */
-    
+
+     public function getMaterialsViewUser(UserMaterialsReadRequest $request){
+        $resultados = Material::select(
+        DB::raw('users.name, materials.title, count(user_view_materials.material_id) as leidos'))
+        ->join('users','materials.user_id','=','users.id')
+        ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
+        ->where('users.name',$request->name)
+        ->groupBy('users.name','materials.title')
+        ->orderBy('leidos','desc')
+        ->get();
+        return ReadUser::collection($resultados);
+    }
     
     
 }

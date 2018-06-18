@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/vistas', function () {
     return view('vistas');
 });
-Route::get('/materialslanguage', function () {
-    return view('vistamaterialsLanguage');
+
+Route::get('/leidos', function () {
+    return view('leidosporuser');
 });
