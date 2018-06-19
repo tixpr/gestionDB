@@ -31,15 +31,30 @@
      </div> -->
      <form action="" id = "formulario">
         <input type="text" name="name" id="name">
-        <button type="submit">Obtener</button>
+        <button type="submit" id = "btnObtener">Obtener</button>
      
      </form>
-     <div class="contenido" id = "contenido"></div>
+         
+     </div>
+     <div class="container_dialog">
+        <dialog close class = "dialog" id = "dialog">
+            <div class="contenido" id = "contenido">
+
+            </div>
+        </dialog>
+     </div>
         <script>
         var formulario = document.getElementById('formulario');
         Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
         // var contenido = document.queryselector('div#contenido')
         var contenido = document.getElementById('contenido');
+        const modal = document.getElementById('dialog');
+        var button = document.createElement('button');
+        button.innerHTML='Cerrar';                        
+        button.id=('btn_salir');    
+        dialog.appendChild(button);
+        document.getElementById('btn_salir')
+        .addEventListener('click',()=>{dialog.removeAttribute('open')});
         formulario.addEventListener('submit',obtenerDatos,true);
 
         function obtenerDatos(e){
@@ -68,6 +83,9 @@
                             contenido.appendChild(temp);
                             
                         }
+                       
+        document.getElementById('btnObtener')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
                         
                     },
                     error: function(error){
