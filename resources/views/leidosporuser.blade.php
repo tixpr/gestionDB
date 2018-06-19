@@ -49,8 +49,25 @@
                 '/api/materialsReadUser',
                 {
                     valid: function(r){
+                        
                         console.table(r.data);
                         contenido.innerHTML='';
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('div');
+                            var contenedor = document.createElement('div');
+                            var nombre = document.createElement('h4');
+                            var titulo = document.createElement('h4');
+                            var cantidad = document.createElement('h4');
+                            nombre.innerHTML = 'Nombre: '+ r.data[i].nombre;
+                            titulo.innerHTML = 'Titulo: '+ r.data[i].titulo;
+                            cantidad.innerHTML = 'Cantidad Leida: '+ r.data[i].cantidadleida;
+                            contenedor.appendChild(nombre);
+                            contenedor.appendChild(titulo);
+                            contenedor.appendChild(cantidad);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            
+                        }
                         
                     },
                     error: function(error){

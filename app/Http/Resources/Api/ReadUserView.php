@@ -19,7 +19,7 @@ class ReadUserView extends JsonResource
         return [
             'nombre' => $this->name,
             'titulo' => $this->title,
-            'cantidad leida'=>$this->leidos
+            'cantidadleida'=>$this->leidos
         ];
     }
 }
