@@ -46,5 +46,39 @@
 				);
 			}
 		</script>
+		<form id="formulario">
+			<input type="number" name="language_id" id="language_id">
+			<button type="submit">
+				Obtener
+			</button>
+		</form>
+		<ul id="contenido">
+		</ul>
+		<script>
+			var formulario = document.getElementById('formulario');
+			Majax.setConfig(2, 'pblje4mwZ3dVsLFHF9cooNTYmTL084wgPkPO2rWw','');
+			var contenido = document.getElementById('contenido');
+			formulario.addEventListener('submit',obtenerDatos,false);
+			function obtenerDatos(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/lenguaje_materials_view',
+					{
+						valid: function(r){
+							console.info(r.data);
+							contenido.innerHTML = '';
+						},
+						error: function(error){
+							console.error(error);
+						}
+					},
+					{
+						type: 'form',
+						data: formulario
+					}
+				);
+			}
+		</script>
     </body>
 </html>
