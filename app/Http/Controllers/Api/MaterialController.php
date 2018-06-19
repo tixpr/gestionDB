@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
-use DB;
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User};
+
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, CantidadMaterial};
 use App\Http\Requests\UserMaterialsViewRequest;
+use App\Http\Requests\UserRequest;
+use DB;
 class MaterialController extends Controller
 {
     /**
@@ -77,17 +79,34 @@ class MaterialController extends Controller
 		->get();
 		return UserMaterialsView::collection($resultados);
     }
-    public function getUser()
+    public function getUser(UserRequest $request)
 	{
 		$resultadoss = Material::select(
-			DB::raw('materials.title, count(materials.id) as veces_leido')
-			)
-		->join('users', 'materials.user_id', '=', 'users.id')
-	
-		->groupBy('materials.title')
+			DB::raw('users.name ,materials.title, count(user_view_materials.material_id) as veces_leido')
+            )
+            ->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+        ->join('users', 'materials.user_id', '=', 'users.id')
+        
+	->where('users.name',$request->name)
+        ->groupBy('users.name','materials.title')
+        ->orderBy('veces_leido','desc')
 		
 		->get();
 		return User::collection($resultadoss);
+    }
+    
+    public function getCantMat()
+	{
+		$resultadoss = Material::select(
+			DB::raw('languages.language, count(materials.id) as cantmat')
+			)
+		->join('languages', 'materials.language_id', '=', 'languages.id')
+	
+        ->groupBy('languages.language')
+        ->orderBy('cantmat','desc')
+		
+		->get();
+		return CantidadMaterial::collection($resultadoss);
     }
 	
 }

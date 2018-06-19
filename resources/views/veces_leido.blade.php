@@ -15,9 +15,9 @@
     </head>
     <body>
 		<form id="formulario">
-            <input type="string" name="user_name" id="user_name">
+            <input type="text" name="name" id="name">
             <button type="submit">
-                Aguanttaaaa
+                OBTENER TITULO Y VECES LEIDO POR EL USUARIO
             </button>
 
         </form>

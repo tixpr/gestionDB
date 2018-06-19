@@ -20,3 +20,6 @@ Route::get('/vistas', function () {
 Route::get('/veces_leido', function () {
     return view('veces_leido');
 });
+Route::get('/cant_mat', function () {
+    return view('cantmat');
+});
