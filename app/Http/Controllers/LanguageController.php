@@ -1,15 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Language;
-use App\Http\Resources\Api\{Language as LanguageResource, MaterialsLanguagesQuantity as MaterialsLanguagesResource};
-
 use DB;
 class LanguageController extends Controller
-
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +13,10 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        //return LanguageResource::collection(Language::orderBy('id','asc')->get());
+        $languages=DB::table('languages')
+    				->select('id', 'language')
+                    ->get();
+                    return view("cantidad",["languages"=>$languages]); 
     }
 
     /**
@@ -86,14 +84,4 @@ class LanguageController extends Controller
     {
         //
     }
-    public function getName ()
-    {
-        $languages=DB::table('languages')
-    				->select('id', 'language')
-                    ->get();
-                    return view("cantidad",["languages"=>$languages]); 
-    }
-
-  
-    
 }

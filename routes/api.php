@@ -23,5 +23,6 @@ Route::middleware('cors')->group(function(){
     Route::get('languages','Api\LanguageController@index');
     Route::get('materialstype','Api\MaterialTypeController@index');
     Route::get('materiallang','Api\MaterialLanguageController@index');
+  
     
 });

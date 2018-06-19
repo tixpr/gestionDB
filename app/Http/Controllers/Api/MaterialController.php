@@ -78,12 +78,14 @@ class MaterialController extends Controller
     }
     public function getMaterialsLanguagesQuantity(MaterialsLanguagesQuantity $request){
         
-        $resultados=Material::select(DB::raw('materials.language_id, languages.language , count(materials.id) as cantidad'))
+        $materials=Material::select(DB::raw('materials.language_id, languages.language , count(materials.id) as cantidad'))
                 ->join('languages','materials.language_id','=','languages.id')
                 ->where('languages.id',$request->id)
                 ->groupBy('materials.language_id', 'languages.language')
                 ->orderBy('cantidad','desc')
                 ->get();
-                return MaterialsLanguagesResource::collection($resultados);      
+                
+               return MaterialsLanguagesResource::collection($materials);
+               return view("cantidad",["materials"=>$materials]);    
     }
 }

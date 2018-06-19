@@ -14,14 +14,25 @@
         
     </head>
     <body>
+    
         <form id="formulario">
-            <input type="number" name="id" id=" id">
+            <!-- <input type="number" name="id" id=" id">-->
+        <div class="select">
+            <select name="id" id="id" >
+                @foreach($languages as $mat)
+                <option value="{{$mat->id}}"> {{$mat->language}} </option>
+                @endforeach
+            </select>
+        </div>
             <button type="submit">
                 Obtener
             </button>
         </form>
+        <ul id="contenido">
+        </ul>
         <script>
         var formulario=document.getElementById('formulario');
+        var contenido=document.getElementById('contenido');
         Majax.setConfig(2,'XoGSUHl0etc7fFwFp5R2rEYslNQVnFXp5eWeuXsf','');
         formulario.addEventListener('submit',obtenerDatos,false);
         function obtenerDatos(e){
@@ -33,6 +44,18 @@
                     valid: function(r){
                         console.info(r.data);
                         contenido.innerHTML='';
+                        for(var i=0,n=r.data.length; i<n ; i++){
+                           var temp=document.createElement('li');
+                           var contenedor= document.createElement('div');
+                           var tipo = document.createElement('h4'); 
+                           var cantidad= document.createElement('h4');
+                           tipo.innerHTML='LENGUAJE: '+r.data[i].lenguaje;
+                           cantidad.innerHTML='CANTIDAD DE MATERIAL: '+r.data[i].cantidad
+                           contenedor.appendChild(tipo); 
+                           contenedor.appendChild(cantidad);
+                           temp.appendChild(contenedor);    
+                           contenido.appendChild(temp);
+                        }
                     
 
                     },

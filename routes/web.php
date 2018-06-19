@@ -19,8 +19,6 @@ Route::get('/vistas', function () {
     return view('vistas');
     
 });
-Route::get('/cantidad', function () {
-    return view('cantidad');
-    
-});
+
+Route::resource('cantidad','LanguageController');
 

@@ -36,3 +36,39 @@ section{
     font-size:1.5em;
     background:rgb(23, 28, 23,0.2);
 }
+/*Estilos cantidad*/
+form{
+    text-align: center;
+}
+.select {
+    position: relative;
+    border: 0.0625em solid #ccc;/*1-16*/
+    width: 7.5em;/*120-16*/
+    overflow: hidden;
+    background-color: #fff;
+    margin:0 auto;
+  }
+    
+  .select:before {
+      content: '';
+      position: absolute;
+      right: 0.3125em;/*5-16*/
+      top: 0.4373em;/*7-16*/
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0.4373em 0.3125em 0 0.3125em;/*7-16 5-16*/
+      border-color: #000000 transparent transparent transparent;
+      z-index: 5;
+      pointer-events: none;
+  }
+    
+  .select select {
+      padding: 0.3125em 0.5em;/*5-8-16*/
+      width: 130%;
+      border: none;
+      box-shadow: none;
+      background-color: transparent;
+      background-image: none;
+      appearance: none;
+  }
