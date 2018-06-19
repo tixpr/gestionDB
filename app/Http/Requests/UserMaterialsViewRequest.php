@@ -24,7 +24,8 @@ class UserMaterialsViewRequest extends FormRequest
     public function rules()
     {
         // digo que el campo user_id es requerido
-        return [
+        return 
+        [
             'user_id' => 'required|exists:users,id'
         ];
     }

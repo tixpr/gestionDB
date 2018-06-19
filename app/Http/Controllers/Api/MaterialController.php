@@ -118,7 +118,7 @@ class MaterialController extends Controller
         DB::raw('users.name, materials.title, count(user_view_materials.material_id) as leidos'))
         ->join('users','materials.user_id','=','users.id')
         ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
-        ->where('users.id',$request->name)
+        ->where('users.name',$request->name)
         ->groupBy('users.name','materials.title')
         ->orderBy('leidos','desc')
         ->get();

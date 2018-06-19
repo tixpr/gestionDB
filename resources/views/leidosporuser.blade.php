@@ -30,7 +30,7 @@
         
      </div> -->
      <form action="" id = "formulario">
-        <input type="text" name="materials" id="user_id">
+        <input type="text" name="name" id="name">
         <button type="submit">Obtener</button>
      
      </form>
