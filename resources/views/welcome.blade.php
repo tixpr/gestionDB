@@ -68,7 +68,7 @@
                             var id = document.createElement('span');
                             var idioma = document.createElement('span');
                             var cant_material = document.createElement('span');
-                            id.innerHTML = '' + r.data[i].id;
+                            id.innerHTML =(i+1)+'</br>'+ '    Id ' + r.data[i].id;
                             idioma.innerHTML = ' Idioma ' + r.data[i].language+'</br>';
                             cant_material.innerHTML = 'Cantidad de Materiales ' + r.data[i].cant_material+'</br>';
                             contenedor.appendChild(id);
