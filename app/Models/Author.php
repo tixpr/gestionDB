@@ -36,8 +36,4 @@ class Author extends Model
     protected $hidden = [
         'id'
     ];
-    public function authors()
-    {
-        return $this->belongsToMany(Material::class, 'material_authors');
-    }
 }

@@ -1,0 +1,88 @@
+html{
+    background-color: #ecf0f1;
+}
+.content{
+    display: table-cell;
+    background: #2e4053;
+    width: 100%;
+    padding: 15px;
+    margin-top: -11px;
+    border-radius: 0.75em;
+}
+body .content button{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: black;
+    background:  #bdc3c7;
+    border-radius: 5px;
+    border-color:  #17202a;
+    
+}
+.content button:hover {
+    font-size: 25px;
+    font-family: sans-serif;
+    color: black;
+    background:  #bdc3c7;
+    border-radius: 5px;
+    border-color:  #17202a;
+    -moz-box-shadow: 0px 0px 30px #ffffff; 
+      -webkit-box-shadow: 0px 0px 30px #ffffff; 
+      box-shadow: 0px 0px 30px #ffffff;
+}
+.contenido div{
+    width: 90%;
+    top: 0px;
+}
+.contenido div div {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    margin-bottom: 11px;
+
+}
+.dialog{
+    padding-bottom: 40px;
+}
+#btn_salir{
+    /* display: flex;
+    position: relative; */
+    /* align-self: flex-end; */
+    background: #00a349bb;
+    font-size: 1.2em;
+    /* float: right; */
+    
+    
+    width: 100px;
+    border: 3px solid #146300;
+    right: 10px;
+    position: absolute;
+    
+}
+
+/*view user*/
+#formulario{
+    background-color: #2e4053;
+    padding: 10px;
+    border-radius: 18px;
+}
+#formulario>h1{
+    color: #bdc3c7;
+}
+#formulario>#user_id{
+    border-radius: 10px;
+}
+#formulario>button{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: black;
+    background:  #bdc3c7;
+    border-radius: 5px;
+    border-color:  #17202a;
+}
+#formulario>button:hover{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: black;
+    background:  #bdc3c7;
+    border-radius: 5px;
+    border-color:  #17202a;
+}

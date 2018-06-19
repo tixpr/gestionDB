@@ -1,3 +1,4 @@
+ 
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -5,56 +6,201 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laboratorio</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-		<script src="/js/majax.js"></script>
+        <link href="/css/style.css" rel="stylesheet" type="text/css"> 
+        <script src="/js/majax.js"></script>
+        
     </head>
     <body>
-		<button id="btn">
-			Obtener datos
-		</button>
-		<ul id="contenido">
-		</ul>
-		<script>
-			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
-			var contenido = document.getElementById('contenido');
-			function obtenerMateriales(e){
-				e.preventDefault();
-				var majax = new Majax();
-				majax.get(
-					'/api/materials',
-					{
-						valid: function(r){
-							//console.info(r.data);
-							contenido.innerHTML = '';
-							for(var i = 0, n = r.data.length; i<n; i++){
-								var temp = document.createElement('li');
-								var contenedor = document.createElement('div');
-								var titulo = document.createElement('h4');
-								var resumen = document.createElement('p');
-								var tipo = document.createElement('span');
-								var idioma = document.createElement('span');
-								titulo.innerHTML = 'Titulo: '+r.data[i].titulo + "(" + i + ")";
-								resumen.innerHTML = 'Resumen: '+r.data[i].resumen;
-								tipo.innerHTML = 'Tipo: '+r.data[i].tipo;
-								idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
-								contenedor.appendChild(titulo);
-								contenedor.appendChild(resumen);
-								contenedor.appendChild(tipo);
-								contenedor.appendChild(idioma);
-								temp.appendChild(contenedor);
-								contenido.appendChild(temp);
-							}
-						},
-						error: function(error){
-							console.error(error);
-						}
-					}
-				);
-			}
-			document.getElementById('btn').addEventListener('click',obtenerMateriales);
-		</script>
+    <div class="content" id="content">
+       
+            <button id="btn_Materials">
+                Datos de Materiales
+            </button>
+            <button id="btn_Languages">
+                Datos de Idiomas
+            </button>
+            <button id="btn_MaterialTypes">
+                Datos de Tipo de Material
+            </button>
+            <button id="btn_MaterialLanguages">
+                Material Ordenado Cantidad - Idioma
+            </button>
+        
+        
+     </div>
+     <div class="container_dialog">
+        <dialog close class = "dialog" id = "dialog">
+            <div class="contenido" id = "contenido">
+
+            </div>
+        </dialog>
+     </div>
+        <script>
+        Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
+        var contenido = document.getElementById('contenido');
+        const modal = document.getElementById('dialog');
+        var button = document.createElement('button');
+        button.innerHTML='Cerrar';                        
+        button.id=('btn_salir');    
+        dialog.appendChild(button);
+        document.getElementById('btn_salir')
+        .addEventListener('click',()=>{dialog.removeAttribute('open')});
+    
+        function obtenerMaterialPorIdioma(e){
+            e.preventDefault();
+            var majax= new Majax();
+            majax.get(
+                '/api/MaterialPorIdioma',
+                {
+                    valid:function(r){
+                        console.table(r.data);
+                        contenido.innerHTML='';
+                        
+                           
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('div');
+                            var contenedor = document.createElement('div');
+                            var id = document.createElement('span');
+                            var idioma = document.createElement('span');
+                            var cant_material = document.createElement('h4');
+                            id.innerHTML = 'Id: ' + r.data[i].id+'</br>';
+                            idioma.innerHTML = ' Idioma: ' + r.data[i].language+'</br>';
+                            cant_material.innerHTML = 'Cantidad de Materiales ' + r.data[i].cant_material+'</br>';
+                            contenedor.appendChild(id);
+                            contenedor.appendChild(idioma);
+                            contenedor.appendChild(cant_material);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                        }
+                        
+                    }
+                }
+            )
+        }
+        document.getElementById('btn_MaterialLanguages').addEventListener('click',obtenerMaterialPorIdioma);
+        document.getElementById('btn_MaterialLanguages')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
+        
+
+        function obtenerMateriales(e){
+            e.preventDefault();
+            var majax= new Majax();
+            majax.get(
+                '/api/materials',
+                {
+                    valid: function(r){
+                        console.table(r.data);
+                        contenido.innerHTML='';
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('div');
+                            var contenedor = document.createElement('div');
+                            var titulo = document.createElement('h4');
+                            var resumen = document.createElement('p');
+                            var tipo = document.createElement('span');
+                            var idioma = document.createElement('span');
+                            titulo.innerHTML = 'Titulo: '+ r.data[i].titulo + "("+(i+1)+")";
+                            resumen.innerHTML = 'Resumen: '+ r.data[i].resumen;
+                            tipo.innerHTML = 'Tipo: '+ r.data[i].tipo;
+                            idioma.innerHTML = 'Idioma: '+ r.data[i].idioma;
+                            contenedor.appendChild(titulo);
+                            contenedor.appendChild(resumen);
+                            contenedor.appendChild(tipo);
+                            contenedor.appendChild(idioma);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            
+                            
+                        }
+                        
+                    },
+                    error: function(error){
+                        console.error(error);
+                    }
+                }
+
+            );
+
+
+            
+        }
+        document.getElementById('btn_Materials').addEventListener('click',obtenerMateriales);
+        document.getElementById('btn_Materials')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
+        function obtenerLanguage(e){
+            e.preventDefault();
+            var majax= new Majax();
+            majax.get(
+                '/api/Languages',
+                {
+                    valid: function(r){
+                        console.table(r);
+                        contenido.innerHTML='';
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('div');
+                            var contenedor = document.createElement('div');
+                            var language = document.createElement('h4');
+                            language.innerHTML = 'Idioma '+(i+1)+' :'+ r.data[i];
+                            contenedor.appendChild(language);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            
+                        }
+                        
+                    },
+                    error: function(error){
+                        console.error(error);
+                    }
+                }
+
+            );
+
+        }
+
+        document.getElementById('btn_Languages').addEventListener('click',obtenerLanguage);
+        document.getElementById('btn_Languages')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
+
+
+        function obtenerMaterialType(e){
+            e.preventDefault();
+            var majax= new Majax();
+            majax.get(
+                '/api/MaterialTypes',
+                {
+                    valid: function(r){
+                        console.info(r);
+                        contenido.innerHTML='';
+                        for (var i = 0, n = r.data.length; i<n; i++) {
+                            var temp = document.createElement('div');
+                            var contenedor = document.createElement('div');
+                            var type = document.createElement('h4');
+                            type.innerHTML = 'Idioma '+(i+1)+' :'+ r.data[i];
+                            contenedor.appendChild(type);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+                            
+                        }
+                        document.getElementById('btn_salir')
+                        .addEventListener('click',()=>{dialog.removeAttribute('open')});
+                        
+                    },
+                    error: function(error){
+                        console.error(error);
+                    }
+                }
+
+            );
+        }
+        document.getElementById('btn_MaterialTypes').addEventListener('click',obtenerMaterialType);
+        document.getElementById('btn_MaterialTypes')
+        .addEventListener('click',()=>{dialog.setAttribute('open','true')});
+
+        </script>
+        
     </body>
 </html>
+

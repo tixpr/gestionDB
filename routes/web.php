@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -14,6 +15,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/vistas', function () {
-    return view('vistas');
+
+Route::get('/views', function () {
+    return view('views_user');
 });
