@@ -15,9 +15,9 @@
     </head>
     <body>
         <form id="formulario">
-            <input type="number" name="user_id" id="user_id" placeholder="Buscar Id..." size="30">
+            <input type="number" name="language_id" id="language_id" name="material_cant" placeholder="Poner Id..." size="30">
             <button type="submit">
-                OBTENER
+                OBTENER CANTIDAD
             </button>
         </form>
        <div id="contenido">
@@ -31,24 +31,24 @@
 				e.preventDefault();
 				var majax = new Majax();
 				majax.get(
-					'/api/user_materials_view',
+					'/api/languages_material',
 					{
 						valid: function(r){
 							for(var i=0, n=r.data.length;i<n;i++){
 								var temp = document.createElement('lo');
 								var contenedor = document.createElement('div');
-								var titulo = document.createElement('h2');
-                                var vistas = document.createElement('o');
+								var idioma = document.createElement('h2');
+                                var cantidad = document.createElement('t');
 				
-								titulo.innerHTML = 'Titulo del Material: '+r.data[i].titulo;
-                                vistas.innerHTML = 'Vistas Totales: '+r.data[i].vistas;
-                                contenedor.appendChild(titulo);
-								contenedor.appendChild(vistas);
+								idioma.innerHTML = 'Idioma del Material: '+r.data[i].idioma;
+                                cantidad.innerHTML = 'Cantidad del Material: '+r.data[i].cantidad_material;
+                                contenedor.appendChild(idioma);
+								contenedor.appendChild(cantidad);
 								
 								temp.appendChild(contenedor);
 								contenido.appendChild(temp);
 							}},
-						error: function(error){
+							error: function(error){
 							console.error(error);
 						}
 					},

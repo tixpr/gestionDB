@@ -20,3 +20,6 @@ Route::get('/vistas', function () {
 Route::get('/leidos', function () {
     return view('leidos');
 });
+Route::get('/cantidad', function () {
+    return view('cantidad');
+});

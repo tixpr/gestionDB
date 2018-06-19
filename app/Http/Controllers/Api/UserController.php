@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Models\User;
 use DB;
-use App\Http\Resources\Api\User as UserResource;
+use App\Http\Resources\Api\{User as UserResource, Material, UserMaterialsView};
+use App\Http\Requests\UserMaterialsReadRequest;
 
 
 class UserController extends Controller
@@ -65,23 +67,17 @@ class UserController extends Controller
     {
         //
     }
-   /* public function getUsersMaterial(UserMaterialsReadRequest $request)
-	{
-		$resultados = User::select(
-			DB::raw('materials.title, count(materials.id) as leidos')
+    public function getRead(UserMaterialsReadRequest $request)
+	{   
+		$resultadoss = User::select(
+			DB::raw('materials.title, count(user_view_materials.id) as vistas')
 			)
-		->join('materials', 'user.materials_id', '=', 'materials.id')
-		->where('user.name',$request->user_name)
+		->join('materials', 'materials.user_id', '=', 'users.id')
+        ->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+        ->where('users.name',$request->user_name)
 		->groupBy('materials.title')
-		->orderBy('leidos','desc')
+		->orderBy('vistas','desc')
 		->get();
-		return UsersMaterial::collection($resultados);
-    }*/
-    public function formulario(){
-        $users = User::with('name','id')->get(); 
- //algo general...
-
- //enviamos los datos a la vista
-        return view('leidos', compact('$users'));
-  }
+        return UserMaterialsView::collection($resultadoss);
+    }
 }

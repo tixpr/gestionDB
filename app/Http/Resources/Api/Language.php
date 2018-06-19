@@ -15,7 +15,8 @@ class Language extends JsonResource
     public function toArray($request)
     {
         return [
-            'idioma'    => $this->language
+            'idioma'    => $this->language,
+            'cantidad_material'=> $this->cantidad_material
         ];
     }
 }

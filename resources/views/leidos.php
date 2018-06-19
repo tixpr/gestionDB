@@ -19,7 +19,6 @@
             <button type="submit">
                 OBTENER LECTURAS
             </button>
-
         </form>
 		<div id="contenido">
 		</div>
@@ -38,11 +37,11 @@
 							for(var i=0, n=r.data.length;i<n;i++){
 								var temp = document.createElement('lo');
 								var contenedor = document.createElement('div');
-								var titulo = document.createElement('h3');
-                                var lecturas = document.createElement('h3');
+								var titulo = document.createElement('h2');
+                                var lecturas = document.createElement('o');
 
-								titulo.innerHTML = 'Titulo del Material: ->'+r.data[i].titulo;
-                                lecturas.innerHTML = 'Veces leido: ->'+r.data[i].lecturas_totales;
+								titulo.innerHTML = 'Titulo del Material: '+r.data[i].titulo;
+                                lecturas.innerHTML = 'Veces leido: '+r.data[i].vistas;
                                 contenedor.appendChild(titulo);
 								contenedor.appendChild(lecturas);
 								

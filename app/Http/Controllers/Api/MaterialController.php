@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
 use DB;
-use App\Http\Resources\Api\{Material as MaterialResource,UserMaterialsView,User};
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, Language};
 use App\Http\Requests\UserMaterialsViewRequest;
+use App\Http\Requests\LanguageMaterialsRequest;
 
 class MaterialController extends Controller
 {
@@ -98,15 +99,16 @@ class MaterialController extends Controller
 		->get();
 		return UserMaterialsView::collection($resultados);
     }
-    public function getUser()
+    public function getLanguage(LanguageMaterialsRequest $request)
 	{   
 		$resultadoss = Material::select(
-			DB::raw('materials.title, count(user_view_materials.id) as lecturas_totales')
+			DB::raw('languages.language, count(materials.language_id) as cantidad_material')
 			)
-		->join('users', 'users.id', '=', 'materials.user_id')
-        ->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
-		->groupBy('materials.title')
+        ->join('languages', 'languages.id', '=', 'materials.language_id')
+        ->where('materials.language_id', $request->language_id)
+        ->groupBy('languages.language')
+        ->orderBy('cantidad_material','desc')
 		->get();
-        return User::collection($resultadoss);
+        return Language::collection($resultadoss);
     }
 }
