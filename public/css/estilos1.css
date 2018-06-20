@@ -1,0 +1,44 @@
+body{
+    border-style: ridge;
+    border-bottom-color: #080808;
+    text-align: center;
+    color: rgb(34, 234, 248);
+    background-color: #616155;
+    font-weight: bold;
+}
+#contenedor{
+    display:table;
+    margin: 5 auto;
+    color: rgb(237, 238, 243);
+   
+}
+header{
+    
+    color: rgb(251, 255, 10);
+    font-size: 150% 
+   
+    
+}
+button{
+    justify-content: left;
+    display: table-cell;
+    width: 20%;
+    margin:0.5555em;
+    font-size: 1.125em; 
+    font-weight:bold;
+    padding: 0.5555em;
+    color:#5e0342;
+    border:10px solid #e09201;
+    background: #08e600;
+    border-radius: 3.5555em;
+   
+}
+#dev{
+    text-align: center; 
+
+}
+
+button:hover{
+    background: #c02d1a;
+    color:#50fc0d;
+}

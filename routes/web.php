@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/vistas', function () {
+    return view('vistas');
+});
+Route::get('/materials', function () {
+    return view('materialporlanguage');
+});
+Route::get('/cantidad', function () {
+    return view('cantidadleida');
+});
+

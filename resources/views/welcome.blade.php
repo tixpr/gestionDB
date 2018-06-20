@@ -24,14 +24,33 @@
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
+                var contenido =document.getElementById('s1')
 				majax.get(
 					'/api/materials',
 					{
 						valid: function(r){
 							console.info(r);
-                            for(i=0;i<r.data.length;i++){
-                                document.getElementById('s1').innerHTML=document.getElementById('s1').innerHTML+r.data[i].titulo+r.data[i].idioma+r.data[i].tipo+"<br>";
-                            }
+                            for(var i=0, n=r.data.length;i<n;i++)
+{
+                            var temp = document.createElement('l1');
+                            var contenedor = document.createElement('div');
+                            var titulo = document.createElement('h4');
+                            var resumen = document.createElement('p');
+                            var tipo = document.createElement('span');
+                            var idioma = document.createElement('span');
+                            titulo.innerHTML='Titulo :' +r.data[i].titulo+"</br>";
+                            resumen.innerHTML='Resumen :' +r.data[i].resumen+"</br>";
+                            tipo.innerHTML='Tipo :' +r.data[i].tipo+"</br>";
+                            idioma.innerHTML='Idioma :' +r.data[i].idioma+"</br>";
+                            contenedor.appendChild(titulo);
+                            contenedor.appendChild(resumen);
+                            contenedor.appendChild(tipo);
+                            contenedor.appendChild(idioma);
+                            temp.appendChild(contenedor);
+                            contenido.appendChild(temp);
+}
+
+
 						},
 						error: function(error){
 							console.error(error);
@@ -56,7 +75,7 @@
                         console.info(r);
                         ds2 = document.getElementById('s1');
 							r.data.forEach(function(s){
-								ds2.innerHTML = ds2.innerHTML + " Idioma: "+ s.idioma;
+								ds2.innerHTML = ds2.innerHTML + " IDIOMA: "+ s.idioma+"</br>";
 							});
                     },
                      error :function(error){
@@ -84,7 +103,7 @@
                         console.info(r);
                         ds3 = document.getElementById('s1');
 							r.data.forEach(function(s){
-								ds3.innerHTML = ds3.innerHTML + " TIPO: "+ s.tipo;
+								ds3.innerHTML = ds3.innerHTML + " TIPO: "+ s.tipo+"</br>"   ;
 							});
                     },
                     error: function(error){
