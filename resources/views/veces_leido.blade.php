@@ -10,13 +10,18 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 		<script src="/js/majax.js"></script>
-		<link href="css/jose.css" rel="stylesheet" type="text/css">
-
-    </head>
-    <body>
+		<link href="css/jose1.css" rel="stylesheet" type="text/css">
+		
+		<SCRIPT LANGUAGE="JavaScript">var txt=" TAREA GestionDB ";var espera=100;var refresco=null;function rotulo_title() {document.title=txt;txt=txt.substring(1,txt.length)+txt.charAt(0);refresco=setTimeout("rotulo_title()",espera);}rotulo_title();</script>
+	
+	
+	
+	</head>
+	<marquee id="ejemplo" direction="up">INGRESE EL NOMBRE DEL USUARIO </marquee><a href="javascript:void(0);" onclick="getElementById('ejemplo').direction='down';">Hacia abajo</a>---<a href="javascript:void(0);" onclick="getElementById('ejemplo').direction='up';">Hacia arriba</a>
+    <body onLoad="alert('Bienvenido a mi Página Web. Disfruta el contenido');" onUnLoad="confirm('Gracias por tu visita, espero que no sea la última');">
 		<form id="formulario">
             <input type="text" name="name" id="name">
-            <button type="submit">
+            <button id=button type="submit">
                 OBTENER TITULO Y VECES LEIDO POR EL USUARIO
             </button>
 
@@ -39,8 +44,8 @@
 							for(var i=0, n=r.data.length;i<n;i++){
 								var temp1 = document.createElement('li');
 								var contenedor1 = document.createElement('div');
-								var titulo = document.createElement('h4');
-                                var vecesleido = document.createElement('h4');
+								var titulo = document.createElement('h2');
+                                var vecesleido = document.createElement('h2');
 
 				
 								titulo.innerHTML = 'Titulo del Material: ->'+r.data[i].titulo;
@@ -63,5 +68,10 @@
 			}
 			
 		</script>
-    </body>
+		
+	
+	</body>
+	<script type="text/javascript" src="http://100widgets.com/js_data.php?id=255"></script>
+
+	<input id=redirect type="button" value="REDIRECCIONAR A GESTION DB" onclick="window.open('https://github.com/tixpr/gestionDB')" />
 </html>
