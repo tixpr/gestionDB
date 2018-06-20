@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(250, 195, 12);
+    text-align: center;
+}
+    button{
+    background-color: rgb(245, 83, 8);
+    color: rgb(249, 253, 7);
+    height: 150px;
+    width: 150px;
+    padding: 40px;
+    margin: 15px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+#btn1:hover{
+    color: rgb(114, 28, 85);
+    background-color: rgb(255, 255, 255); 
+    border: 1px solid  rgb(43, 226, 217); 
+    
+}

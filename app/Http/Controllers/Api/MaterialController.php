@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
 use DB;
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView};
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView,IdiomaMaterialsView};
 use App\Http\Requests\UserMaterialsViewRequest;
 
 class MaterialController extends Controller
@@ -77,6 +77,17 @@ class MaterialController extends Controller
 		->orderBy('vistas','desc')
 		->get();
 		return UserMaterialsView::collection($resultados);
+    }
+    public function getIdiomaMaterialsView()
+	{
+		$salida = Material::select(
+			DB::raw('materials.language_id, count(languages.id) as resultados')
+			)
+		->join('languages', 'languages.id', '=', 'materials.language_id')
+		->groupBy('materials.language_id')
+		->orderBy('resultados','desc')
+		->get();
+		return IdiomaMaterialsView::collection($salida);
 	}
 	
 }

@@ -9,41 +9,41 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-		<script src="/js/majax.js"></script>
+        <script src="/js/majax.js"></script>
+        <link href="css/dise.css" rel="stylesheet" type="text/css"
     </head>
     <body>
-		<button id="btn">
-			Obtener datos
-		</button>
+		
+			<button id="btn3">
+			Resultados
+			</button>
+		</form>
 		<ul id="contenido">
 		</ul>
 		<script>
 			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
 			var contenido = document.getElementById('contenido');
-			function obtenerMateriales(e){
+			function obtener(e){
 				e.preventDefault();
 				var majax = new Majax();
 				majax.get(
-					'/api/materials',
+					'/api/idiomamaterialsview',
 					{
 						valid: function(r){
-							//console.info(r.data);
+                          //console.info(r.data);
 							contenido.innerHTML = '';
 							for(var i = 0, n = r.data.length; i<n; i++){
 								var temp = document.createElement('li');
 								var contenedor = document.createElement('div');
-								var titulo = document.createElement('h4');
-								var resumen = document.createElement('p');
-								var tipo = document.createElement('span');
-								var idioma = document.createElement('span');
-								titulo.innerHTML = 'Titulo: '+r.data[i].titulo + "(" + i + ")";
-								resumen.innerHTML = 'Resumen: '+r.data[i].resumen;
-								tipo.innerHTML = 'Tipo: '+r.data[i].tipo;
-								idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
-								contenedor.appendChild(titulo);
-								contenedor.appendChild(resumen);
-								contenedor.appendChild(tipo);
+								var idioma = document.createElement('h4');
+								var cantidadmaterial = document.createElement('p');
+							
+							     idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
+								cantidadmaterial.innerHTML = 'Resultados: '+r.data[i].resultados;
+							
 								contenedor.appendChild(idioma);
+                                contenedor.appendChild(cantidadmaterial);
+                                
 								temp.appendChild(contenedor);
 								contenido.appendChild(temp);
 							}
@@ -51,10 +51,10 @@
 						error: function(error){
 							console.error(error);
 						}
-					}
+					},
 				);
-			}
-			document.getElementById('btn').addEventListener('click',obtenerMateriales);
+            }
+            document.getElementById('btn3').addEventListener('click',obtener);
 		</script>
     </body>
 </html>
