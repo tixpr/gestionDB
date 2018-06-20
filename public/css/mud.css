@@ -1,4 +1,5 @@
 body{
+   text-align:center;
     background-color: rgb(172, 168, 159);
 }
 
@@ -6,17 +7,19 @@ body{
     display:flex;
     flex-direction:column;
     justify-content: center;
+    border-style: dotted;
+    
+    
 }
 #btn{
+   
     margin: 50px;
     height: 50px;
     border-radius:  100px;
     padding: 5px;
     border: 1px solid rgb(6, 31, 6);
     color: rgb(3, 0, 5);
-    
     background-color: rgb(155, 216, 139);
-    
 }
 #btn1{
     margin: 50px;
@@ -34,3 +37,7 @@ body{
     color: rgb(3, 0, 5);
     background-color: rgb(155, 216, 139);
 }
+button:hover{
+    background:#f2f2f2;
+    color:#0489b1;
+}   

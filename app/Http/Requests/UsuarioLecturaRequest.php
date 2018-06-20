@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserMaterialsViewRequest extends FormRequest
+class UsuarioLecturaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,9 @@ class UserMaterialsViewRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
-            'user_id'	=>	'required|exists:users,id'
+            'name'	=>	'required|exists:users,name'
         ];
     }
 }

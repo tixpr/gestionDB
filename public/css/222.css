@@ -1,0 +1,24 @@
+body{
+ text-align:center;
+ background-color: rgb(172, 168, 159);
+}
+
+#contenido{
+ display:flex;
+ flex-direction:column;
+ justify-content: center;
+ border-style: dotted;
+}
+button{
+    margin: 100px;
+    height: 100px;
+    color:#000000;
+    background: #8d76e2;
+    border-radius: 100px;
+
+}
+
+#button:hover{
+ background:#f2f2f2;
+ color:#0489b1;
+}   

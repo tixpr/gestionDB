@@ -17,3 +17,9 @@ Route::get('/', function () {
 Route::get('/vistas', function () {
     return view('vistas');
 });
+Route::get('/cantidad_mat', function () {
+    return view('cantidadmat');
+});
+Route::get('/nro_leido', function () {
+    return view('nro_leido');
+});

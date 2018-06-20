@@ -17,6 +17,12 @@
 		<button id="btn">
 			Obtener datos
 		</button>
+		<button id="btn1">
+			Obtener Idioma
+		</button>
+		<button id="btn2">
+			Obtener Tipo de Material
+		</button>
 		<ul id="contenido">
 		</ul>
 		<script>
@@ -72,7 +78,7 @@
 var temp1 = document.createElement('li');
 var contenedor1 = document.createElement('div');
 var idioma = document.createElement('span');
-idioma.innerHTML='Idioma: '+r.data[i].id;
+idioma.innerHTML='Idioma: '+r.data[i].tipo;
 contenedor1.appendChild(idioma);
 temp1.appendChild(contenedor1);
 contenido.appendChild(temp1);
@@ -114,5 +120,5 @@ contenido.appendChild(temp2);
 			document.getElementById('btn2').addEventListener('click',obtenertipoMateriales);
 		</script>
 		<div id="dis"></div>
-    </body>
+    </body> 
 </html>
