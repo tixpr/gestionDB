@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/vistas', function () {
     return view('vistas');
 });
+Route::get('/cantidad_leidas', function () {
+    return view('cantidad_leidas');
+});

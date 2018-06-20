@@ -1,9 +1,10 @@
 body{
-    background: #bbff1c;
-}
-#contenedor{
-    display:table;
-    margin: 0 auto;
+        color: #494848;
+        text-align:center;
+        -webkit-font-smoothing: antialiased;
+        width: 100%;
+        font-size:15px;
+        background:#FFDBAF
 }
 button{
     display: inline-block;
@@ -19,7 +20,24 @@ button{
     -ms-border-radius: 200px;
     border-radius: 200px;
 }
+submit{
+    border: 1px solid #3c3c3c;
+	display: inline-block;
+	min-width: 100px;
+	padding: .9em;
+	height: 50px;
+	text-align: center;
+	color: #3c3c3c;
+	font-style: normal;
+	letter-spacing: 1px;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 300;
+	border-radius:0;
+	margin-top:30px;
+}
 button:hover{
     background: #f2f2f2;
     color:#0489b1;
 }
+
