@@ -12,10 +12,10 @@ class MaterialType extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+    
     public function toArray($request)
     {
-        return [
-            'tipo' => $this->type
-        ];
+        return 	$this->type;
+        
     }
 }

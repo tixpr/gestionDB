@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Api;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Language;
 use App\Http\Resources\Api\Language as LanguageResource;
-
 class LanguageController extends Controller
 {
     /**
@@ -17,8 +14,8 @@ class LanguageController extends Controller
     public function index()
     {
         return LanguageResource::collection(Language::orderBy('id','asc')->get());
+        
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +25,6 @@ class LanguageController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,7 +35,6 @@ class LanguageController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -50,7 +45,6 @@ class LanguageController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -61,7 +55,6 @@ class LanguageController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -73,7 +66,6 @@ class LanguageController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

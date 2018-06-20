@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Api;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\MaterialType;
 use App\Http\Resources\Api\MaterialType as MaterialTypeResource;
-
 class MaterialTypeController extends Controller
 {
     /**
@@ -16,9 +13,8 @@ class MaterialTypeController extends Controller
      */
     public function index()
     {
-        return MaterialTypeResource::collection(MaterialType::orderBy('type','asc')->get());
+        return MaterialTypeResource::collection(MaterialType::orderBy('id','asc')->get());
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +24,6 @@ class MaterialTypeController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,7 +34,6 @@ class MaterialTypeController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -50,7 +44,6 @@ class MaterialTypeController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -61,7 +54,6 @@ class MaterialTypeController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -73,7 +65,6 @@ class MaterialTypeController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -84,4 +75,5 @@ class MaterialTypeController extends Controller
     {
         //
     }
+    
 }

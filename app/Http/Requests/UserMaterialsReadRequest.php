@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserMaterialsViewRequest extends FormRequest
+class UserMaterialsReadRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,8 @@ class UserMaterialsViewRequest extends FormRequest
      */
     public function rules()
     {
-        // digo que el campo user_id es requerido
         return [
-            'user_id' => 'required|exists:users,id'
+            'name' => 'required|exists:users,name'
         ];
     }
 }
