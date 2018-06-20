@@ -15,7 +15,12 @@
     </head>
     <body>
 		<form id="formulario">
-            <input type="search" name="user_name" placeholder="Buscar Nombres..." size="30">
+		<select name="user_name" id="user_name">
+			<option value="">---Escoja un Nombre---</option>
+			@foreach($users as $usuario)
+				<option value="{{$usuario->id}}">{{ $usuario->name }}</option>
+			@endforeach
+		</select>
             <button type="submit">
                 OBTENER LECTURAS
             </button>

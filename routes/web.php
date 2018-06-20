@@ -23,3 +23,4 @@ Route::get('/leidos', function () {
 Route::get('/cantidad', function () {
     return view('cantidad');
 });
+Route::resource('leidos', 'UserNameController');
