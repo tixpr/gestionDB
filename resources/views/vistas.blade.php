@@ -22,7 +22,11 @@
 		</ul>
 		<script>
 			var formulario = document.getElementById('formulario');
+<<<<<<< HEAD
 			Majax.setConfig(2, 'pblje4mwZ3dVsLFHF9cooNTYmTL084wgPkPO2rWw','');
+=======
+			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+>>>>>>> 722a0b457003626814e11f794d3ef6d621c4d277
 			var contenido = document.getElementById('contenido');
 			formulario.addEventListener('submit',obtenerDatos,false);
 			function obtenerDatos(e){
