@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
-use App\Http\Resources\Api\Materials as MaterialResource;
+use DB;
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView,LanguageMaterialsView};
+use App\Http\Requests\UserMaterialsViewRequest;
 
 class MaterialController extends Controller
 {
@@ -18,7 +20,6 @@ class MaterialController extends Controller
     {
         return MaterialResource::collection(Material::orderBy('title','asc')->get());
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -42,7 +43,6 @@ class MaterialController extends Controller
         //
     }
 
-
     /**
      * Update the specified resource in storage.
      *
@@ -64,5 +64,32 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         //
+	}
+
+	public function getUserMaterialsView(UserMaterialsViewRequest $request)
+	{
+		$resultados = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as vistas')
+			)
+		->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+		->where('materials.user_id',$request->user_id)
+		->groupBy('materials.title')
+		->orderBy('vistas','desc')
+		->get();
+		return UserMaterialsView::collection($resultados);
     }
+    public function getLanguageMaterialsView()
+	{
+		$resultados = Material::select(
+			DB::raw('materials.language_id, count(languages.id) as resultados')
+			)
+		->join('languages', 'languages.id', '=', 'materials.language_id')
+		->groupBy('materials.language_id')
+		->orderBy('resultados','desc')
+		->get();
+		return LanguageMaterialsView::collection($resultados);
+    }
+    
+    
+	
 }

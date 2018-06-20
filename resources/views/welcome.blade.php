@@ -9,105 +9,52 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <script src="/js/majax.js">
-        </script>
+		<script src="/js/majax.js"></script>
     </head>
     <body>
-        <button id="btn1">
-            Obtener Datos
-        </button>
-        <button id="btn2">
-            Obtener Idiomas
-        </button>
-        <button id="btn3">
-            Obtener Material
-        </button>
-        <button id="btn4">
-            Obtener Usuario
-        </button>
-        <script>
-            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
-            function obetenerMateriales(e) {
-                e.preventDefault();
-                var majax= new Majax();
-                majax.get(
-                    '/api/materials',
-                    {
-                        valid:function (r) {
-                            console.info(r);
-                            document.getElementById('ver1').innerHTML=JSON.stringify(r);
-                        },
-                        error: function(error){
-                            console.error(error);
-                        }
-                    }
-                );
-            }
-            document.getElementById('btn1').addEventListener('click',obetenerMateriales);
-        </script>
-        <script>
-            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
-            function obetenerIdioma(e) {
-                e.preventDefault();
-                var majax= new Majax();
-                majax.get(
-                    '/api/languages',
-                    {
-                        valid:function (r) {
-                            console.info(r);
-                            document.getElementById('ver2').innerHTML=JSON.stringify(r);
-                        },
-                        error: function(error){
-                            console.error(error);
-                        }
-                    }
-                );
-            }
-            document.getElementById('btn2').addEventListener('click',obetenerIdioma);
-        </script>
-        <script>
-            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
-            function obetenerTipoMaterial(e) {
-                e.preventDefault();
-                var majax= new Majax();
-                majax.get(
-                    '/api/materialtypes',
-                    {
-                        valid:function (r) {
-                            console.info(r);
-                            document.getElementById('ver3').innerHTML=JSON.stringify(r);
-                        },
-                        error: function(error){
-                            console.error(error);
-                        }
-                    }
-                );
-            }
-            document.getElementById('btn3').addEventListener('click',obetenerTipoMaterial);
-        </script>
-        <script>
-            Majax.setConfig(2,'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
-            function obetenerUsuarios(e) {
-                e.preventDefault();
-                var majax= new Majax();
-                majax.get(
-                    '/api/user',
-                    {
-                        valid:function (r) {
-                            console.info(r);
-                            document.getElementById('ver4').innerHTML=JSON.stringify(r);
-                        },
-                        error: function(error){
-                            console.error(error);
-                        }
-                    }
-                );
-            }
-            document.getElementById('btn4').addEventListener('click',obetenerUsuarios);
-        </script>
-        <div id="ver1"></div>
-        <div id="ver2"></div>
-        <div id="ver3"></div>
-        <div id="ver4"></div>
+		<button id="btn">
+			Obtener datos
+		</button>
+		<ul id="contenido">
+		</ul>
+		<script>
+			Majax.setConfig(2, 'GHChy1fxGnY2RjsiI341ojgdqhyRZqqs9PsSPLTE','');
+			var contenido = document.getElementById('contenido');
+			function obtenerMateriales(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/materials',
+					{
+						valid: function(r){
+							//console.info(r.data);
+							contenido.innerHTML = '';
+							for(var i = 0, n = r.data.length; i<n; i++){
+								var temp = document.createElement('li');
+								var contenedor = document.createElement('div');
+								var titulo = document.createElement('h4');
+								var resumen = document.createElement('p');
+								var tipo = document.createElement('span');
+								var idioma = document.createElement('span');
+								titulo.innerHTML = 'Titulo: '+r.data[i].titulo + "(" + i + ")";
+								resumen.innerHTML = 'Resumen: '+r.data[i].resumen;
+								tipo.innerHTML = 'Tipo: '+r.data[i].tipo;
+								idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(resumen);
+								contenedor.appendChild(tipo);
+								contenedor.appendChild(idioma);
+								temp.appendChild(contenedor);
+								contenido.appendChild(temp);
+							}
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('btn').addEventListener('click',obtenerMateriales);
+		</script>
     </body>
 </html>
