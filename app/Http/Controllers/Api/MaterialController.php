@@ -78,5 +78,16 @@ class MaterialController extends Controller
 		->get();
 		return UserMaterialsView::collection($resultados);
 	}
-	
+    
+    public function getLenguajeMaterialsView(UserMaterialsViewRequest $request)
+	{
+		$listalenguaje = Material::select(
+			DB::raw('materials.language_id, count(languages.id) as cantidad')
+			)
+		->join('languages', 'languages.id', '=', 'materials.language_id')
+		->groupBy('materials.language_id')
+		->orderBy('cantidad','desc')
+		->get();
+		return UserMaterialsView::collection($listalenguaje);
+	}
 }
