@@ -13,50 +13,57 @@
 		<script src="/js/majax.js"></script>
     </head>
     <body>
-		<button id="btn">
-			Obtener datos
-		</button>
+		<form id="formulario">
+			<input type="number" name="language_id" id="language_id">
+			<button type="submit">
+				Obtener Cantidad de Materiales por Idioma
+			</button>
+		</form>
 		<ul id="contenido">
 		</ul>
 		<script>
-			Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+			var formulario = document.getElementById('formulario');
+			Majax.setConfig(2, 'u8eZrTBppnU4JXdPUymRDHynS5KApTvMV4rTYni3','');
 			var contenido = document.getElementById('contenido');
-			function obtenerMateriales(e){
+			formulario.addEventListener('submit',obtenerDatos,false);
+			function obtenerDatos(e){
 				e.preventDefault();
 				var majax = new Majax();
 				majax.get(
-					'/api/materials',
+					'/api/language_materials_quantity',
 					{
 						valid: function(r){
-							//console.info(r.data);
+							console.info(r.data);
 							contenido.innerHTML = '';
+
 							for(var i = 0, n = r.data.length; i<n; i++){
 								var temp = document.createElement('li');
 								var contenedor = document.createElement('div');
-								var titulo = document.createElement('h4');
-								var resumen = document.createElement('p');
-								var tipo = document.createElement('span');
-								var idioma = document.createElement('span');
-								titulo.innerHTML = 'Titulo: '+r.data[i].titulo + "(" + i + ")";
-								resumen.innerHTML = 'Resumen: '+r.data[i].resumen;
-								tipo.innerHTML = 'Tipo: '+r.data[i].tipo;
-								idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
-								contenedor.appendChild(titulo);
-								contenedor.appendChild(resumen);
-								contenedor.appendChild(tipo);
-								contenedor.appendChild(idioma);
+								var Idioma = document.createElement('h4');
+								var Libros = document.createElement('p');
+								/*var leidos = document.createElement('span');*/
+								
+								Idioma.innerHTML = 'Idioma: '+r.data[i].Idioma + "(" + i + ")";
+								Libros.innerHTML = 'Titulo: '+r.data[i].Libros;
+								
+								contenedor.appendChild(Idioma);
+								contenedor.appendChild(Libros);
+								
 								temp.appendChild(contenedor);
 								contenido.appendChild(temp);
 							}
+
 						},
 						error: function(error){
 							console.error(error);
 						}
+					},
+					{
+						type: 'form',
+						data: formulario
 					}
 				);
 			}
-			document.getElementById('btn').addEventListener('click',obtenerMateriales);
-
 		</script>
     </body>
 </html>

@@ -1,14 +1,14 @@
 body{
     background: darksalmon;
 }
-#contenedor{
+#formulario{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
 
 }
-.boton{
+#botoncito{
     width: 300px;
     margin:0.5555em;
     font-size: 1.125em; 
@@ -19,7 +19,8 @@ body{
     border-radius: 0.5555em;
 }
 
-.boton:hover{
+·botoncito:hover{
     background: #33FF54;
     color:#F39C12;
 }
+
