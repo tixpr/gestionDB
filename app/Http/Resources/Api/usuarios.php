@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Api;
+namespace App\Http\Resources\api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Language extends JsonResource
+class usuarios extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,7 +15,9 @@ class Language extends JsonResource
     public function toArray($request)
     {
         return [
-            'Idioma'    => $this->language
+            'tema'	=>$this->title,
+			'usuarios'=>$this->name,
+			'lecturas'=>$this->lecturas
         ];
     }
 }
