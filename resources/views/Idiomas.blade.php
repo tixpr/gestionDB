@@ -13,9 +13,9 @@
     </head>
     <body>
 		<form id="formulario">
-			<input type="number" name="user_id" id="user_id">
+			<input type="number" name="language_id" id="language_id">
 			<button type="submit">
-				Obtener
+				consultar
 			</button>
 		</form>
 		<ul id="contenido">
@@ -24,22 +24,21 @@
 			var formulario = document.getElementById('formulario');
 			Majax.setConfig(2, 'GB9yf1QBKn5FrSl248gsmocb9XOv1KwoyILFjAru','');
 			var contenido = document.getElementById('contenido');
-			formulario.addEventListener('submit',obtenerDatos,false);
-			function obtenerDatos(e){
+			formulario.addEventListener('submit',obtenerIdiomamAter,false);
+			function obtenerIdiomamAter(e){
 				e.preventDefault();
 				var majax = new Majax();
+                
+
 				majax.get(
-					'/api/user_materials_view',
+					'/api/lang_materials_view',
 					{
 						valid: function(r){
 							console.info(r.data);
-							
-
-							contenido.innerHTML = '';
-					
-
+                           contenido.innerHTMLk = '';
 						},
 						error: function(error){
+							console.error(error);
 						
 						}
 					},
