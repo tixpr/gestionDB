@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/vistas', function () {
+    return view('vistas');
+});
+Route::get('/lenguajes', function () {
+    return view('lenguajes');
+});
