@@ -1,25 +1,115 @@
-html {
-  position: relative;
-  min-height: 100%;
+html,
+body{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-body {
-  margin-bottom: 100px;
-} 
-body > .container {
-  padding: 100px 20px 0;
+#principal{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #1d1d1d;
+  height: 54px;
+  border-bottom: 3px solid #FFB300;
 }
-code {
-  font-size: 80%;
+.titulo h1{
+  font-size: 30px;
+  color: #fff;
+  margin: 8px;
+}
+.menu{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.menu ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu ul li{
+  float: left;
+}
+.menu ul li a{
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 20px;
+}
+.menu ul li a:hover{
+  background-color: #FFB300;
+  color: #000;
+  border-bottom: 3px solid #1d1d1d;
+}
+.container{
+  margin: 20px;
+}
+h1{
+  padding: 0;
+  margin: 5px;
+  text-transform: uppercase;
+}
+h2{
+  padding: 0;
+  margin: 5px;
+  color: #3c3c3c;
+  font-size: 1.1em;
+}
+#formulario{
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #3c3c3c;
+}
+#formulario>label{
+  padding-right: 40px;
+}
+button{
+  border: 1px solid #1d1d1d; 
+  border-radius: 8px; 
+  background-color: #606060;
+  margin: 10px;
+  width: 90px;
+  height: 35px;
+  widows: 60px;
+  font-size: 0.7em;
+  color: #fff;
+  justify-content: center;
+}
+button:hover{
+  background-color: #1d1d1d;
 }
 #contenido{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
+  list-style: none;
+}
+#contenido>li{
+  border: 1px solid #FFB300;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  color: #3c3c3c;
+}
+#botones{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 #btn-1{
   background-color: #FFB300;
   color: #3c3c3c;
+  width: 220px;
+  height: 50px;
   margin: 20px;
   padding: 10px;
   border: 1px solid #3c3c3c;
@@ -28,11 +118,12 @@ code {
 #btn-1:hover{
   background-color: #3c3c3c;
   color: #FFB300;
-  text-transform: uppercase;
 }
 #btn-2{
   background-color: #606060;
   color: #FDD835;
+  width: 220px;
+  height: 50px;
   margin: 20px;
   padding: 10px;
   border: 1px solid #FDD835;
@@ -41,11 +132,12 @@ code {
 #btn-2:hover{
   background-color: #FDD835;
   color: #606060;
-  text-transform: uppercase;
 }
 #btn-3{
   background-color: #3c3c3c;
   color: #FFB300;
+  width: 220px;
+  height: 50px;
   margin: 20px;
   padding: 10px;
   border: 1px solid #FFB300;
@@ -54,7 +146,6 @@ code {
 #btn-3:hover{
   background-color: #FFB300;
   color: #3c3c3c;
-  text-transform: uppercase;
 }
 #vista{
   width: 100%;
