@@ -30,6 +30,7 @@
         
      </div> -->
      <form action="" id = "formulario">
+        <label class="labelName" for="name">Inserte el nombre completo del usuario</label>
         <input type="text" name="name" id="name">
         <button type="submit" id = "btnObtener">Obtener</button>
      

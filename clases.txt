@@ -1,5 +1,12 @@
-1) realizar un servicio que nos brinde los materiales mas leidos
+1) realizar un servicio que nos brinde los 10 primeros materiales mas leidos
 en el cual se mostraran los campos (titulo de material, cantidad de vistas que tiene)
 
-2) que nos obtenga de forma descendente la cantidad de materiales leiods por tipo de material 
+2) que nos obtenga de forma descendente la cantidad de materiales leidos por areas 
+en el cual se mostraran los campos (area, cantidad de vistas)
 
+
+
+
+
+select id , area from public.areas;
+php artisan make:resource Api/MaterialsViewsResource
