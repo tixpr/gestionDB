@@ -36,3 +36,6 @@ con su respectiva animacion y presentacion
 Obtener los materiales que esten por encima de la media de las lecturas de materiales
 mostrando los campos (titulo de material,tipo de material(nombre del tipo), area del material (nombre del area)
 y la cantidad de lecturas), con su respectiva animacion y presentacion.
+
+
+
