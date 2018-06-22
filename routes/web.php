@@ -23,3 +23,9 @@ Route::get('/veces_leido', function () {
 Route::get('/cant_mat', function () {
     return view('cantmat');
 });
+Route::get('/material_views', function () {
+    return view('materials_views');
+});
+Route::get('/areas_views', function () {
+    return view('top_areas');
+});

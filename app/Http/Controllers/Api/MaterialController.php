@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Material;
+use App\Models\{Material, Area};
 
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, CantidadMaterial};
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, CantidadMaterial, MaterialViews, AreaViews};
 use App\Http\Requests\UserMaterialsViewRequest;
 use App\Http\Requests\UserRequest;
 use DB;
@@ -108,5 +108,33 @@ class MaterialController extends Controller
 		->get();
 		return CantidadMaterial::collection($resultadoss);
     }
+    public function topViews()
+	{
+		$resultados = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as cantidad')
+			)
+		->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+	
+        ->groupBy('materials.title')
+        ->orderBy('cantidad','desc')
+		->limit(10)
+		->get();
+		return MaterialViews::collection($resultados);
+    }
+	public function topAreas()
+	{
+		$resultados = Area::select(
+			DB::raw('areas.area, count(user_view_materials.id) as cantidad')
+			)
+        ->join('material_areas', 'areas.id', '=', 'material_areas.area_id')
+        ->join('user_view_materials', 'user_view_materials.material_id', '=', 'material_areas.material_id')
+	
+        ->groupBy('areas.area')
+        ->orderBy('cantidad','desc')
+		//->limit(10)
+		->get();
+		return AreaViews::collection($resultados);
+    }
+	
 	
 }
