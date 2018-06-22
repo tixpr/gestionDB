@@ -57,7 +57,7 @@
                        temp3.classList.add('cantidad');
                        
                        temp4=document.createElement('span');
-                       temp4.innerHTML=data[i].cantidad_vistas;
+                       temp4.innerHTML=data[i].cantidad_vistas  ;
                        temp.appendChild(temp4);
                        temp.appendChild(temp3);
 
