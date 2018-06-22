@@ -57,17 +57,18 @@
                        temp3.classList.add('cantidad');
                        
                        temp4=document.createElement('span');
-                       temp4.innerHTML=data[i].cantidad_vistas";
+                       temp4.innerHTML=data[i].cantidad_vistas;
+                       temp.appendChild(temp4);
+                       temp.appendChild(temp3);
+
                        temp5 = document.createElement('div');
                        temp5.classList.add('item');
                         temp5.appendChild(temp2);
-                        
+                        temp5.appendChild(temp);
 
 
-                       temp2 =document.createElement('div');
-                       temp2.appendChild(temp);
                        temp =document.createElement('li');
-                       temp.appendChild(temp2);
+                       temp.appendChild(temp5);
                        contenido.appendChild(temp);
                        console.log('se ejecuto el for ');
 
