@@ -10,3 +10,10 @@ en el cual se mostraran los campos (area, cantidad de vistas)
 
 select id , area from public.areas;
 php artisan make:resource Api/MaterialsViewsResource
+
+
+Client ID: 1
+Client Secret: PvfwdZSMo1SwQS6FJhRbvBLCykaJ1MTP14iwuLFz
+Password grant client created successfully.
+Client ID: 2
+Client Secret: mSIhIZNNv4skowwlmVgPtFdUEklXdZGqwIFCIW6k

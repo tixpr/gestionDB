@@ -15,7 +15,7 @@ class MaterialViews extends JsonResource
     public function toArray($request)
     {
         return [
-            'titulo' => $this->title,
+            'title' => $this->title,
             'cantidad' => $this->cantidad
         ];
     }

@@ -130,7 +130,7 @@ class MaterialController extends Controller
         DB::raw('materials.title, count(user_view_materials.id) as cantidad')) 
         ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
         ->groupBy('materials.title')
-        ->orderBy('vistas', 'desc')
+        ->orderBy('cantidad', 'desc')
         ->limit(10)
         ->get();
           return MaterialViews::collection($resultados) ;
