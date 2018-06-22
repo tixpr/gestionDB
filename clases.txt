@@ -20,3 +20,19 @@ Client Secret: mSIhIZNNv4skowwlmVgPtFdUEklXdZGqwIFCIW6k
 
 
 subconsuilta de todos los leidos y que te dee una comparaciopn
+
+
+
+
+
+
+1)
+
+Obtener  los tipos de material con la cantidad de materiales leidos 
+en dicho tipó mostrando las columnas tipo de material y cantidad
+con su respectiva animacion y presentacion 
+
+2)
+Obtener los materiales que esten por encima de la media de las lecturas de materiales
+mostrando los campos (titulo de material,tipo de material(nombre del tipo), area del material (nombre del area)
+y la cantidad de lecturas), con su respectiva animacion y presentacion.

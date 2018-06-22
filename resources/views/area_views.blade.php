@@ -2,13 +2,13 @@
 @section('contenido')
 <button id ="obtenerAreas">obtener areas</button>
 
-<div class="container_dialog">
-        <dialog close class = "dialog" id = "dialog">
+<!--div class="container_dialog">
+        <dialog close class = "dialog" id = "dialog"-->
             <ol id="contenido">
 
             </ol>
-        </dialog>
-     </div>
+        <!--/dialog>
+     </div-->
 
 <script>
    Majax.setConfig(2,'mSIhIZNNv4skowwlmVgPtFdUEklXdZGqwIFCIW6k','');
@@ -31,8 +31,19 @@
 
 
    var boton2 = document.getElementById('obtenerAreas')
+   function animacion(){
+       var elementos = document.querySelectorAll('div.cantidad');
+       for (let i = 0,n=elementos.length; i < n; i++) {
+           var width = parseInt(elementos[i].getAttribute('data-p'));
+           var parent = elementos[i].parentElement;
+           var width = (porcentaje*parent.clientWidth)/100;
+           //elementos[i].setAttribute('width',width);
+           elementos[i].style.width=(width+'px');
+           
+       }
+   }
    boton2.addEventListener('click',function(e){
-    dialog.setAttribute('open','true')
+    //dialog.setAttribute('open','true')
       e.preventDefault();
        var majax = new Majax();
        contenido = document.getElementById('contenido');
@@ -47,6 +58,8 @@
                     temp4 = null,
                     temp5= null;
                    contenido.innerHTML="";
+                   var max = data[0].cantidad
+                   porcentaje = 0;
                    for(var i = 0, n = data.length; i<n;i++){
                        temp = document.createElement('div');
                        temp.classList.add('contenedor');
@@ -54,8 +67,10 @@
                        temp2.classList.add('title');
                        temp2.innerHTML=data[i].area ;
                        temp3 = document.createElement('div');
-                       temp3.classList.add('cantidad');
-                       
+                       temp3.classList.add('cantidad','progress');
+                       porcentaje=(data[i].cantidad/max)*100;
+                       temp3.setAttribute('data-p',porcentaje);
+                       temp3.style.width=porcentaje+'%';
                        temp4=document.createElement('span');
                        temp4.innerHTML=data[i].cantidad_vistas  ;
                        temp.appendChild(temp4);
@@ -73,6 +88,7 @@
                        console.log('se ejecuto el for ');
 
                    }
+                   setTimeout(animacion,500);
                   
                },
                error:function(error){
