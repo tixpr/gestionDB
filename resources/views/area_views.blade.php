@@ -42,11 +42,28 @@
                 console.info(r);
                    var data = r.data,
                     temp  = null,
-                    temp2 = null;
+                    temp2 = null,
+                    temp3 = null,
+                    temp4 = null,
+                    temp5= null;
                    contenido.innerHTML="";
                    for(var i = 0, n = data.length; i<n;i++){
-                       temp = document.createElement('span');
-                       temp.innerHTML=data[i].area + "("+data[i].cantidad_vistas+")";
+                       temp = document.createElement('div');
+                       temp.classList.add('contenedor');
+                       temp2 = document.createElement('h3');
+                       temp2.classList.add('title');
+                       temp2.innerHTML=data[i].area ;
+                       temp3 = document.createElement('div');
+                       temp3.classList.add('cantidad');
+                       
+                       temp4=document.createElement('span');
+                       temp4.innerHTML=data[i].cantidad_vistas";
+                       temp5 = document.createElement('div');
+                       temp5.classList.add('item');
+                        temp5.appendChild(temp2);
+                        
+
+
                        temp2 =document.createElement('div');
                        temp2.appendChild(temp);
                        temp =document.createElement('li');
