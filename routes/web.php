@@ -21,4 +21,5 @@ Route::get('/vistas', function () {
 });
 
 Route::resource('cantidad','LanguageController');
+Route::resource('vistas','UsuariosController');
 

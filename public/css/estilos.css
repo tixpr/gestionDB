@@ -43,7 +43,7 @@ form{
 .select {
     position: relative;
     border: 0.0625em solid #ccc;/*1-16*/
-    width: 7.5em;/*120-16*/
+    width: 15em;/*120-16*/
     overflow: hidden;
     background-color: #fff;
     margin:0 auto;
@@ -53,7 +53,7 @@ form{
       content: '';
       position: absolute;
       right: 0.3125em;/*5-16*/
-      top: 0.4373em;/*7-16*/
+      top: 0.6573em;/*7-16*/
       width: 0;
       height: 0;
       border-style: solid;
