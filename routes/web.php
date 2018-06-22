@@ -23,3 +23,10 @@ Route::get('/cantidad_mat', function () {
 Route::get('/nro_leido', function () {
     return view('nro_leido');
 });
+Route::get('/top_material', function () {
+    return view('material_view');
+});
+Route::get('/top_area', function () {
+    return view('top_areas');
+});
+ 

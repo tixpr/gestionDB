@@ -24,7 +24,7 @@ class UserMaterialsViewRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'	=>	'required|exists:users,id'
+       'user_id'=>'required|exist:users,id'
         ];
     }
 }

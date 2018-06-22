@@ -15,7 +15,7 @@
     <body>
 	
 		<button id="btn3">
-			OBTENER NUEMERO DE MATERIALES
+			OBTENER NUMERO DE MATERIALES
 		</button>
 		
 		<ul id="contenido">
