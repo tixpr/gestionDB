@@ -17,10 +17,14 @@ Route::get('/', function () {
 Route::get('/vistas', function () {
     return view('vistas');
 });
-Route::get('/leidos', function () {
-    return view('leidos');
-});
 Route::get('/cantidad', function () {
     return view('cantidad');
 });
-Route::resource('leidos', 'UserNameController');
+Route::resource('vistas', 'UserNameController');
+
+Route::get('/topViews', function () {
+    return view('topViews');
+});
+Route::get('/areaViews', function () {
+    return view('areaViews');
+});

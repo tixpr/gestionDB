@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="/css/styles.css">
 
     </head>
-    <body>
+    <body class="botones">
        <div id="contenido">
        <ul id="botones">
             <b id="btn1"><li>MATERIALES</li></b>

@@ -17,7 +17,7 @@ class UserNameController extends Controller
         $users=DB::table('users')
         ->select('id', 'name')
         ->get();
-        return view("leidos", ["users"=>$users]);
+        return view("vistas", ["users"=>$users]);
     }
 
     /**

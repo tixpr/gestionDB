@@ -1,23 +1,14 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-	<header>
-		<h1><marquee behavior="alternate">SERVICIO DE CONSULTA</marquee>
-	</header>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-        <script src="/js/majax.js"></script>
-        <link rel="stylesheet" href="/css/styles.css">
-
-    </head>
-    <body>
-        <form id="formulario">
-            <input type="number" name="user_id" id="user_id" placeholder="Buscar Id..." size="30">
+@extends('especial')
+@section('content')
+<form id="formulario">
+		<select name="user_id" id="user_id">
+			<option id="o1" value="">---Escoja un Nombre---</option>
+			@foreach($users as $usuario)
+				<option value="{{$usuario->id}}">{{ $usuario->name }}</option>
+			@endforeach
+		</select>
             <button type="submit">
-                OBTENER
+                OBTENER LECTURAS
             </button>
         </form>
        <div id="contenido">
@@ -59,5 +50,4 @@
 				);
 			}
 		</script>
-    </body>
-</html>
+@endsection

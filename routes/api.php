@@ -35,5 +35,8 @@ Route::middleware('cors')->group(function(){
     Route::get('languages_material','Api\MaterialController@getLanguage');
 });
 Route::middleware('cors')->group(function(){
-    Route::get('users_material','Api\UserController@getRead');
+    Route::get('material_views','Api\MaterialController@topViews');
+});
+Route::middleware('cors')->group(function(){
+    Route::get('area_views','Api\MaterialController@topAreas');
 });

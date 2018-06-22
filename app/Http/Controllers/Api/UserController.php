@@ -67,17 +67,4 @@ class UserController extends Controller
     {
         //
     }
-    public function getRead(UserMaterialsReadRequest $request)
-	{   
-		$resultadoss = User::select(
-			DB::raw('materials.title, count(user_view_materials.id) as vistas')
-			)
-		->join('materials', 'materials.user_id', '=', 'users.id')
-        ->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
-        ->where('users.name',$request->user_name)
-		->groupBy('materials.title')
-		->orderBy('vistas','desc')
-		->get();
-        return UserMaterialsView::collection($resultadoss);
-    }
 }
