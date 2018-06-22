@@ -24,11 +24,30 @@
                     '/api/materials',
                     {
                         valid:function (r) {
+                            console.info(r);
                             document.getElementById('s1').innerHTML = null;
-                            ds1 =   document.getElementById('s1');
-                            r.data.forEach(function (s) {
-                                ds1.innerHTML = ds1.innerHTML +"<div class='tarjeta1'>"+"<h1 id='libros'>"+s.titulo+"</h1>"+"<h2>"+s.idioma+"</h2>"+"<h2>"+s.resumen+"</h2>"+"</div>";
-                            });
+                            //ds1 =   document.getElementById('s1');
+                            /*r.data.forEach(function (s) {
+                                ds1.innerHTML = ds1.innerHTML +"<div class='tarjeta1'>"+"<h1 id='libros'>"+"Titulo: "+s.titulo+"</h1>"+"<h2>"+"Idioma: "+s.idioma+"</h2>"+"<h2>"+"Resumen: "+s.resumen+"</h2>"+"<h2>"+"Tipo : "+s.tipo+"</h2>"+"</div>";
+                            });*/
+                            var contenido = document.getElementById('s1');
+                            for (var i=0,n=r.data.length;i<n;i++){
+                                var contenedor = document.createElement('div');
+                                var titulo = document.createElement('h1');
+                                var resumen = document.createElement('h2');
+                                var tipo = document.createElement('h2');
+                                var idioma = document.createElement('h2');
+                                titulo.innerHTML = 'Titulo: '+ r.data[i].titulo+"("+i+")";
+                                resumen.innerHTML = 'Resumen : '+ r.data[i].resumen;
+                                tipo.innerHTML = 'Tipo : '+ r.data[i].tipo;
+                                idioma.innerHTML = 'Idioma: '+ r.data[i].idioma;
+                                contenido.appendChild(contenedor).setAttribute('class','tarjeta1');
+                                contenedor.appendChild(titulo);
+                                contenedor.appendChild(resumen);
+                                contenedor.appendChild(tipo);
+                                contenedor.appendChild(idioma);
+
+                            }
                         },
                         error: function(error){
                             console.error(error);

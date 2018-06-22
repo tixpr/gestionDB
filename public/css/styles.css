@@ -59,7 +59,7 @@ section{
 #s1>div{
     display: flex;
     width: 350px;
-    height: 100px;
+    height: 150px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -86,6 +86,7 @@ section{
 .tarjeta1{
     color: forestgreen;
     border-left: 2px solid forestgreen;
+    word-break: break-all;
 }
 .tarjeta2{
     color: dodgerblue;
