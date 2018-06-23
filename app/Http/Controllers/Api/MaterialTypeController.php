@@ -1,9 +1,10 @@
 <?php
 namespace App\Http\Controllers\Api;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\MaterialType;
-use App\Http\Resources\Api\MaterialType as MaterialTypeResource;
+use App\Http\Resources\Api\{MaterialType as MaterialTypeResource,MaterialTypesQuantity};
 class MaterialTypeController extends Controller
 {
     /**
@@ -74,6 +75,16 @@ class MaterialTypeController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function materialRead(){
+        $resultados = MaterialType::select(
+            DB::raw('material_types.type, count(user_view_materials.material_id) as cantidad')
+        )
+        ->join('user_view_materials','user_view_materials.material_id','=','material_types.id')
+        ->groupBy('material_types.type')
+        ->orderBy('cantidad', 'desc')
+        ->get();
+        return MaterialTypesQuantity::collection($resultados) ;
     }
     
 }

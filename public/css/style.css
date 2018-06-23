@@ -93,3 +93,27 @@ body .content button{
     border-block-end: #02c96c;    
     border-radius: 10%;
 }
+.btn{
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    font-size: 1.1em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #06a506;
+    background: #000308;
+    border-radius: 0.75em;
+    border-color: #b90303;
+    
+}
+.btn:hover{
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    font-size: 1.13em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #06a506;
+    background: #00040a;
+    border-radius: 0.75em;
+    border-color: #500000;
+    
+}
+
+    

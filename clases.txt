@@ -1,5 +1,9 @@
-1) realizar un servicio que nos brinde los 10 primeros materiales mas leidos
-en el cual se mostraran los campos (titulo de material, cantidad de vistas que tiene)
+1) realizar un servicio que nos
+ brinde los 10 primeros materiales 
+ mas leidos
+en el cual se mostraran los campos
+ (titulo de material, cantidad de 
+ vistas que tiene)
 
 2) que nos obtenga de forma descendente la cantidad de materiales leidos por areas 
 en el cual se mostraran los campos (area, cantidad de vistas)
@@ -28,9 +32,12 @@ subconsuilta de todos los leidos y que te dee una comparaciopn
 
 1)
 
-Obtener  los tipos de material con la cantidad de materiales leidos 
-en dicho tipó mostrando las columnas tipo de material y cantidad
-con su respectiva animacion y presentacion 
+Obtener  los tipos de material con
+ la cantidad de materiales leidos 
+en dicho tipó mostrando las columnas
+ tipo de material y cantidad
+con su respectiva animacion y 
+presentacion 
 
 2)
 Obtener los materiales que esten por encima de la media de las lecturas de materiales

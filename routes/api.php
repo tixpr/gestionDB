@@ -23,4 +23,5 @@ Route::middleware('cors')->group(function(){
     Route::get('materialsReadUser','Api\MaterialController@getMaterialsReadUser');
     Route::get('material_views','Api\MaterialController@topViews');
     Route::get('areas_views','Api\MaterialController@topAreas');
+    Route::get('material_type_count','Api\MaterialTypeController@materialRead');
 });
