@@ -25,6 +25,9 @@ body .content button{
     border-color: #b90303;
     
 }
+.container_dialog{
+    padding-top: 50px;
+}
 .content button:hover {
     font-size: 1.2em;
     color: #00cf00;
@@ -78,4 +81,15 @@ body .content button{
     right: 10px;
     position: absolute;
     
+}
+.labelName{
+    font-size: 1.5em;
+    color: #fff;
+}
+#name{
+    width: 250px;
+    height: 1.1em;
+    border: #02c96c;
+    border-block-end: #02c96c;    
+    border-radius: 10%;
 }

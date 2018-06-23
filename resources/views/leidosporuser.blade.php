@@ -1,35 +1,7 @@
- 
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>TAREA</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="/css/style.css" rel="stylesheet" type="text/css"> 
-        <script src="/js/majax.js"></script>
-        
-    </head>
-    <body>
-    <!-- <div class="content" id="content">
-       
-            <button id="btn_Materials">
-                Obtener  Datos Materials
-            </button>
-            <button id="btn_Languages">
-                Obtener  Datos Languages
-            </button>
-            <button id="btn_MaterialTypes">
-                Obtener  Datos TypeMaterial
-            </button>
-        
-        
-     </div> -->
-     <form action="" id = "formulario">
+@extends('base')
+@section('contenido')
+<form action="" id = "formulario">
+        <label class="labelName" for="name">Inserte el nombre completo del usuario</label>
         <input type="text" name="name" id="name">
         <button type="submit" id = "btnObtener">Obtener</button>
      
@@ -103,7 +75,5 @@
             
         }
         </script>
-        
-    </body>
-</html>
+        @endsection
 
