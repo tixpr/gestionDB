@@ -1,40 +1,38 @@
 ol{
-    padding:0;
-
+	padding: 0;
 }
 .item{
-    display:flex;
-    width: 100%;
-   
-    flex-wrap:nowrap;
-  /*  align-items: stretch;*/
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
 }
 .title{
-    flex-grow:1;
-    margin:0;
-    padding: 10px 0;
-    text-align: center;
+	width: 600px;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
 }
 .contenedor{
-    flex-grow:1;
-    position: relative;
-    text-align: center;
-    padding: 10px;
+	flex-grow: 1;
+	position: relative;
+	text-align: center;
+	padding: 15px;
 }
 .contenedor>span{
-    position:relative;
-    z-index: 900;
-    display:block;
-    
+	position: relative;
+	z-index: 900;
+	display: block;
 }
 .cantidad{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 30px;
-    z-index: 10;
-    background-color: cornflowerblue;
-    transition: width 3s ease;
-    transition-delay: 2s;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 40px;
+	z-index: 10;
+	background-color: cornflowerblue;
+	transition: width 4s ease;
+	transition-delay: 1s;
 }

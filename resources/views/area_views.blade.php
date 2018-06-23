@@ -6,7 +6,7 @@
 <ol id="contenido">
 </ol>
 <script>
-	Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+	Majax.setConfig(2, 'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
 	var boton = document.getElementById('obtener');
 	function animacion(){
 		var elementos = document.querySelectorAll('div.cantidad');
@@ -46,7 +46,7 @@
 						porcentaje = (data[i].cantidad/max)*100;
 						temp3.setAttribute('data-p',porcentaje);
 						temp4 = document.createElement('span');
-						temp4.innerHTML = data[i].cantidad_vistas;
+						temp4.innerHTML = data[i].cantidad_vistas ;
 						temp.appendChild(temp4);
 						temp.appendChild(temp3);
 						temp5 = document.createElement('div');
