@@ -14,7 +14,9 @@
 			var porcentaje = parseInt(elementos[i].getAttribute('data-p'));
 			var parent = elementos[i].parentElement;
 			var width = (porcentaje*parent.clientWidth)/100;
-			elementos[i].style.width = width+'px';
+			// elementos[i].style.width = width+'px';
+			console.log(elementos.length,porcentaje,parent,width);
+			elementos[i].setAttribute('width',width);
 		}
 	}
 	boton.addEventListener('click',function(e){
