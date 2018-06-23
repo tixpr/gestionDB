@@ -28,3 +28,7 @@ Route::get('/topViews', function () {
 Route::get('/areaViews', function () {
     return view('areaViews');
 });
+Route::get('/cantType', function () {
+    return view('cantType');
+});
+Route::resource('cantType', 'CantTypeController');

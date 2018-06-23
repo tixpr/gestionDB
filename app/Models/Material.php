@@ -22,7 +22,7 @@ class Material extends Model
         'id',
         'title',
         'language_id',
-        'edition',
+        'edition',  
         'year',
         'material_type',
         'file',

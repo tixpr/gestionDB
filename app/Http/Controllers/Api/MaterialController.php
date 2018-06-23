@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\{Material, Area};
+use App\Models\{Material, Area, MaterialType};
 use DB;
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, Language, MaterialViews, AreaViews};
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, Language, MaterialViews, AreaViews, MaterialTypes};
 use App\Http\Requests\UserMaterialsViewRequest;
 use App\Http\Requests\LanguageMaterialsRequest;
+use App\Http\Requests\MaterialsTypeRequest;
 
 class MaterialController extends Controller
 {
@@ -136,5 +137,18 @@ class MaterialController extends Controller
         ->orderBy('cantidad','desc')
 		->get();
 		return AreaViews::collection($resultados);
+    }
+    public function tipoCant(MaterialsTypeRequest $request)
+	{   
+		$resultados = Material::select(
+            DB::raw('material_types.type, count(user_view_materials.id) as cantidad')
+			)
+        ->join('material_types', 'material_types.id', '=', 'materials.material_type_id')
+        ->join('user_view_materials', 'user_view_materials.material_id', '=', 'materials.id')
+		->where('materials.material_type_id',$request->material_type_id)
+		->groupBy('material_types.type')
+        ->orderBy('cantidad','desc')
+		->get();
+		return MaterialTypes::collection($resultados);
     }
 }

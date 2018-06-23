@@ -40,3 +40,6 @@ Route::middleware('cors')->group(function(){
 Route::middleware('cors')->group(function(){
     Route::get('area_views','Api\MaterialController@topAreas');
 });
+Route::middleware('cors')->group(function(){
+    Route::get('cant_types','Api\MaterialController@tipoCant');
+});
