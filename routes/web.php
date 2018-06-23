@@ -26,7 +26,7 @@ Route::get('/leidos', function () {
 Route::get('/material_views', function () {
     return view('materials_views');
 });
-Route::get('/area_views', function () {
+Route::get('/areas_views', function () {
     return view('area_views');
 });
 

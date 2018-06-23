@@ -6,7 +6,7 @@
 <ol id="contenido">
 </ol>
 <script>
-	Majax.setConfig(2, 'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
+	Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
 	var boton = document.getElementById('obtener');
 	function animacion(){
 		var elementos = document.querySelectorAll('div.cantidad');
@@ -14,9 +14,10 @@
 			var porcentaje = parseInt(elementos[i].getAttribute('data-p'));
 			var parent = elementos[i].parentElement;
 			var width = (porcentaje*parent.clientWidth)/100;
-			// elementos[i].style.width = width+'px';
-			console.log(elementos.length,porcentaje,parent,width);
-			elementos[i].setAttribute('width',width);
+			elementos[i].style.width = width+'px';
+			console.log('porcentaje: '+porcentaje)
+			console.log('parent: '+parent)
+			console.log('width: '+width)
 		}
 	}
 	boton.addEventListener('click',function(e){
@@ -35,7 +36,7 @@
 						temp4 = null,
 						temp5 = null;
 					contenido.innerHTML="";
-					var max = data[0].cantidad,
+					var max = data[0].cantidad_vistas,
 						porcentaje = 0;
 					for(var i = 0,n = data.length; i<n; i++){
 						temp = document.createElement('div');
@@ -45,10 +46,10 @@
 						temp2.innerHTML = data[i].area;
 						temp3 = document.createElement('div');
 						temp3.classList.add('cantidad');
-						porcentaje = (data[i].cantidad/max)*100;
+						porcentaje = (data[i].cantidad_vistas/max)*100;
 						temp3.setAttribute('data-p',porcentaje);
 						temp4 = document.createElement('span');
-						temp4.innerHTML = data[i].cantidad_vistas ;
+						temp4.innerHTML = data[i].cantidad_vistas;
 						temp.appendChild(temp4);
 						temp.appendChild(temp3);
 						temp5 = document.createElement('div');
