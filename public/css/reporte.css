@@ -1,0 +1,39 @@
+ol{
+    padding: 0;
+}
+.item{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+.title{
+    width: 600px;
+    margin:0;
+    padding: 10px 0;
+    text-align: center;
+}
+.contenedor{
+    flex-grow: 1;
+    position:relative;
+    text-align: center;
+}
+.contenedor >span{
+    display:block;
+    padding: 10px;
+    position: relative;
+    z-index: 900;
+}
+.cantidad{
+    position: absolute;
+    left:0;
+    top:0;
+    width:0;
+    height: 30px;
+    z-index:10;
+    background-color:cornflowerblue;
+    transition:all 4s ease;
+    transition-delay:1s;
+
+}

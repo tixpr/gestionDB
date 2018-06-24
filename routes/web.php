@@ -17,9 +17,16 @@ Route::get('/', function () {
 });
 Route::get('/vistas', function () {
     return view('vistas');
-    
 });
-
+Route::get('/material_views', function () {
+    return view('materials_views');
+});
+Route::get('/areas_views', function () {
+    return view('area_views');
+});
+Route::get('/tipo_views', function () {
+    return view('tipo_views');
+});
 Route::resource('cantidad','LanguageController');
 Route::resource('vistas','UsuariosController');
 

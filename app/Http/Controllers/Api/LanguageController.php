@@ -18,7 +18,7 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        //return LanguageResource::collection(Language::orderBy('id','asc')->get());
+        return LanguageResource::collection(Language::orderBy('id','asc')->get());
     }
 
     /**
@@ -86,13 +86,7 @@ class LanguageController extends Controller
     {
         //
     }
-    public function getName ()
-    {
-        $languages=DB::table('languages')
-    				->select('id', 'language')
-                    ->get();
-                    return view("cantidad",["languages"=>$languages]); 
-    }
+    
 
   
     
