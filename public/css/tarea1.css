@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(143, 173, 10);
+
+}
+#contenido{
+    display: block;
+    flex-direction: column-reverse;
+    justify-content: center;
+    border-style: ridge ;
+ 
+
+}
+
+
+div#contenido h3{
+    animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+
+}
+marquee#ejemplo{
+    color: rgb(202, 28, 28);
+    height: 20px;
+  }
+
+  button#btn{
+    color: rgb(202, 132, 28);
+    height: 50px;
+background-color: rgb(255, 174, 0); 
+    border-radius: 500px;
+    width: 1000px;
+  font-size: 25px;
+
+  }
+  input#input{
+    color: rgb(202, 132, 28);
+    height: 50px;
+background-color: rgb(212, 0, 255); 
+    border-radius: 500px;
+    
+  }
+  form#formulario{
+    color: rgb(202, 132, 28);
+    height: 50px;
+background-color: rgb(255, 0, 0); 
+    border-radius: 500px;
+    align-content: center;
+    
+  }
+  

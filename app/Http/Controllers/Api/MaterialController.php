@@ -144,7 +144,7 @@ class MaterialController extends Controller
         ->join('user_view_materials', 'user_view_materials.material_id', '=', 'materials.id')
 	
         ->groupBy('material_types.type')
-        ->havingRaw('count(user_view_materials.id) >(SELECT avg(count(user_view_materials.id))/(SELECT COUNT(user_view_materials.id) FROM materials join user_view_materials on (materials.id = user_view_materials.id)) FROM user_view_materials)')
+        
         ->orderBy('veces_leido','desc')
 		//->limit(10)
 		->get();
