@@ -1,0 +1,85 @@
+body{
+	font-size: 1em;
+    margin: 0px;
+    padding: 0px;
+	background-color:#201E1F;
+	color: greenyellow;
+}
+button#obtener {
+		position: center;
+		text-decoration: none;
+		padding: 10px;
+		font-weight: 600;
+		font-size: 20px;
+		color: #ffffff;
+		background-color: #1883ba;
+		border-radius: 6px;
+		border: 2px solid #0016b0;
+		
+	  }
+button#obtener1 {
+		text-decoration: none;
+		padding: 10px;
+		font-weight: 600;
+		font-size: 20px;
+		color: #ffffff;
+		background-color: #18ba69;
+		border-radius: 6px;
+		border: 2px solid #0016b0;
+	  }
+button#obtener2 {
+		text-decoration: none;
+		padding: 10px;
+		font-weight: 600;
+		font-size: 20px;
+		color: #ffffff;
+		background-color: #18baba;
+		border-radius: 6px;
+		border: 2px solid #0016b0;
+	  }
+
+ol{
+	padding: 0;
+}
+.item{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+}
+.title{
+	font-family: arial;
+	font-size: 2em;
+	color: #f1f7ef60;
+    line-height: 4px;
+    position: center;
+    left: -6px;
+	z-index: 1;
+}
+.contenedor{
+	background-image: url("https://thumbs.dreamstime.com/b/fondo-de-la-pared-de-ladrillo-18812214.jpg");
+	background-color: rgb(239, 247, 246) ;
+	flex-grow: 1;
+	position: relative;
+	text-align: center;
+	padding: 15px;
+}
+.contenedor>span{
+	position: relative;
+	z-index: 900;
+	display: block;
+}
+.cantidad{
+	color: white;
+	background-image: url("https://ae01.alicdn.com/kf/HTB1wa7LSFXXXXcvXpXXq6xXFXXXS/Huayi-negro-rayas-algod-n-tel-n-de-fondo-reci-n-nacido-fotograf-a-estudio-beb.jpg_640x640.jpg");
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 40px;
+	z-index: 10;
+	background-color: rgb(237, 200, 100);
+	transition: width 4s ease;
+	transition-delay: 1s;
+}

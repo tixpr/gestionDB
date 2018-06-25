@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Material;
 use DB;
-<<<<<<< HEAD
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView,LenguajeMaterialsView};
-=======
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView};
->>>>>>> 722a0b457003626814e11f794d3ef6d621c4d277
+use Illuminate\Http\Request;
+use App\Models\{Material, Area, MaterialType};
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UserMaterialsViewRequest;
+use App\Http\Resources\Api\{
+	Material as MaterialResource,
+	UserMaterialsView,
+	MaterialViews,
+    AreaViews,
+    typesViewE1,
+    promedioViewE2
+};
 
 class MaterialController extends Controller
 {
@@ -82,20 +85,69 @@ class MaterialController extends Controller
 		->get();
 		return UserMaterialsView::collection($resultados);
 	}
-<<<<<<< HEAD
-    
-    public function getLenguajeMaterialsView(UserMaterialsViewRequest $request)
+	public function topViews()
 	{
-		$listalenguaje = Material::select(
-			DB::raw('materials.language_id, count(languages.id) as cantidad')
+		$resultados = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as cantidad')
 			)
-		->join('languages', 'languages.id', '=', 'materials.language_id')
-		->groupBy('materials.language_id')
+		->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+		->groupBy('materials.title')
+		->orderBy('cantidad','desc')
+		->limit(10)
+		->get();
+		return MaterialViews::collection($resultados);
+	}
+	public function topAreas()
+	{
+		$resultados = Area::select(
+			DB::raw('areas.area, count(user_view_materials.id) as cantidad')
+		)
+		->join('material_areas', 'areas.id','=','material_areas.area_id')
+		->join('user_view_materials','user_view_materials.material_id','=','material_areas.material_id')
+		->groupBy('areas.area')
 		->orderBy('cantidad','desc')
 		->get();
-		return UserMaterialsView::collection($listalenguaje);
+		return AreaViews::collection($resultados);
+    }
+    public function topEjercicio1()
+	{
+		$resultados = MaterialType::select(
+			DB::raw('material_types.type, count(user_view_materials.material_id) as cantidad')
+		)
+		->join('user_view_materials','user_view_materials.material_id','=','material_types.id')
+		->groupBy('material_types.type')
+		->orderBy('cantidad','desc')
+		->get();
+		return typesViewE1::collection($resultados);
+    }
+    public function topEjercicio2()
+	{
+        /*$resultados=Material::select(
+            DB::raw('areas.area, material_types.type, materials.title, count(user_view_materials.id) as cantidad')
+            )
+        ->join('materials','material_types.id','=','materials.material_type_id')
+        ->join('user_view_materials','user_view_materials.material_id','=','materials.id')
+        ->join('material_areas','material_areas.id','=','materials.material_type_id')
+        ->join('areas','areas.id','=','material_areas.area_id')
+        ->groupBy('materials.title', 'material_types.type', 'areas.area')
+        ->havingRaw('user_view_materials.id > )
+        ->orderBy('cantidad','desc')
+        ->get();*/
+        $confe=Area::select(
+            DB::raw('areas.area, material_types.type, materials.title, count(user_view_materials.id) as cantidad')
+            )
+        
+        ->join('material_areas','areas.id','=','material_areas.area_id')
+        ->join('user_view_materials','user_view_materials.material_id','=','material_areas.material_id')
+        ->join('materials','material_areas.material_id','=','materials.id')
+        ->join('material_types','materials.material_type_id','=','material_types.id')
+        
+        ->havingRaw('count(user_view_materials.id) > (SELECT avg(user_view_materials.id)/(SELECT avg(user_view_materials.id)
+        FROM materials join user_view_materials on (materials.id = user_view_materials.id))
+        FROM user_view_materials)')
+        ->groupBy('materials.id','materials.title', 'material_types.type', 'areas.area')
+        ->get();
+        return promedioViewE2::collection($confe);
 	}
-=======
 	
->>>>>>> 722a0b457003626814e11f794d3ef6d621c4d277
 }
