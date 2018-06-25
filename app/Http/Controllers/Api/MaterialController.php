@@ -144,6 +144,7 @@ class MaterialController extends Controller
         ->join('user_view_materials', 'user_view_materials.material_id', '=', 'materials.id')
 	
         ->groupBy('material_types.type')
+        ->havingRaw('count(user_view_materials.id) >(SELECT avg(count(user_view_materials.id))/(SELECT COUNT(user_view_materials.id) FROM materials join user_view_materials on (materials.id = user_view_materials.id)) FROM user_view_materials)')
         ->orderBy('veces_leido','desc')
 		//->limit(10)
 		->get();
@@ -164,6 +165,7 @@ class MaterialController extends Controller
         ->join('material_types', 'materials.material_type_id', '=', 'material_types.id')
         ->groupBy('materials.id','materials.title', 'material_types.type', 'areas.area')
         //->having('cantidad_lecturas','=','(SELECT count(user_view_materials.id) FROM user_view_materials 
+        ->havingRaw('count(user_view_materials.id) >(SELECT avg(user_view_materials.id)/(SELECT avg(user_view_materials.id) FROM materials join user_view_materials on (materials.id = user_view_materials.id)) FROM user_view_materials)')
         //inner join "material_areas" on "areas"."id" = "material_areas"."area_id" inner join "user_view_materials" on "material_areas"."material_id" = "user_view_materials"."material_id"')     
      ->orderBy('cantidad_lecturas', 'desc')
         
