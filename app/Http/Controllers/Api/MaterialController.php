@@ -117,17 +117,19 @@ class MaterialController extends Controller
         return MaterialTypeViews::collection($resultados);
     }
     public function mediaLectura(){
-        $media=Material::select(DB::raw('avg(user_view_materials.id) as media'))
-        ->join('user_view_materials','materials.id','=','user_view_materials.material_id');
-        ->get();
-
+        
+        
+        /*$media=Material::select(DB::raw('count(user_view_materials.id)/(SELECT COUNT(materials.id) FROM materials) as media'))
+        ->join('user_view_materials','materials.id','=','user_view_materials.material_id') 
+        ->get();*/
+       
         $resultados=MaterialType::select(DB::raw('materials.title, material_types.type, areas.area, count(user_view_materials.id) as cantidad'))
         ->join('materials','material_types.id','=','materials.material_type_id')
         ->join('user_view_materials','user_view_materials.material_id','=','materials.id')
         ->join('material_areas','material_areas.id','=','materials.material_type_id')
         ->join('areas','areas.id','=','material_areas.area_id')
         ->groupBy('materials.title', 'material_types.type', 'areas.area')   
-        ->havingRaw('count(user_view_materials.id) >'.$media)
+        ->havingraw('count(user_view_materials.id) >(SELECT COUNT(user_view_materials.id)/(SELECT COUNT(materials.id) FROM materials) as media FROM user_view_materials)')
         ->orderBy('cantidad','desc')
         ->get();
         return MaterialMediaViews::collection($resultados);
