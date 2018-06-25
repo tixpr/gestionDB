@@ -38,7 +38,6 @@ class Author extends Model
     ];
     public function materials()
     {
-        return $this->belongsTo(Material::class,'material_authors');
+        return $this->belongsToMany(Material::class, 'material_authors');
     }
-
 }

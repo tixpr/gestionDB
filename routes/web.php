@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/vistas', function () {
+    return view('vistas');
+});
+Route::get('/languages', function () {
+    return view('languages');
+});
+Route::get('/nameuser', function () {
+    return view('nameuser');
+});
+Route::get('/material_view', function () {
+    return view('materials_views');
+});
+Route::get('/type_view', function () {
+    return view('typeview');
+});
+Route::get('/area_view', function () {
+    return view('areas_views');
+});

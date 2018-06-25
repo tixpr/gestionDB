@@ -40,5 +40,4 @@ class Language extends Model
     {
         return $this->belongsTo(Material::class);
     }
-
 }

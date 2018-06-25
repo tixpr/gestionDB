@@ -37,10 +37,12 @@ class Bookcase extends Model
     protected $hidden = [
         'id'
     ];
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function materials()
     {
         return $this->belongsToMany(Material::class, 'bookcase_materials');
-
     }
-
 }

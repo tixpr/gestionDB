@@ -197,7 +197,6 @@ var Majax = function () {
                         var _iteratorNormalCompletion = true;
                         var _didIteratorError = false;
                         var _iteratorError = undefined;
-
                         try {
                             for (var _iterator = ent[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                                 var k = _step.value;
@@ -538,5 +537,5 @@ var Majax = function () {
     return Majax;
 }();
 
-//exports.default = Majax;
+/*exports.default = Majax;*/
 ;

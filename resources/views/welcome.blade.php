@@ -4,32 +4,45 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="/css/estilos.css" type="text/css">
-        <script src="/js/majax.js">
-        </script>
+        <script src="/js/majax.js"></script>
+        <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body>
-        <section id="botones">
-            <p id="botona">Obetener Materiales</p>
-            <p id="botonb">Obtener Idiomas</p>
-            <p id="botonc">Obtener Tipo de Material</p>
-        </section>
-
+        <ul id="botones">
+            <a id="botona"><p>MATERIAL</p></a>
+            <a id="botonb"><p>IDIOMAS</p></a>
+            <a id="botonc"><p>TIPO DE MATERIALES</p></a>
+        </ul>
         <script>
-            Majax.setConfig(2,'OW3ugblUSnLhzF4pdAseonjgFW5DQ7jUujrY59ua','');
-            function obtenerMaterial(e) {
+            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
+            function obetenerMateriales(e) {
                 e.preventDefault();
                 var majax= new Majax();
                 majax.get(
-                    '/api/material',
+                    '/api/materials',
                     {
                         valid:function (r) {
                             console.info(r);
-                            document.getElementById('mostrar1').innerHTML=JSON.stringify(r);
+                            document.getElementById('s1').innerHTML = null;
+                            var contenido = document.getElementById('s1');
+                            for (var i=0,n=r.data.length;i<n;i++){
+                                var contenedor = document.createElement('div');
+                                var titulo = document.createElement('h1');
+                                var resumen = document.createElement('h2');
+                                var tipo = document.createElement('h2');
+                                var idioma = document.createElement('h2');
+                                titulo.innerHTML = 'Titulo: '+ r.data[i].titulo+"("+i+")";
+                                resumen.innerHTML = 'Resumen : '+ r.data[i].resumen;
+                                tipo.innerHTML = 'Tipo : '+ r.data[i].tipo;
+                                idioma.innerHTML = 'Idioma: '+ r.data[i].idioma;
+                                contenido.appendChild(contenedor);
+                                contenedor.appendChild(titulo);
+                                contenedor.appendChild(resumen);
+                                contenedor.appendChild(tipo);
+                                contenedor.appendChild(idioma);
+
+                            }
                         },
                         error: function(error){
                             console.error(error);
@@ -37,15 +50,15 @@
                     }
                 );
             }
-            document.getElementById('botona').addEventListener('click',obtenerMaterial);
+            document.getElementById('botona').addEventListener('click',obetenerMateriales);
         </script>
         <script>
-            Majax.setConfig(2,'OW3ugblUSnLhzF4pdAseonjgFW5DQ7jUujrY59ua','');
+            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
             function obtenerIdioma(e) {
                 e.preventDefault();
                 var majax= new Majax();
                 majax.get(
-                    '/api/language',
+                    '/api/languages',
                     {
                         valid:function (r) {
                             console.info(r);
@@ -60,12 +73,12 @@
             document.getElementById('botonb').addEventListener('click',obtenerIdioma);
         </script>
         <script>
-            Majax.setConfig(2,'OW3ugblUSnLhzF4pdAseonjgFW5DQ7jUujrY59ua','');
+            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
             function obtenerTipoMaterial(e) {
                 e.preventDefault();
                 var majax= new Majax();
                 majax.get(
-                    '/api/materialtype',
+                    '/api/materialtypes',
                     {
                         valid:function (r) {
                             console.info(r);
@@ -79,7 +92,8 @@
             }
             document.getElementById('botonc').addEventListener('click',obtenerTipoMaterial);
         </script>
-        <section id="mostrar1"></section>
+
+        <section id="s1"></section>
         <section id="mostrar2"></section>
         <section id="mostrar3"></section>
     </body>
