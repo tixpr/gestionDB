@@ -1,7 +1,7 @@
 @extends('base')
 @section('contenido')
 <button id="obtener">
-obtener
+OBTENER
 </button>
 <ol id="contenido">
 </ol>
