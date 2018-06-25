@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\{Material, Area, MaterialType};
 use DB;
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, Language, MaterialViews, AreaViews, MaterialTypes};
+use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, User, Language, MaterialViews, AreaViews, MaterialTypes, MaterialAll};
 use App\Http\Requests\UserMaterialsViewRequest;
 use App\Http\Requests\LanguageMaterialsRequest;
 use App\Http\Requests\MaterialsTypeRequest;
+use App\Http\Requests\PromedioMaterialsRequest;
 
 class MaterialController extends Controller
 {
@@ -150,5 +151,21 @@ class MaterialController extends Controller
         ->orderBy('cantidad','desc')
 		->get();
 		return MaterialTypes::collection($resultados);
+    }
+    public function promMat(PromedioMaterialsRequest $request)
+	{   
+        $resultados=Material::select(
+            DB::raw('materials.title, material_types.type, areas.area, count(user_view_materials.id) as lecturas') 
+            )
+        ->join('material_areas', 'material_areas.material_id', '=', 'materials.id')
+        ->join('user_view_materials', 'user_view_materials.material_id', '=', 'materials.id')
+        ->join('areas', 'areas.id', '=', 'material_areas.area_id')
+        ->join('material_types', 'material_types.id', '=', 'materials.material_type_id')
+        ->where('materials.id',$request->id)
+        ->groupBy('materials.title', 'material_types.type', 'areas.area')   
+        ->havingRaw('count(user_view_materials.id) >(SELECT count(user_view_materials.id)/(SELECT COUNT(user_view_materials.id) FROM materials join user_view_materials on (materials.id = user_view_materials.id)) FROM user_view_materials)')
+        ->orderBy('lecturas','desc')
+        ->get();
+        return MaterialAll::collection($resultados);
     }
 }

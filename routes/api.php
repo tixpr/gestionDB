@@ -43,3 +43,6 @@ Route::middleware('cors')->group(function(){
 Route::middleware('cors')->group(function(){
     Route::get('cant_types','Api\MaterialController@tipoCant');
 });
+Route::middleware('cors')->group(function(){
+    Route::get('prom_materials','Api\MaterialController@promMat');
+});

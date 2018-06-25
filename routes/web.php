@@ -32,3 +32,8 @@ Route::get('/cantType', function () {
     return view('cantType');
 });
 Route::resource('cantType', 'CantTypeController');
+
+Route::get('/promedio', function () {
+    return view('promedio');
+});
+Route::resource('promedio', 'PromedioMaterialsController');

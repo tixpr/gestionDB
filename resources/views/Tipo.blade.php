@@ -10,10 +10,10 @@
 
         <title>Laravel</title>
         <script src="/js/majax.js"></script>
-        <link rel="stylesheet" href="/css/especial.css">
+        <link rel="stylesheet" href="/css/styleTipo.css">
 
     </head>
     <body>
-		@yield('content')
+		@yield('contenidos')
     </body>
 </html>

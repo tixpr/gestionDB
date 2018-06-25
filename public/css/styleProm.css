@@ -1,50 +1,50 @@
 html{
     background: linear-gradient(to right, beige, whitesmoke);
 }
-*{
-    margin: 0px;
-    padding: 0px;
-}
-div#contenido ul li{
-    margin-top: 15px;
-    font-family: cursive;
-    font-size: 18px;
-    background-color: deepskyblue;
-    width: 160px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 0px 20px 20px 0px;
-    padding-left: 20px;
-    box-shadow: 5px 0px 10px darkslategray;
-    -webkit-transition: padding-left 0.6s;
-}
-div#contenido ul li:hover{
-    padding-left: 50px;
-}
-div#contenido h2{
-    padding-top: 30px;
-    font: 20px "Arial", bold;
-    color: rgb(2, 28, 53);
-}
-div#contenido o{
-    font: 20px "Console", cursive;
-    color: rgb(2, 28, 53);
-}
-div#contenido t{
-    font: 20px "Arial", cursive;
-    color: rgb(2, 28, 53);
-    font-style: normal;
-}
-div#contenido h3{
-    padding-top: 20px;
-    font: 24px "Algerian", bold;
-    color: rgb(2, 28, 53);
-}
+div#contenido div{
+    display: inline-block;
+    background-color: rgb(0, 174, 255);
+    height: 170px;
+    width: 690px;
+    font-size: 1px;
+    padding: 1px;
+    color: white;
+    margin-top: 50px;
+    margin-right: 25px;
+    margin-left: 50px;
+    -webkit-animation: roll 3s forwards ;
+            animation: roll 3s forwards ;
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+    opacity: .7;
+  }
+  
+  @-webkit-keyframes roll {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes roll {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
 div#contenido p{
     font: 18px "Comic Sans", cursive;
-    color: rgb(2, 28, 53);
+    color: black;
 }
-select#user_id{
+select#id{
     border: 1px solid #DBE1EB;
     font-size: 18px;
     font-family: Arial, Verdana;
@@ -64,23 +64,6 @@ select#user_id{
     background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
     color: #2E3133;
 }
-option#o1{
-  border: 1px solid #DBE1EB;
-  padding-left: 50px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -o-border-radius: 4px;
-  }
-option#o1:hover{
-  background: #FC4F06;
-  background: linear-gradient(left, #FC4F06, #D85F2B);
-  background: -moz-linear-gradient(left, #FC4F06, #D85F2B);
-  background: -webkit-linear-gradient(left, #FC4F06, #D85F2B);
-  background: -o-linear-gradient(left, #FC4F06, #D85F2B);
-  font-style: italic;
-  color: #FFFFFF;
-  }
 form#formulario button{
     margin-top: 15px;
     font-family: cursive;

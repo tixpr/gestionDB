@@ -1,5 +1,5 @@
-@extends('especial')
-@section('content')
+@extends('Tipo')
+@section('contenidos')
 <form id="formulario">
 		<select name="material_type_id" id="material_type_id">
 			<option id="o2" value="">---Escoja un Tipo---</option>
@@ -28,8 +28,8 @@
 							for(var i=0, n=r.data.length;i<n;i++){
 								var temp = document.createElement('lo');
 								var contenedor = document.createElement('div');
-								var tipo = document.createElement('h2');
-                                var cantidad = document.createElement('o');
+								var tipo = document.createElement('p');
+                                var cantidad = document.createElement('p');
 				
 								tipo.innerHTML = 'Tipo del Material: '+r.data[i].tipo;
                                 cantidad.innerHTML = 'Cantidad: '+r.data[i].cantidad;

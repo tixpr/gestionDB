@@ -1,0 +1,97 @@
+html{
+    background: linear-gradient(to right, beige, whitesmoke);
+}
+div#contenido div{
+    display: inline-block;
+    background-color: rgb(0, 174, 255);
+    height: 150px;
+    width: 300px;
+    font-size: 1px;
+    padding: 1px;
+    color: white;
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-left: 50px;
+    -webkit-animation: skew 4s infinite;
+            animation: skew 4s infinite;
+    -webkit-transform: skew(20deg);
+            transform: skew(20deg);
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    opacity: .7;
+  }
+  
+@-webkit-keyframes skew {
+    0% {
+      -webkit-transform: skewX(20deg);
+              transform: skewX(20deg);
+    }
+    100% {
+      -webkit-transform: skewX(-20deg);
+              transform: skewX(-20deg);
+    }
+}
+  
+@keyframes skew {
+    0% {
+      -webkit-transform: skewX(20deg);
+              transform: skewX(20deg);
+    }
+    100% {
+      -webkit-transform: skewX(-20deg);
+              transform: skewX(-20deg);
+    }
+}
+div#contenido p{
+    font: 20px "Comic Sans", cursive;
+    color: black;
+}
+select#material_type_id{
+    border: 1px solid #DBE1EB;
+    font-size: 18px;
+    font-family: Arial, Verdana;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    border: inset;
+    background: #FFFFFF;
+    background: linear-gradient(left, #FFFFFF, #F7F9FA);
+    background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+    background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+    background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+    color: #2E3133;
+}
+form#formulario button{
+    margin-top: 15px;
+    font-family: cursive;
+    font-size: 18px;
+    background-color: darkcyan;
+    color: whitesmoke;
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px 20px 20px 20px;
+    padding-left: center;
+    box-shadow: 5px 10px 10px darkslategray;
+}
+form#formulario button:hover{
+    background-color:  rgb(52, 199, 199);
+    color: black;
+}
+form#formulario input{
+    margin-top: 15px;
+    font-family: cursive;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border: inset;
+}

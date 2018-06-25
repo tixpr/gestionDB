@@ -8,9 +8,19 @@
 	<script>
 		Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
 		var boton = document.getElementById('obtener');
+        function animacion(){
+            var elementos = document.querySelectorAll('div.cantidad');
+            for(var i=0, n=elementos.length; i<n; i++){
+            var porcentaje = parseInt(elementos[i].getAttribute('data-p'));
+            var parent = elementos[i].parentElement;
+            var width = (porcentaje*parent.clientWidth)/100;
+            elementos[i].style.width = width+'px';
+            }
+        }
 		boton.addEventListener('click', function(e){
 			e.preventDefault();
-			var majax = new Majax();
+			var majax = new Majax(),
+            contenido = document.getElementById('contenido');
 			majax.get(
 				'/api/material_views',
 				{
@@ -19,30 +29,35 @@
                         var data = r.data,
                         temp = null;
 						temp2 = null;
+                        temp3 = null;
+                        temp4 = null;
+                        temp5 = null;
 						contenido.innerHTML ="";
+                        var max = data[0].cantidad;
+                            porcentaje = 0;
 						for(var i=0, n=data.length;i<n;i++){
                             temp = document.createElement('div');
-							temp.classList.add('porcentaje')
+							temp.classList.add('contenedor');
 							temp2 = document.createElement('h3');
-                            temp.innerHTML = data[i].title+"("+data[i].cantidad+")";
-							temp2 = document.createElement('div');
-							temp2.appendChild(temp)
+                            temp2.classList.add('title');
+                            temp2.innerHTML = data[i].title;
+                            temp3 = document.createElement('div');
+                            temp3.classList.add('cantidad');
+                            porcentaje = (data[i].cantidad/max)*100;
+                            temp3.setAttribute('data-p', porcentaje);
+                            temp4 = document.createElement('span');
+                            temp4.innerHTML = data[i].cantidad;
+                            temp.appendChild(temp4);
+                            temp.appendChild(temp3);
+                            temp5 = document.createElement('div');
+                            temp5.classList.add('item');
+                            temp5.appendChild(temp2);
+                            temp5.appendChild(temp);
 							temp = document.createElement('li');
-							temp.appendChild(temp2)
+							temp.appendChild(temp5);
                             contenido.appendChild(temp);
-								/*var temp = document.createElement('lo');
-								var contenedor = document.createElement('div');
-								var titulo = document.createElement('h2');
-                                var cantidad = document.createElement('t');
-				
-								titulo.innerHTML = 'Titulo del Material: '+r.data[i].title;
-                                cantidad.innerHTML = 'Cantidad: '+r.data[i].cantidad;
-                                contenedor.appendChild(titulo);
-								contenedor.appendChild(cantidad);
-								
-								temp.appendChild(contenedor);
-								contenido.appendChild(temp);*/
 						}
+                        setTimeout(animacion, 500);
 					},
 					error: function(error){
 						console.error(error);
