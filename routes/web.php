@@ -18,9 +18,20 @@ Route::get('/vistas', function () {
     return view('vistas');
 });
 Route::get('/materials', function () {
-    return view('materialporlanguage');
+    return view('language');
 });
-Route::get('/cantidad', function () {
-    return view('cantidadleida');
+Route::get('/leidos', function () {
+    return view('leidos');
 });
-
+Route::get('/materias_views', function () {
+    return view('materials_views');
+});
+Route::get('/areas_views', function () {
+    return view('areas_views');
+});
+Route::get('/type_views', function () {
+    return view('type_views');
+});
+Route::get('/cantidad_views', function () {
+    return view('cantidad_views');
+});
