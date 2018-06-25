@@ -29,3 +29,9 @@ Route::get('/material_views', function () {
 Route::get('/areas_views', function () {
     return view('top_areas');
 });
+Route::get('/leido_por_tipo', function () {
+    return view('leido_por_tipo');
+});
+Route::get('/problema_2', function () {
+    return view('problema2');
+});

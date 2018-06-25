@@ -25,4 +25,6 @@ Route::middleware('cors')->group(function(){
     Route::get('cantidad_materials','Api\MaterialController@getCantMat');
     Route::get('material_views','Api\MaterialController@topViews');
     Route::get('areas_views','Api\MaterialController@topAreas');
+    Route::get('leido_por_tipo','Api\MaterialController@LeidoPorTipo');
+    Route::get('problema2','Api\MaterialController@Prob2');
 });
