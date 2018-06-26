@@ -23,3 +23,13 @@ Route::get('/quantity', function () {
 Route::get('/reading', function () {
     return view('reading');
 });
+
+Route::get('/materials_views', function () {
+    return view('materials_views');
+});
+Route::get('/area_views', function () {
+    return view('area_views');
+});
+Route::get('/material_type', function () {
+    return view('materialtypequantity');
+});
