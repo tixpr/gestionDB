@@ -20,3 +20,15 @@ Route::get('/vistas', function () {
 Route::get('/idiomasmaterials', function () {
     return view('idiomasmaterials');
 });
+Route::get('/materials_views', function () {
+    return view('materials_views');
+});
+Route::get('/areas_views', function () {
+    return view('areas_views');
+});
+Route::get('/types_views', function () {
+    return view('types_views');
+});
+Route::get('/cantidad_lecturas', function () {
+    return view('cantidad_lecturas');
+});
