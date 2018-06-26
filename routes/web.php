@@ -29,4 +29,10 @@ Route::get('/top_material', function () {
 Route::get('/top_area', function () {
     return view('top_areas');
 });
- 
+Route::get('/material_leido', function () {
+    return view('tipo_material');
+});
+Route::get('/prom', function () {
+    return view('promedio');
+});
+  

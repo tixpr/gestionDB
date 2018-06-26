@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\{Material,Area};
+use App\Models\{Material,Area,MaterialType};
 use DB;
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView,CantidadMaterials,UsuarioLectura,MaterialsViews,AreasViews};
+use App\Http\Resources\Api\{Material as MaterialResource,PromedioMat, UserMaterialsView,CantidadMaterials,UsuarioLectura,MaterialsViews,AreasViews,TipoMateriales};
 use App\Http\Requests\{UserMaterialsViewRequest,UsuarioLecturaRequest};
 class MaterialController extends Controller
 {
@@ -124,5 +124,37 @@ class MaterialController extends Controller
             ->get();
             return AreasViews::collection($resultados);
     }
+    public function tipomaterial(){
+        $salida=MaterialType::select(
+            DB::raw('material_types.type, count(user_view_materials.id) as leido')
+        )
+         ->join('materials','material_types.id','=','materials.material_type_id')
+         ->join('user_view_materials','user_view_materials.material_id','=','materials.id')
+       
+         ->groupby('material_types.type')
+         ->orderBy('leido','desc')
+         ->get();
+         return TipoMateriales::collection($salida);
+ }
+ public function Promedio()
+    {
+        $resultados = Area::select(
+            DB::raw('areas.area, materials.title, material_types.type, count(user_view_materials.id) as cantidad')
+            )   
+        ->join('material_areas', 'areas.id', '=', 'material_areas.area_id')
+        ->join('user_view_materials', 'user_view_materials.material_id', '=', 'material_areas.material_id')
+        ->join('materials', 'user_view_materials.material_id', '=', 'materials.id')
+        ->join('material_types', 'materials.material_type_id', '=', 'material_types.id')
+        ->groupBy('areas.area', 'materials.title', 'material_types.type')
+    
+        ->havingRaw('count(user_view_materials.id) >(SELECT count(user_view_materials.id)/(SELECT count(user_view_materials.id)
+         FROM materials join user_view_materials on (materials.id = user_view_materials.id)) 
+         FROM user_view_materials)')
+            
+     ->orderBy('cantidad', 'desc')
+        
+      ->get();
+      return PromedioMat::collection($resultados);
+  }
 
 }

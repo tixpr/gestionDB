@@ -25,4 +25,6 @@ Route::middleware('cors')->group(function(){
     Route::get('usuario_lectura','Api\MaterialController@getUsuarioLectura');
     Route::get('material_views','Api\MaterialController@topViews');
     Route::get('area_views','Api\MaterialController@topAreas');
+    Route::get('tipo_material','Api\MaterialController@tipomaterial');
+    Route::get('promedio','Api\MaterialController@Promedio');
 });

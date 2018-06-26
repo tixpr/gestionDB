@@ -1,7 +1,7 @@
 @extends('base')
 @section('contenido')
 <form id="formulario">
-			<input type="number" name="user_id" id="user_id">
+			<input type="number" placeholder="escribir" name="user_id" id="user_id">
 			<button type="submit">
 				Obtener
 			</button>

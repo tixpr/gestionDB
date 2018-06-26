@@ -2,30 +2,30 @@ ol{
     padding: 0;
 }
 .item{
-    display:flex;
+    display: flex;
     width:100%;
     flex-direction:row;
     flex-wrap:nowrap;
     align-items:stretch;
 }
 body{
-    color:#ffffff;
+    color:#130b0b;
     text-align:center;
-    background-color: rgb(10, 7, 51);
+    background-color: rgb(126, 119, 233);
    }
    
 .title{
-    width: 300px; 
+    width: 400px; 
     margin:0;
     padding: 10px 0;
     text-align:center;
+    border-style: groove;
 
 }
 .contenedor{
     flex-grow:1;
     position: relative;
     text-align:center;
-    border-style: solid;
 
 }
 .contenedor>span{
@@ -52,5 +52,8 @@ button{
     color:#000000;
     background:  rgb(148, 228, 20);
     border-radius: 100px;
+    font:bold 25px Verdana;
+    text-decoration:none;
+transition:background 1s,color 1s;
 
 }
