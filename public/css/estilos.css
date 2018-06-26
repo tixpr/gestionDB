@@ -1,21 +1,81 @@
 body{
     background-color: rgb(46, 139, 134);
+    text-align: center;
+    background-image: url('')
    
 }
-#boton{
+
+ol{
+    padding: 0;
+}
+.item{
     display: flex;
+    width: 100%;
     flex-direction: row;
-    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: stretch;
 }
-#btn{
-    margin: 75px;
-    height: 100px;
-    color: rgb(0, 255, 242);
-    background-color: rgb(255, 206, 71);
+.type{
+    width: 110px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color: darkslateblue;
+    font-size: 15px;
 }
-#yolo{
-    margin: 75px;
-    height: 100px;
-    color: rgb(0, 255, 242);
-    background-color: rgb(255, 212, 71);
+.titulo{
+    width: 400px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color:forestgreen;
+}
+.area{
+    width: 140px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color: dodgerblue;
+    font-size: 15px;
+}
+.contenedor{
+    flex-grow: 1;
+    position: relative;
+    text-align: center;
+}
+.contenedor>span{
+    position : relative;
+    z-index: 900;
+    display: block;
+}
+.cantidad{
+    position: absolute;
+    left:0;
+    top:0;
+    width:0;
+    z-index: 10;
+    height: 30px;
+    background-color: aqua;
+    transition: width 4s ease;
+    transition-delay: 1s;
+}
+button{
+
+    background-color: blue;
+    width: 200px;
+    font-size: 15px;
+    padding: 10px;
+    margin: 2px;
+    border-color: black;
+    border-radius: 25%;
+}
+button:hover{
+
+    background-color:orangered;
+    width: 200px;
+    font-size: 15px;
+    padding: 10px;
+    margin: 2px;
+    border-color: black;
+    border-radius: 25%;
 }

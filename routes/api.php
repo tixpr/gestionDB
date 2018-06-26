@@ -21,4 +21,8 @@ Route::middleware('cors')->group(function(){
 	Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
 	Route::get('languagematerialsview','Api\MaterialController@getLanguageMaterialsView');
 	Route::get('usuarios','Api\MaterialController@getusuarios');
+	Route::get('material_views_resource','Api\MaterialController@topViews');
+	Route::get('area_views_resource','Api\MaterialController@topAreas');
+	Route::get('types_views_reosurce','Api\MaterialController@topTypes');
+	Route::get('lecturas_vistas_resource','Api\MaterialController@topTitulo');
 });

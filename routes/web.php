@@ -23,3 +23,18 @@ Route::get('/lenguages', function () {
 Route::get('/usuarios', function () {
     return view('usuarios');
 });
+Route::get('/materials_views', function () {
+    return view('materials_views');
+});
+Route::get('/base', function () {
+    return view('base');
+});
+Route::get('/area_views', function () {
+    return view('area_views');
+});
+Route::get('/tipo_vistas', function () {
+    return view('tipo_vistas');
+});
+Route::get('/cantidad_lecturas', function () {
+    return view('cantidad_lecturas');
+});
