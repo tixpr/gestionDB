@@ -1,7 +1,7 @@
 @extends('base')
 @section('contenido')
-<button id="obtener">
-	Obtener
+<button id="obtener" class="btn">
+	Obtener cantidad de  Materiales leidos por areas
 </button>
 <ol id="contenido">
 </ol>
