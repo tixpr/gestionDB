@@ -17,6 +17,15 @@ Route::get('/', function () {
 Route::get('/vistas', function () {
     return view('vistas');
 });
-Route::get('/lenguajes', function () {
-    return view('lenguajes');
+Route::get('/material_views', function () {
+    return view('materials_views');
+});
+Route::get('/areas_views', function () {
+    return view('area_views');
+});
+Route::get('/tipo_vista', function () {
+    return view('tipo_vista');
+});
+Route::get('/lectura_vista', function () {
+    return view('lectura_vista');
 });
