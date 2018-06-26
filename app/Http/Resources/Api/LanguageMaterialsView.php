@@ -15,8 +15,8 @@ class LanguageMaterialsView extends JsonResource
     public function toArray($request)
     {
         return [
-			'idioma'	=>	$this->language,
-			'resultados'=>	$this->resultados
-		];
+            'idioma'	=>	$this->language,
+            'cantidad'  =>  $this->cantidad
+        ];
     }
 }

@@ -16,7 +16,21 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::middleware('cors')->group(function(){
-	Route::get('materials','Api\MaterialController@index');
-	Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
+Route::middleware('cors')->group(function (){
+    Route::get('materials','Api\MaterialController@index');
+    Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
+    Route::get('materials_languages','Api\MaterialController@getLanguageMaterialsView');
+    Route::get('user_materials_name','Api\MaterialController@getNameUserMaterials');
+    Route::get('material_views','Api\MaterialController@topViews');
+    Route::get('areas_view','Api\MaterialController@topAreas');
+    Route::get('toptypes','Api\MaterialController@topTypes');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('languages','Api\LanguageController@index');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('materialtypes','Api\MaterialTypeController@index');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('user','Api\UserController@index');
 });

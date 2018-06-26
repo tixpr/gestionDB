@@ -16,7 +16,7 @@ class MaterialType extends JsonResource
     {
         return [
             'id'    => $this->id,
-            'tipo'=> $this->type,
+            'tipo'  => $this->type,
         ];
     }
 }

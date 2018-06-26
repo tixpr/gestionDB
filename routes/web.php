@@ -17,6 +17,15 @@ Route::get('/', function () {
 Route::get('/vistas', function () {
     return view('vistas');
 });
-Route::get('/idiomas', function () {
-    return view('idiomas');
+Route::get('/languages', function () {
+    return view('languages');
+});
+Route::get('/nameuser', function () {
+    return view('nameuser');
+});
+Route::get('/material_view', function () {
+    return view('materials_views');
+});
+Route::get('/type', function () {
+    return view('top_type');
 });
