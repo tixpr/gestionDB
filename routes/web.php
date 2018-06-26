@@ -23,3 +23,15 @@ Route::get('/idiomas', function () {
 Route::get('/nombres', function () {
     return view('nombre');
 });
+Route::get('/materials_views', function () {
+    return view('materials_views');
+});
+Route::get('/areas_views', function () {
+    return view('area_views');
+});
+Route::get('/material_type_views', function () {
+    return view('material_type_views');
+});
+Route::get('/cantidad_materiales', function () {
+    return view('count_materials');
+});

@@ -147,6 +147,7 @@ button:hover{
   background-color: #FFB300;
   color: #3c3c3c;
 }
+
 #vista{
   width: 100%;
   justify-content: left;
@@ -162,4 +163,58 @@ button:hover{
   list-style: none;
   padding: 0;
   margin: 0;
+}
+ol{
+  padding:0;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+}
+.title{
+  width: 300px;
+  flex-grow: 1;
+  margin: 0;
+  padding: 10px 0;
+  text-align: left;
+  font-size: 1em;
+}
+.contenedor{
+  flex-grow: 1;
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  
+}
+.contenedor>span{
+  display: block;
+  position: relative;
+  z-index: 900;
+  color: whitesmoke;
+  font-size: 0.9em; 
+}
+.cantidad{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 30px;
+  z-index: 10;
+  border-radius: 10px;
+  background-color: yellowgreen;
+  transition: width 3s ease;
+  transition-delay: 1s; 
+  animation-name: cambio;
+  animation-duration: 12s;
+}
+
+@keyframes cambio {
+  0%   {background-color: yellowgreen;}
+  25%  {background-color: green;}
+  50%  {background-color: blue;}
+  70%  {background-color: violet;}
+  100% {background-color: rebeccapurple;}
 }

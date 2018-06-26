@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Material;
+use App\Models\{Material, Area, MaterialType};
 use DB;
-use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, UserMaterialsForName};
-use App\Http\Resources\Api\LanguageMaterials;
-use App\Http\Requests\UserMaterialsViewRequest;
-use App\Http\Requests\UserMaterialsForNameRequest;
+use App\Http\Resources\Api\{Material as MaterialResource, 
+    UserMaterialsView, 
+    LanguageMaterials, 
+    UserMaterialsForName, 
+    MaterialViews,
+    AreaViews,
+    MaterialTypeViews,
+    CountMaterials};
+use App\Http\Requests\{UserMaterialsViewRequest, UserMaterialsForNameRequest};
 
 class MaterialController extends Controller
 {
@@ -57,6 +62,67 @@ class MaterialController extends Controller
         return UserMaterialsForName::collection($cantName);
     }
     
+    public function topViews()
+    {
+        $resultados = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as cantidad')
+			)
+            ->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+            ->groupBy('materials.title')
+            ->orderBy('cantidad','desc')
+            ->limit(10)
+            ->get();
+		return MaterialViews::collection($resultados);
+    }
+
+    public function topAreas()
+    {
+        $resultados = Area::select(
+            DB::raw('areas.area, count(user_view_materials.id) as cantidad')
+            )
+            ->join('material_areas','areas.id','=','material_areas.area_id')
+            ->join('user_view_materials','user_view_materials.material_id','=','material_areas.material_id')
+            ->groupBy('areas.area')
+            ->orderBy('cantidad','desc')
+            ->get();
+        return AreaViews::collection($resultados);
+    }
+
+    public function topTypeMaterials()
+    {
+        $resultados = MaterialType::select(
+            DB::raw('material_types.type, count(user_view_materials.id) as cantidad')
+        )
+        ->join('materials','materials.material_type_id','=','material_types.id')
+        ->join('user_view_materials','user_view_materials.material_id','=','materials.id')
+        ->groupBy('material_types.type')
+        ->orderBy('cantidad','desc')
+        ->get();
+        return MaterialTypeViews::collection($resultados);
+    }
+
+    public function topCountMaterials()
+    {
+        $resultados = Material::select(
+            DB::raw('materials.title, material_types.type, areas.area, count(user_view_materials.id) as cantidad')
+        )
+        ->join('material_types','materials.material_type_id','=','material_types.id')
+        ->join('material_areas','materials.id','=','material_areas.material_id')
+        ->join('areas','areas.id','=','material_areas.area_id')
+        ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
+        ->groupBy('materials.title', 'material_types.type', 'areas.area')
+        ->havingRaw('count(user_view_materials.id)  >  (select trunc(avg(cant),0) 
+                                                        from (
+                                                            select count(id) cant 
+                                                            from user_view_materials 
+                                                            group by material_id
+                                                        ) de
+                                                       )'
+        )
+        ->orderBy('cantidad','desc')
+        ->get();
+        return CountMaterials::collection($resultados);
+    } 
     public function show($id)
     {
         //
