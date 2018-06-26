@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Language;
-use App\Http\Resources\Api\{Language as LanguageResource,UserMaterialsView};
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Http\Resources\Api\User as UserResource;
 
-class LanguageController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        return LanguageResource::collection(Language::orderBy('id','asc')->get());
+        return UserResource::collection(User::orderBy('id','asc')->get());
     }
 
     /**
@@ -42,6 +41,7 @@ class LanguageController extends Controller
         //
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -64,5 +64,4 @@ class LanguageController extends Controller
     {
         //
     }
-
 }

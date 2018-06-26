@@ -1,0 +1,16 @@
+User::find(12);
+User::findOrFail(12);
+User::find([1,2,3,6,5]);
+User::create(['name'=>'test','email'=>'test@gmail.com','password'=>'123456']);
+$temp = User::find(506);
+$temp->update(['name'=>'Nombre Update']);
+1->1
+$this->hasOne('App\Phone', 'foreign_key', 'local_key'); A->B
+$this->belongsTo('App\User', 'foreign_key');            B->A
+1->*
+$this->hasMany('App\Comment', 'foreign_key', 'local_key');  A->B
+$this->belongsTo('App\Post', 'foreign_key');                B->A
+*->*
+$this->belongsToMany('App\Role', 'roles_user', 'user_id', 'role_id');
+//
+foreach($user->roles as $role){var_dump($role->name);}
