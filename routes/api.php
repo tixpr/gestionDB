@@ -20,11 +20,20 @@ Route::middleware('cors')->group(function (){
     Route::get('material','Api\MaterialController@index');
 });
 Route::middleware('cors')->group(function (){
-    Route::get('languages','Api\LanguageController@index');
-});
-Route::middleware('cors')->group(function (){
-    Route::get('materialtypes','Api\MaterialTypeController@index');
-});
-Route::middleware('cors')->group(function (){
     Route::get('user','Api\UserController@index');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('materials_views','Api\MaterialController@topViews');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('areas_views','Api\MaterialController@topAreas');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('materialTypes_views','Api\MaterialController@topMaterialTypes');
+});
+Route::middleware('cors')->group(function (){
+    Route::get('mediaViews','Api\MaterialController@topMediaViews');
 });
