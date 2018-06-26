@@ -36,22 +36,23 @@
 							for(var i = 0, n = r.data.length; i<n; i++){
 								var temp = document.createElement('li');
 								var contenedor = document.createElement('div');
-								var Nombre = document.createElement('h4');
-								var Titulo = document.createElement('p');
-								var Numerolectura = document.createElement('span');
+								var nombre = document.createElement('h4');
+								var titulo = document.createElement('p');
+								var leido = document.createElement('span');
 								
-							     Nombre.innerHTML = 'Nombre: '+r.data[i].name ;
-								Titulo.innerHTML = 'Titulo: '+r.data[i].title;
-								Numerolectura.innerHTML = 'Nroleidos: '+r.data[i].leido;
+							    nombre.innerHTML = 'Nombre: '+r.data[i].nombre;
+								titulo.innerHTML = 'Titulo: '+r.data[i].titulo;
+								leido.innerHTML = 'Nroleidos: '+r.data[i].leido;
 								
 
-								contenedor.appendChild(Nombre);
-								contenedor.appendChild(Titulo);
-								contenedor.appendChild(Numerolectura);
+								contenedor.appendChild(nombre);
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(leido);
+
+                                temp.appendChild(contenedor);
+								contenido.appendChild(temp);
 								
 							}
-							console.info(r.data);
-							contenido.innerHTML = '';
 						},
 						error: function(error){
 							console.error(error);
@@ -66,3 +67,4 @@
 		</script>
     </body>
 </html>
+

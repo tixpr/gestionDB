@@ -18,8 +18,21 @@ Route::get('/vistas', function () {
     return view('vistas');
 });
 Route::get('/cantidad', function () {
-    return view('cantidad');
+    return view('cantidadmaterial');
 });
 Route::get('/nroleidoslec', function () {
     return view('nroleidoslec');
+});
+
+Route::get('/material_views', function () {  // estoes cmo esta en url
+    return view('materials_views'); // esto es como esta en vistas
+});
+Route::get('/areas_views', function () {  // estoes cmo esta en url
+    return view('area_views'); // esto es como esta en vistas
+});
+Route::get('/TipoMateriales', function () {  // estoes cmo esta en url
+    return view('TipoMaterial'); // esto es como esta en vistas -----------------1
+});
+Route::get('/PromedioMaterials', function () {  // estoes cmo esta en url
+    return view('PromedioMaterial'); // esto es como esta en vistas -----------------2
 });

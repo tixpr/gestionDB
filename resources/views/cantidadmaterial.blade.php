@@ -24,8 +24,8 @@
 			var formulario = document.getElementById('formulario');
 			Majax.setConfig(2, '22bBFDz5RRAWl92LOzlcrqFGuReWipgRFkUo6gzo','');
 			var contenido = document.getElementById('contenido');
-			formulario.addEventListener('submit',obtenerDatos,false);
-			function obtenerDatos(e){
+			formulario.addEventListener('submit',obtenerCantidadMat,false);
+			function obtenerCantidadMat(e){
 				e.preventDefault();
 				var majax = new Majax();
 				majax.get(
@@ -34,6 +34,22 @@
 						valid: function(r){
 							console.info(r.data);
 							contenido.innerHTML = '';
+							for(var i = 0, n = r.data.length; i<n; i++){
+								var temp = document.createElement('li');
+								var contenedor = document.createElement('div');
+								var titulo = document.createElement('h4');
+								var vistas = document.createElement('p');
+						        titulo.innerHTML = 'Titulo: '+r.data[i].titulo ;
+								vistas.innerHTML = 'Resumen: '+r.data[i].vistas;
+					
+
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(vistas);
+								
+
+								temp.appendChild(contenedor);
+								contenido.appendChild(temp);
+							}
 						},
 						error: function(error){
 							console.error(error);

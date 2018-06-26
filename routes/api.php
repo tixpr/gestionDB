@@ -28,6 +28,11 @@ Route::middleware('cors')->group(function(){
 Route::middleware('cors')->group(function(){
 	Route::get('materialstype','Api\MaterialTypeController@index');
 	Route::get('cantidad','Api\MaterialTypeController@getCantidadmaterial');
-	Route::get('UsersMaterials','Api\MaterialTypeController@getUsersMaterials');
+	Route::get('UsersMaterials','Api\MaterialController@getUser');
+	Route::get('material_views','Api\MaterialController@topViews');
+	Route::get('areas_views','Api\MaterialController@topArea');
+	Route::get('type_materials','Api\MaterialController@typeMaterial');//1
+	Route::get('material_promedio','Api\MaterialController@AvgMaterials');//2
+	
 });
 
