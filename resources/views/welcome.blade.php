@@ -12,87 +12,53 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="/css/style.css" rel="stylesheet" type="text/css"> 
         <script src="/js/majax.js"></script>
-        
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-    <div class="content" id="content">
-       
-            <button id="btn_Materials">
-                Obtener  Datos Materials
-            </button>
-            <button id="btn_Languages">
-                Obtener  Datos Languages
-            </button>
-            <button id="btn_MaterialTypes">
-                Obtener  Datos TypeMaterial
-            </button>
-        
-        
-     </div>
-        <script>
-        Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
-        function obtenerMateriales(e){
-            e.preventDefault();
-            var majax= new Majax();
-            majax.get(
-                '/api/materials',
-                {
-                    valid: function(r){
-                        console.table(r);
-                    },
-                    error: function(error){
-                        console.error(error);
-                    }
-                }
-
-            );
-
-
-            
-        }
-        document.getElementById('btn_Materials').addEventListener('click',obtenerMateriales);
-        function obtenerLanguage(e){
-            e.preventDefault();
-            var majax= new Majax();
-            majax.get(
-                '/api/Languages',
-                {
-                    valid: function(r){
-                        console.info(r);
-                    },
-                    error: function(error){
-                        console.error(error);
-                    }
-                }
-
-            );
-
-        }
-
-        document.getElementById('btn_Languages').addEventListener('click',obtenerLanguage);
-
-
-
-        function obtenerMaterialType(e){
-            e.preventDefault();
-            var majax= new Majax();
-            majax.get(
-                '/api/MaterialTypes',
-                {
-                    valid: function(r){
-                        console.info(r);
-                    },
-                    error: function(error){
-                        console.error(error);
-                    }
-                }
-
-            );
-        }
-        document.getElementById('btn_MaterialTypes').addEventListener('click',obtenerMaterialType);
-        
-        </script>
-        
+		<button id="btn">
+			Obtener datos
+		</button>
+		<ul id="contenido">
+		</ul>
+		<script>
+			Majax.setConfig(2, 'CNiPtHgRh1glhpiiAwMLXDCkqfhtGpoA9yAEw5tF','');
+			var contenido = document.getElementById('contenido');
+			function obtenerMateriales(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.get(
+					'/api/materials',
+					{
+						valid: function(r){
+							//console.info(r.data);
+							contenido.innerHTML = '';
+							for(var i = 0, n = r.data.length; i<n; i++){
+								var temp = document.createElement('li');
+								var contenedor = document.createElement('div');
+								var titulo = document.createElement('h4');
+								var resumen = document.createElement('p');
+								var tipo = document.createElement('span');
+								var idioma = document.createElement('span');
+								titulo.innerHTML = 'Titulo: '+r.data[i].titulo + "(" + i + ")";
+								resumen.innerHTML = 'Resumen: '+r.data[i].resumen;
+								tipo.innerHTML = 'Tipo: '+r.data[i].tipo;
+								idioma.innerHTML = 'Idioma: '+r.data[i].idioma;
+								contenedor.appendChild(titulo);
+								contenedor.appendChild(resumen);
+								contenedor.appendChild(tipo);
+								contenedor.appendChild(idioma);
+								temp.appendChild(contenedor);
+								contenido.appendChild(temp);
+							}
+						},
+						error: function(error){
+							console.error(error);
+						}
+					}
+				);
+			}
+			document.getElementById('btn').addEventListener('click',obtenerMateriales);
+		</script>
     </body>
 </html>
 

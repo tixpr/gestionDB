@@ -1,0 +1,72 @@
+body{
+	background-color: aquamarine;
+}
+ol{
+	padding: 0;
+}
+.obtener{
+	font-size: 10px;
+	font-family: Verdana, Tahoma, sans-serif;
+	font-weight: bold;
+	color: beige;
+	background-color: blue;
+	border: 0px;
+	width:200px;
+	height: 50;
+}
+
+.item{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+}
+.title{
+	width: 300px;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	background-color: crimson;
+	font-size: 15px;
+	
+}
+.title1{
+	width: 300px;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	background-color: darksalmon;
+	
+}
+.title2{
+	width: 400px;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	background-color: deeppink;
+
+	
+}
+.contenedor{
+	flex-grow: 1;
+	position: relative;
+	text-align: center;
+	padding: 15px;
+}
+.contenedor>span{
+	position: relative;
+	z-index: 900;
+	display: block;
+}
+.cantidad{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 40px;
+	z-index: 10;
+	background-color: rgb(236, 127, 194);
+	transition: width 4s ease;
+	transition-delay: 1s;
+}
