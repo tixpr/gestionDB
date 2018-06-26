@@ -23,3 +23,15 @@ Route::get('/languages', function () {
 Route::get('/nameuser', function () {
     return view('nameuser');
 });
+Route::get('/material_view', function () {
+    return view('materials_views');
+});
+Route::get('/areas_view', function () {
+    return view('area_views');
+});
+Route::get('/type_view', function () {
+    return view('type_view');
+});
+Route::get('/avg', function () {
+    return view('avg_view');
+});

@@ -1,20 +1,5 @@
-@extends('layout')
-@section('content')
-
-
-@endsection
-
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
-    <script src="/js/majax.js"></script>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
+@extends('base')
+@section('contenido')
     <form id="formulario">
         <label for="">Código de Usuario:</label>
         <input type="number" name="user_id" id="user_id">
@@ -62,5 +47,4 @@
             );
         }
     </script>
-</body>
-</html>
+@endsection
