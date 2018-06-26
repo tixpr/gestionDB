@@ -1,0 +1,92 @@
+html{
+    background-color: cadetblue;
+    text-align: center;
+}
+ul{
+    padding:0
+    
+}
+
+button{
+    background-color: gold;
+    margin: 5px;
+    padding: 10px;
+    border-color: black;
+    border-radius: 50%;
+    font-size: 30px;
+    height: 120px;
+}
+button:hover{
+    background-color: goldenrod;
+    margin: 5px;
+    padding: 10px;
+    border-color: black;
+    border-radius: 50%;
+    font-size: 30px;
+    height: 120px;
+}
+.item{
+    display:flex;
+    white-space: 300%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+}
+.title{
+    width: 200px;
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+    background-color:rgb(14, 157, 201);
+}
+.title1{
+    width: 200px;
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+    background-color: orangered;
+    transition: all 3s ease;
+    transition-delay: 2s;
+}
+.title2{
+    width: 200px;
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+    background-color:green;
+
+}
+.title3{
+    width: 200px;
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+    background-color:darkorange;
+
+}
+.contenedor{
+    flex-grow: 1;
+    position: relative;
+    text-align: center;
+
+}
+.contenedor>span{
+    display: block;
+    padding: 10px;
+    z-index: 100;
+    position: relative;
+    
+}
+.cantidad{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 30px;
+    background: yellow;
+    transition: all 3s ease;
+    transition-delay: 2s;
+    z-index: 10;
+
+}
