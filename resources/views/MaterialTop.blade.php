@@ -1,7 +1,7 @@
 @extends('base')
 @section('contenido')
 <button id="obtener" class="btn">
-	Obtener
+	Obtener Los Materiales que esten por encima de la media
 </button>
 <ol id="contenido">
 </ol>
@@ -15,9 +15,7 @@
 			var parent = elementos[i].parentElement;
 			var width = (porcentaje*parent.clientWidth)/100;
 			elementos[i].style.width = width+'px';
-			console.log('porcentaje: '+porcentaje)
-			console.log('parent: '+parent)
-			console.log('width: '+width)
+			
 		}
 	}
 	boton.addEventListener('click',function(e){
