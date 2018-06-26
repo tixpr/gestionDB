@@ -40,9 +40,27 @@ con su respectiva animacion y
 presentacion 
 
 2)
-Obtener los materiales que esten por encima de la media de las lecturas de materiales
-mostrando los campos (titulo de material,tipo de material(nombre del tipo), area del material (nombre del area)
-y la cantidad de lecturas), con su respectiva animacion y presentacion.
+Obtener los materiales que esten 
+por encima de la media de las
+ lecturas de materiales
+mostrando los campos 
+(titulo de material,
+tipo de material(nombre del tipo),
+ area del material(nombre del area)
+y la cantidad de lecturas), 
+
+con su respectiva animacion y presentacion.
+
+
+primer paso: contar la cantidad de materiales leidos que
+esta en la tabla user_view_materials
+segundo paso: OBTENER LA COLUMNA materials.title
+tercer paso: obtener el tipo de material em 
+la columna material_types.material_types
+cuarto paso: obtener la columna area de material en la tabla
+areas.area
+
+
 
 
 

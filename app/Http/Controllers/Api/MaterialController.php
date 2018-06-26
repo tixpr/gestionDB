@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\{Material,Area};
-use App\Http\Resources\Api\{Material as MaterialResource, ReadUserView,UserMaterialsView, MaterialsPorLanguage, MaterialViews, AreaViews};
+use App\Http\Resources\Api\{MaterialTop,Material as MaterialResource, ReadUserView,UserMaterialsView, MaterialsPorLanguage, MaterialViews, AreaViews};
 use App\Http\Requests\{UserMaterialsViewRequest, UserMaterialsReadRequest};
 use DB;
 class MaterialController extends Controller
@@ -146,6 +146,70 @@ class MaterialController extends Controller
         ->get();
         return AreaViews::collection($resultados) ;
     }
+   
+    // Obtener los materiales que esten  por encima de la media de las
+    // lecturas de materiales mostrando los campos 
+    // (titulo de material, tipo de material(nombre del tipo),
+    // area del material(nombre del area)
+    // y la cantidad de lecturas), 
+    // con su respectiva animacion y presentacion.
+
+
+    // primer paso: contar la cantidad de materiales leidos que
+    // esta en la tabla user_view_materials
+    // segundo paso: OBTENER LA COLUMNA materials.title
+    // tercer paso: obtener el tipo de material em 
+    // la columna material_types.material_types
+    // cuarto paso: obtener la columna area de material en la tabla
+    // areas.area
+
+    // select m.title , mt.type, area , count(uv.material_id) as cant from materials as m 
+    // inner join material_areas as a on m.id = a.material_id
+    // inner join user_view_materials as uv on m.id = uv.material_id
+    // inner join areas as ar on a.area_id=ar.id
+    // inner join material_types as mt on m.material_type_id = mt.id
+
+    // where m.id >(select avg(uv.material_id) from user_view_materials as uv) 
+    // group by (m.title,mt.type,ar.area)
+    // order by (cant)
+    // ;
+    
+
+
+
+
+
+    public function redondeo(){
+        
+        return ($res);
+    }
+
+    public function MaterialTop(){
+        $res = Material::select(DB::raw('trunc((avg(user_view_materials.material_id)))')
+        )->join('user_view_materials','user_view_materials.material_id','='
+        ,'materials.id')->get();
+        $re= json_decode($res,true);
+        
+        $resultados = Material::select(
+            DB::raw('materials.title , material_types.type, areas.area ,
+             count(user_view_materials.material_id) as cant,(avg(user_view_materials.material_id)) as media')
+        )
+       
+         ->join('material_areas','materials.id','=','material_areas.material_id')
+         ->join('user_view_materials','user_view_materials.material_id','=',
+         'materials.id')
+         ->join('areas','areas.id','=','material_areas.area_id')
+        ->join('material_types','material_types.id','=','materials.material_type_id')
+        
+        ->where ('materials.id','>',$re)
+ 
+        ->groupBy('materials.title','material_types.type','areas.area')
+        ->orderBy('cant', 'desc') 
+        ->get();
+
+        return MaterialTop::collection($resultados) ;
+    }
+
     
     
 }

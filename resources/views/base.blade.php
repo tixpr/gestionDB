@@ -12,6 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="/css/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="/css/reporte.css"  type="text/css">
+        <link rel="stylesheet" href="/css/animacion-jc.css">
         <script src="/js/majax.js"></script>
         
     </head>

@@ -29,5 +29,11 @@ Route::get('/material_views', function () {
 Route::get('/tipos', function () {
     return view('tipos_material');
 });
+Route::get('/areas', function () {
+    return view('area_views');
+});
+Route::get('/MaterialTop', function () {
+    return view('MaterialTop');
+});
 
 
