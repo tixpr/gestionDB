@@ -1,0 +1,76 @@
+html{
+	background-color:  #a9cce3;
+	text-align: center;
+}
+button{
+	background-color:  #e8daef;
+	font-size: 23px;
+	padding: 15px;
+	margin: 1px;
+	border-color: black;
+	border-radius: 30%;
+}
+button:hover{
+	background-color:   #9b59b6;
+	font-size: 23px;
+	padding: 15px;
+	margin: 1px;
+	border-color: black;
+	border-radius: 30%;
+}
+ol{
+	padding: 0;
+}
+.item{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+}
+.title{
+	width: 400px;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	background-color: red;
+	border-radius: 10% 0;
+}
+.type{
+	width: 200px;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	background-color: blue;
+	border-radius: 10% 0;
+}
+.area{
+	width: 200px;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	background-color: yellow;
+	border-radius: 10% 0;
+}
+.contenedor{
+	flex-grow: 1;
+	position: relative;
+	text-align: center;
+	padding: 15px;
+}
+.contenedor>span{
+	position: relative;
+	z-index: 900;
+	display: block;
+}
+.cantidad{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 40px;
+	z-index: 10;
+	background-color: cornflowerblue;
+	transition: width 4s ease;
+	transition-delay: 1s;
+}

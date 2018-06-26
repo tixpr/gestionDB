@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Material;
-use App\Http\Resources\Api\{Material as MaterialResource, ReadUserView,UserMaterialsView, Materials_Language};
-use App\Http\Requests\{UserMaterialsViewRequest, UserMaterialsReadRequest};
 use DB;
+use Illuminate\Http\Request;
+use App\Models\{Material, Area};
+use App\Http\Controllers\Controller;
+use App\Http\Requests\UserMaterialsViewRequest;
+use App\Http\Resources\Api\{
+	Material as MaterialResource,
+	UserMaterialsView,
+	MaterialViews,
+    AreaViews,
+    TypeViews,
+    ReadMaterial
+};
+
 class MaterialController extends Controller
 {
     /**
@@ -61,45 +69,77 @@ class MaterialController extends Controller
         //
     }
     public function postUserMaterialsView(){
-
     }
-    public function getUserMaterialsView(UserMaterialsViewRequest $request){
-        $resultados = Material::select ('materials.title',
-        DB::raw('materials.title, count(user_view_materials.id) as vistas')) 
-        ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
-        ->where('materials.user_id',$request->user_id)
-        ->groupBy('materials.title')
-        ->orderBy('vistas', 'desc')
-        ->get();
-            return UserMaterialsView::collection($resultados);
+
+	public function getUserMaterialsView(UserMaterialsViewRequest $request)
+	{
+		$resultados = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as vistas')
+			)
+		->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+		->where('materials.user_id',$request->user_id)
+		->groupBy('materials.title')
+		->orderBy('vistas','desc')
+		->get();
+		return UserMaterialsView::collection($resultados);
     }
     
-
-    // cantidad de materiales por idioma en forma descendente
-
-    public function getUserMaterialsLanguageView(){
+	public function topViews()
+	{
+		$resultados = Material::select(
+			DB::raw('materials.title, count(user_view_materials.id) as cantidad')
+			)
+		->join('user_view_materials', 'materials.id', '=', 'user_view_materials.material_id')
+		->groupBy('materials.title')
+		->orderBy('cantidad','desc')
+		->limit(10)
+		->get();
+		return MaterialViews::collection($resultados);
+	}
+	public function topAreas()
+	{
+		$resultados = Area::select(
+			DB::raw('areas.area, count(user_view_materials.id) as cantidad')
+		)
+		->join('material_areas', 'areas.id','=','material_areas.area_id')
+		->join('user_view_materials','user_view_materials.material_id','=','material_areas.material_id')
+		->groupBy('areas.area')
+		->orderBy('cantidad','desc')
+		->get();
+		return AreaViews::collection($resultados);
+    }
+    
+    public function topTypes()
+    {
         $resultados = Material::select(
-        DB::raw('materials.language_id,languages.language ,count (materials.id) as cant_material'))
-        ->join('languages','materials.language_id','=','languages.id')
-        ->groupBy('materials.language_id','languages.language')
-        ->orderBy('cant_material','desc')
-        ->get();
-        return Materials_Language::collection($resultados);
+			DB::raw('material_types.type, count(user_view_materials.id) as cantidad')
+		)
+		->join('material_types', 'materials.material_type_id','=','material_types.id')
+		->join('user_view_materials','user_view_materials.material_id','=','materials.id')
+		->groupBy('material_types.type')
+		->orderBy('cantidad','desc')
+		->get();
+		return TypeViews::collection($resultados);
     }
-    // ver materiales leidos por usuario: TITULO Y CANTIDAD DE VECES LEIDAS
-    // Dato de Entrada USUSARIO
 
-     public function get(UserMaterialsReadRequest $request){
-        $resultados = Material::select(
-        DB::raw('users.name, materials.title, count(user_view_materials.material_id) as leidos'))
-        ->join('users','materials.user_id','=','users.id')
-        ->join('user_view_materials','materials.id','=','user_view_materials.material_id')
-        ->where('users.id',$request->name)
-        ->groupBy('users.name','materials.title')
-        ->orderBy('leidos','desc')
+    public function topTittle()
+    {
+        $resultados = Area::select(
+            DB::raw('materials.title, material_types.type, areas.area, 
+            count(user_view_materials.id) as cantidad')
+            )   
+        ->join('material_areas', 'areas.id', '=', 'material_areas.area_id')
+        ->join('user_view_materials', 'user_view_materials.material_id', '=', 'material_areas.material_id')
+        ->join('materials', 'material_areas.material_id', '=', 'materials.id')
+        ->join('material_types', 'materials.material_type_id', '=', 'material_types.id')
+        ->groupBy('materials.id','materials.title', 'material_types.type', 'areas.area')
+        
+        ->havingRaw('count(user_view_materials.id) > (SELECT avg(user_view_materials.id)/(SELECT avg(user_view_materials.id) FROM materials join user_view_materials on (materials.id = user_view_materials.id)) FROM user_view_materials)')
+        
+        ->orderBy('cantidad', 'desc')
+        
         ->get();
-        return ReadUserView::collection($resultados);
+        
+		return ReadMaterial::collection($resultados);
     }
-    
-    
 }
