@@ -17,6 +17,15 @@ Route::get('/', function () {
 Route::get('/vistas', function () {
     return view('vistas');
 });
-Route::get('/cantidad_leidas', function () {
-    return view('cantidad_leidas');
+Route::get('/materials_views', function () {    //esto es como está en url
+    return view('materials_views'); //estos es como está en vistas
+});
+Route::get('/areas_views', function () {
+    return view('area_views');
+});
+Route::get('/types_materials_cant', function () {
+    return view('types_materials_cant');
+});
+Route::get('/read_materials_half', function () {
+    return view('read_materials_half');
 });

@@ -1,0 +1,61 @@
+ol{
+    padding: 0;
+}
+/*clase item*/
+.item{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;  /*para que no se salte de linea*/
+    align-items: stretch;
+}
+
+.title{
+    font-style: garamond;
+    background-color: rgb(103, 216, 250);
+    color: rgb(63, 61, 60);
+    width: 600px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: justify;
+}
+.type{
+    font-style: arial;
+    background-color: indianred;
+    color:  rgb(63, 61, 60);
+    width: 600px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: justify;
+}
+.area{
+    font-style: italic;
+    background-color: teal;
+    color:  rgb(63, 61, 60);
+    width: 600px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: justify;
+}
+
+.contenedor{
+    flex-grow: 1;
+    position: relative;
+    text-align: center;
+}
+.contenedor>span{
+    position: relative;
+    z-index: 900;
+    display: block;
+}
+.cantidad{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 122.5px;
+    z-index: 10;
+    background-color: rgb(64, 220, 129);
+    transition: width 4s ease;
+    transition-delay: 1s;
+}

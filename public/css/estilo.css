@@ -1,10 +1,10 @@
 body{
-        color: #494848;
+        color: #0c0c0c;
         text-align:center;
         -webkit-font-smoothing: antialiased;
         width: 100%;
         font-size:15px;
-        background:#FFDBAF
+        background:rgb(102, 101, 98)
 }
 button{
     display: inline-block;
@@ -40,4 +40,7 @@ button:hover{
     background: #f2f2f2;
     color:#0489b1;
 }
-
+.span{
+    text-align: center;
+    position: absolute
+}

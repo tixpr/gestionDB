@@ -4,7 +4,7 @@ namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserMaterialsView extends JsonResource
+class MaterialViews extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +15,8 @@ class UserMaterialsView extends JsonResource
     public function toArray($request)
     {
         return [
-			'titulo'	=>	$this->title,
-			'vistas'	=>	$this->vistas
-		];
+            'title'    => $this->title,
+            'cantidad'  => $this->cantidad
+        ];
     }
 }
