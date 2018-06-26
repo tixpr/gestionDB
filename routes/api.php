@@ -19,5 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('cors')->group(function(){
 	Route::get('materials','Api\MaterialController@index');
 	Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
-	Route::get('lang_materials_view','Api\MaterialController@getLangMaterialsView');
+	Route::get('materials_view','Api\MaterialController@topViews');
+	Route::get('area_views','Api\MaterialController@topAreas');
+	Route::get('materials_type','Api\MaterialController@MaterialsTypes');
+	Route::get('prom_mat','Api\MaterialController@PromMaterial');
 });

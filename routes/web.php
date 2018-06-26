@@ -20,3 +20,16 @@ Route::get('/vistas', function () {
 Route::get('/Idiomas', function () {
     return view('Idiomas');
 });
+Route::get('/materials_view', function () {
+    return view('materials_view');
+});
+Route::get('/area_views', function () {
+    return view('area_views');
+});
+Route::get('/tipomat', function () {
+    return view('tipomat');
+});
+Route::get('/Tpro', function () {
+    return view('prom');
+});
+
