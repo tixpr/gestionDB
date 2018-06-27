@@ -27,6 +27,9 @@ Route::get('/areas_views', function () {
 Route::get('/tipo_views', function () {
     return view('tipo_views');
 });
+Route::get('/promedio', function () {
+    return view('promedio');
+});
 Route::resource('cantidad','LanguageController');
 Route::resource('vistas','UsuariosController');
 
