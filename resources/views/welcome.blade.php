@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
     <head>
 	
-        <meta charset="utf-8">
+        <meta charset="utf-8">  
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,13 +14,62 @@
         <link href={{asset('css/estilos.css')}} rel="stylesheet" type="text/css">
     </head>
     <body>
+        <form id="login">
+         <legend>
+            INICIO DE SESION
+        </legend>
+         <label for="email">
+        correo
+         </label>
+            <input type="email" id="email" name="email">
+            <label for="password">
+        contraseña
+         </label>
+         <input type="password" id="password" name="password">
+            <button type="submit">
+                 ingresar
+            </button>
+        </form>
 		<button id="btn">
 			 OBTENER MATERIALES
 		</button>
-		
-		
 		<script>
-			Majax.setConfig(2, 'TlVHvggAEpYIFGvNLhSu7d0qw2SVHIoXTigN1mia','');
+        Majax.setConfig(6, 'NqevPqJXYarpg9BpHJyxH3WQtDR0KzD2FlaZdSqr','');
+            var form =document.getElementById('login'),
+                email=document.getElementById('email'),
+                password=document.getElementById('password');
+            form.addEventListener('submit',function(e){
+                e.preventDefault();
+                var majax=new Majax();
+                majax.oauth(
+                    email.value,
+                    password.value,
+{
+    valid: function(r){
+        alert('sesion iniciada');
+            console.info(r);
+
+    },
+    error:function(error){
+        alert('error al ingresar');
+        console.info(error);
+    }
+}
+                );
+            },false);
+            </script>
+
+
+
+
+
+
+
+
+
+
+		<script>
+			Majax.setConfig(6, 'NqevPqJXYarpg9BpHJyxH3WQtDR0KzD2FlaZdSqr','');
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -64,7 +113,7 @@
              OBTENER IDIOMAS 
         </button>
 		 <script>
-        Majax.setConfig(2,'TlVHvggAEpYIFGvNLhSu7d0qw2SVHIoXTigN1mia','');
+        Majax.setConfig(6,'NqevPqJXYarpg9BpHJyxH3WQtDR0KzD2FlaZdSqr','');
         function obtenerIdiomas(e){
             e.preventDefault();
             var majax= new Majax();
@@ -92,7 +141,7 @@
             OBTENER TIPOS DE MATERIAL
         </button>
         <script>
-        Majax.setConfig(2,'TlVHvggAEpYIFGvNLhSu7d0qw2SVHIoXTigN1mia','');
+        Majax.setConfig(6,'NqevPqJXYarpg9BpHJyxH3WQtDR0KzD2FlaZdSqr','');
         function obtenerTipodeMateriales(e){
             e.preventDefault();
             var majax= new Majax();

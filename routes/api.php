@@ -13,10 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::middleware('cors')->group(function(){
+
+Route::middleware(['auth:api','cors'])->group(function(){
     Route::get('materials','Api\MaterialController@index');
     Route::get('language','Api\LanguageController@index');
     Route::get('materialtype','Api\MaterialtypeController@index');
