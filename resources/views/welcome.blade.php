@@ -28,7 +28,7 @@
         <button type="submit">Ingresar</button>
     </form>
     <script>
-     Majax.setConfig(4,'ehxXRzGmqqdjbmsBZ9CVfAIo4nYjO3pU7QXkOlG9','');
+     Majax.setConfig(10,'z8mU0ZlniNehVchffJ600DKtwqXSWha8OMzJKog3','');
     var form = document.getElementById('login'),
     email  = document.getElementById('email'),
     password  = document.getElementById('password');
