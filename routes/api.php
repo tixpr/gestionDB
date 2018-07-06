@@ -13,36 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::middleware('cors')->group(function(){
+Route::middleware(['auth:api','cors'])->group(function(){
     Route::get('materials','Api\MaterialController@index'); 
-});
-Route::middleware('cors')->group(function(){
-    Route::get('languages','Api\LanguageController@index');
-});
-Route::middleware('cors')->group(function(){
+    Route::get('languages','Api\LanguageController@index');    
     Route::get('materialTypes','Api\MaterialTypeController@index');
-});
-Route::middleware('cors')->group(function(){
     Route::get('users','Api\UserController@index');
-});
-Route::middleware('cors')->group(function(){
     Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
-});
-Route::middleware('cors')->group(function(){
     Route::get('languages_material','Api\MaterialController@getLanguage');
-});
-Route::middleware('cors')->group(function(){
     Route::get('material_views','Api\MaterialController@topViews');
-});
-Route::middleware('cors')->group(function(){
     Route::get('area_views','Api\MaterialController@topAreas');
-});
-Route::middleware('cors')->group(function(){
     Route::get('cant_types','Api\MaterialController@tipoCant');
-});
-Route::middleware('cors')->group(function(){
     Route::get('prom_materials','Api\MaterialController@promMat');
 });

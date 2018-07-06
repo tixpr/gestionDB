@@ -15,7 +15,7 @@
         </div>
         <script>
 			var formulario = document.getElementById('formulario');
-			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
+			Majax.setConfig(4, 'mVieQ0L99XFJP5ANcMB8txMLItm25cNmQ7gAhZ3H','');
 			var contenido = document.getElementById('contenido');
 			formulario.addEventListener('submit',obtenerDatos,false);
 			function obtenerDatos(e){

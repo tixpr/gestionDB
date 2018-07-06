@@ -14,6 +14,45 @@
 
     </head>
     <body class="botones">
+		<form id="login">
+			<legend>
+				Inicio de Sesion
+			</legend>
+			<label for="email">
+				Correo: 
+			</label>
+			<input type="email" id="email" name="email">
+			<label for="password">
+				Contraseña: 
+			</label>
+			<input type="password" id="password" name="password">
+			<button type="submit">
+				Ingresar
+			</button>
+		</form>
+		<script>
+			Majax.setConfig(4, 'mVieQ0L99XFJP5ANcMB8txMLItm25cNmQ7gAhZ3H','');
+			var form=document.getElementById('login'),
+				email=document.getElementById('email'),
+				password=document.getElementById('password');
+			form.addEventListener('submit', function(e){
+				e.preventDefault();
+				var majax = new Majax();
+				majax.oauth(
+					email.value, 
+					password.value,
+					{
+						valid: function(r){
+							alert('Sesion Iniciada');
+							console.info(r);
+						},
+						error: function(error){
+							alert('Error al Ingresar');
+							console.info(error);
+						}
+					});
+			},false);
+		</script>
        <div id="contenido">
        <ul id="botones">
             <b id="btn1"><li>MATERIALES</li></b>
@@ -24,7 +63,7 @@
         </ul>
         </div>
         <script>
-			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
+			Majax.setConfig(4, 'mVieQ0L99XFJP5ANcMB8txMLItm25cNmQ7gAhZ3H','');
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -60,7 +99,7 @@
 			document.getElementById('btn1').addEventListener('click',obtenerMateriales);
         </script> 
         <script>
-			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
+			Majax.setConfig(4, 'mVieQ0L99XFJP5ANcMB8txMLItm25cNmQ7gAhZ3H','');
 			function obtenerIdiomas(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -87,7 +126,7 @@
 			document.getElementById('btn2').addEventListener('click',obtenerIdiomas);
         </script> 
         <script>
-			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
+			Majax.setConfig(4, 'mVieQ0L99XFJP5ANcMB8txMLItm25cNmQ7gAhZ3H','');
 			function obtenerTiposMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -114,7 +153,7 @@
 			document.getElementById('btn3').addEventListener('click',obtenerTiposMateriales);
         </script>
 		<script>
-			Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
+			Majax.setConfig(4, 'mVieQ0L99XFJP5ANcMB8txMLItm25cNmQ7gAhZ3H','');
 			function obtenerUsuarios(e){
 				e.preventDefault();
 				var majax = new Majax();

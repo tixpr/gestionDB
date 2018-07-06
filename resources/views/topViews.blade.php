@@ -6,7 +6,7 @@
 	<ol id="contenido">
 	</ol>
 	<script>
-		Majax.setConfig(2, '6e2eIb6UuteHJMWmRKdUlvQbmE3WpWYUh86OFHck','');
+		Majax.setConfig(4, 'mVieQ0L99XFJP5ANcMB8txMLItm25cNmQ7gAhZ3H','');
 		var boton = document.getElementById('obtener');
         function animacion(){
             var elementos = document.querySelectorAll('div.cantidad');
