@@ -1,0 +1,76 @@
+
+body{
+    border-style: ridge;
+    border-bottom-color: #080808;
+    text-align: center;
+    color: rgb(69, 212, 223);
+    background-color: #616155;
+    font-weight: bold;
+}
+header{
+    
+    color: rgb(200, 255, 2);
+    font-size: 150%;
+    text-align: center;
+   
+    
+}
+.title{
+    
+    margin: 0;
+    padding: 10px 0;
+  text-align:left;
+  position: relative;
+    width: 500px;
+    margin-left: 10px;
+  }
+
+
+
+.contenedor{
+    flex-grow: 5;
+    position: relative;
+    text-align: center;
+
+  }
+.contenedor>span{
+    display: block;
+    position: relative;
+    z-index: 900;
+  }
+  .cantidad{
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 5;
+    height: 20px;
+    z-index: 30;
+    background-color: rgb(252, 201, 34);
+    transition: all 3s ease;
+    transition-delay: 1s;
+  }
+  .cantidad:hover{
+    background: #d35ab9;
+    color:#0489b1;
+  }
+  
+  button#obtener{
+    justify-content: left;
+    display: table-cell;
+    width: 20%;
+    margin:0.5555em;
+    font-size: 1.125em; 
+    font-weight:bold;
+    padding: 0.5555em;
+    color:#5e0342;
+    border:10px solid #0d0114;
+    background: #08e600;
+    border-radius: 3.5555em;
+  }
+  button#obtener:hover{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #06a506;
+    background: #c02d1a;
+    color:#50fc0d;
+  }

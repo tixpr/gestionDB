@@ -16,8 +16,8 @@
     </head>
     <body>
         <form id="formulario">
-            <input type="text" name="name" id="name"
-            >
+            
+            <input type="text" name="name" id="name">
             <button type="submit" ;>
                 OBTENER
             </button>

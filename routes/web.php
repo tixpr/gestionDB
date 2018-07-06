@@ -23,4 +23,18 @@ Route::get('/materials', function () {
 Route::get('/cantidad', function () {
     return view('cantidadleida');
 });
+Route::get('/material_views', function () {
+    return view('materials_views');
+});
+Route::get('/Area_views', function () {
+    return view('Area_views');
+});
+Route::get('/material_view', function () {
+    return view('topMaterials_View');
+});
+Route::get('/Area_material_view', function () {
+    return view('AreaTypeMaterials');
+});
+
+
 

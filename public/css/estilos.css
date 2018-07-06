@@ -1,5 +1,5 @@
 body{
-    background: #ebc548;
+    background: #858176;
 }
 #contenedor{
     display:table;
@@ -9,7 +9,7 @@ body{
 button{
     justify-content: left;
     display: table-cell;
-    width: 100%;
+    width: 20%;
     margin:0.5555em;
     font-size: 1.125em; 
     padding: 0.5555em;
