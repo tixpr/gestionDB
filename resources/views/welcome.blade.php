@@ -14,7 +14,49 @@
         <script src="/js/majax.js"></script>
         
     </head>
+
     <body>
+
+    <form action="" id="login">
+        <legend>
+        Inicio de sesion</legend>
+        <label for="email">Correo</label>
+        <input type="email" id = "email" name="email">
+
+        <label for="password">Password</label>
+        <input type="password" id = "password" name="password">
+        <button type="submit">Ingresar</button>
+    </form>
+    <script>
+     Majax.setConfig(4,'ehxXRzGmqqdjbmsBZ9CVfAIo4nYjO3pU7QXkOlG9','');
+    var form = document.getElementById('login'),
+    email  = document.getElementById('email'),
+    password  = document.getElementById('password');
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            var majax = new Majax();
+            majax.oauth(
+                email.value, 
+                password.value,
+                {
+                    valid: function(r)
+                    {
+                        alert('sesion iniciada');
+                        console.info(r);
+                    },
+                    error:function(error){
+                        alert('error al ingresar');
+                        console.info(error);
+                    }
+                });
+        },false);
+
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <div class="content" id="content">
        
             <button id="btn_Materials">
@@ -39,6 +81,7 @@
             </div>
         </dialog>
      </div>
+
         <script>
         Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
         // var contenido = document.queryselector('div#contenido')
@@ -205,8 +248,9 @@
         document.getElementById('btn_MaterialTypes')
         .addEventListener('click',()=>{dialog.setAttribute('open','true')});
 
-        </script>
-        
+        </script>    
+    
+   
     </body>
 </html>
 

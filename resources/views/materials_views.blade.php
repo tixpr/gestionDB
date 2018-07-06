@@ -12,7 +12,7 @@
      </div>
 
 <script>
-   Majax.setConfig(2,'mSIhIZNNv4skowwlmVgPtFdUEklXdZGqwIFCIW6k','');
+   Majax.setConfig(2,'ehxXRzGmqqdjbmsBZ9CVfAIo4nYjO3pU7QXkOlG9','');
    
    var boton = document.getElementById('obtener');
    var contenido = document.getElementById('contenido');

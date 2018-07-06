@@ -37,7 +37,7 @@
      <div class="contenido" id = "contenido"></div>
         <script>
         var formulario = document.getElementById('formulario');
-        Majax.setConfig(2,'qMbXnApaA1BM7qCEmdWc9APqWh0OneDp7eyJFjgq','');
+        Majax.setConfig(2,'ehxXRzGmqqdjbmsBZ9CVfAIo4nYjO3pU7QXkOlG9','');
         // var contenido = document.queryselector('div#contenido')
         var contenido = document.getElementById('contenido');
         formulario.addEventListener('submit',obtenerDatos,false);
