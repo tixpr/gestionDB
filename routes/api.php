@@ -13,18 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::middleware('cors')->group(function(){
-    Route::get('materials','Api\MaterialController@index');
-    Route::get('languages','Api\LanguageController@index');
-    Route::get('materialtype','Api\MaterialTypeController@index');
-    Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
-    Route::get('numero_materials','Api\MaterialController@getNumeroMat');
-    Route::get('usuario_lectura','Api\MaterialController@getUsuarioLectura');
-    Route::get('material_views','Api\MaterialController@topViews');
-    Route::get('area_views','Api\MaterialController@topAreas');
-    Route::get('tipo_material','Api\MaterialController@tipomaterial');
-    Route::get('promedio','Api\MaterialController@Promedio');
-});
+Route::middleware(['auth:api','cors'])->group(function(){
+
+        Route::get('materials','Api\MaterialController@index');
+        Route::get('languages','Api\LanguageController@index');
+        Route::get('materialtype','Api\MaterialTypeController@index');
+        Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
+        Route::get('numero_materials','Api\MaterialController@getNumeroMat');
+        Route::get('usuario_lectura','Api\MaterialController@getUsuarioLectura');
+        Route::get('material_views','Api\MaterialController@topViews');
+        Route::get('area_views','Api\MaterialController@topAreas');
+        Route::get('tipo_material','Api\MaterialController@tipomaterial');
+        Route::get('promedio','Api\MaterialController@Promedio');
+    });
+

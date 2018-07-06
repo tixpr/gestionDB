@@ -13,7 +13,46 @@
 		<link href="css/mud.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-	
+	<form id="login">
+	<legend>
+	inicio de sesion
+	</legend>
+	<label for="email">
+	correo:
+	</label>
+	<input type="email" id="email" name="email">
+	<label for="password">
+	contraseña
+	</label>
+	<input type="password" id="password" name="password">
+	<button type="submit">
+	ingresar
+	</button>
+	</form>
+	<script>
+	Majax.setConfig(2, 'lBcW2BXue6LM9XXkP9i90BkcJafafAlduwWPqGss','');
+	var form=document.getElementById('login'),
+	    email=document.getElementById('email'),
+		password=document.getElementById('password');
+	form.addEventListener('submit',function(e){
+			e.preventDefault();
+			var majax=new Majax();
+			majax.oauth(
+				email.value,
+				password.value,
+			{
+                valid:function(r){
+					alert('sesion iniciada');
+					console.info(r);
+				},
+				error:function(error){
+					alert('error al ingresar');
+					console.info(error);
+				}
+			});
+		},false);
+		</script>
+
 		<button id="btn">
 			Obtener datos
 		</button>
@@ -26,7 +65,7 @@
 		<ul id="contenido">
 		</ul>
 		<script>
-			Majax.setConfig(2, 'Pg6GIQYO4mZwtBojCcLzcpp1OBM6arKNeluPpIPP','');
+			Majax.setConfig(2, 'lBcW2BXue6LM9XXkP9i90BkcJafafAlduwWPqGss','');
 			var contenido = document.getElementById('contenido');
 			function obtenerMateriales(e){
 				e.preventDefault();
@@ -65,7 +104,7 @@
 			document.getElementById('btn').addEventListener('click',obtenerMateriales);
 		</script>
 		<script>
-			Majax.setConfig(2, 'Pg6GIQYO4mZwtBojCcLzcpp1OBM6arKNeluPpIPP','');
+			Majax.setConfig(2, 'lBcW2BXue6LM9XXkP9i90BkcJafafAlduwWPqGss','');
 			function obtenerLanguages(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -93,7 +132,7 @@ contenido.appendChild(temp1);
 			document.getElementById('btn1').addEventListener('click',obtenerLanguages);
 		</script>
 		<script>
-			Majax.setConfig(2, 'Pg6GIQYO4mZwtBojCcLzcpp1OBM6arKNeluPpIPP','');
+			Majax.setConfig(2, 'lBcW2BXue6LM9XXkP9i90BkcJafafAlduwWPqGss','');
 			function obtenertipoMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
