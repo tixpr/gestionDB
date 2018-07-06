@@ -14,7 +14,46 @@
 
     </head>
     <body>
-		<button id="btn1">
+	<form id="login">
+	    <legend>
+		   Inicio de Sesion
+		   </legend>
+		   <label for="email">
+		   Correo:
+		   </label>
+		   <input type="email" id="email" name="email">
+		   <label for="password">
+		   Contraseña:
+		   </label>
+		   <input type="password" id="password" name="password">
+		   <button type="submit">
+	       Ingresar
+		   </button>
+		   </form>
+		   <script>
+		   Majax.setConfig(4 , 'MEHYRLgbIGtUGEgtN6mxxPCxqU2zTZmPgPykY2yv','');
+		   var form = document.getElementById('login'),
+		       email = document.getElementById('email'),
+			   password = document.getElementById('password');
+			  form.addEventListener('submit',function(e){
+				  e.preventDefault();
+				  var majax = new Majax();
+				  majax.oauth(email.value,
+				              password.value,
+							  {
+								  valid: function(r){
+									  alert('Sesión iniciada');
+									  console.info(r);
+								  },
+								  error: function(error){
+									  alert('Error al ingresar');
+									  console.info(error);
+								  }
+							  });
+			  },false);
+			  </script>
+	 
+		<button id="btn1">  
 			Obtener Datos Materiales
 		</button>
 		<button id="btn2">
@@ -26,7 +65,7 @@
 		<ul id="contenido">
 		</ul>
 		<script>
-			Majax.setConfig(2, 'LL6U6oFRXdRvUPlViyjgR8gS9jCrEBnprWHXO7yJ','');
+			Majax.setConfig(4 , 'MEHYRLgbIGtUGEgtN6mxxPCxqU2zTZmPgPykY2yv','');
 			function obtenerMateriales(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -64,7 +103,7 @@
 		</script>
 
 		<script>
-			Majax.setConfig(2, 'LL6U6oFRXdRvUPlViyjgR8gS9jCrEBnprWHXO7yJ','');
+			Majax.setConfig(4 , 'MEHYRLgbIGtUGEgtN6mxxPCxqU2zTZmPgPykY2yv','');
 			function obtenerLenguaje(e){
 				e.preventDefault();
 				var majax = new Majax();
@@ -96,7 +135,7 @@
 		</script>
 
 		<script>
-			Majax.setConfig(2, 'LL6U6oFRXdRvUPlViyjgR8gS9jCrEBnprWHXO7yJ','');
+			Majax.setConfig(4 , 'MEHYRLgbIGtUGEgtN6mxxPCxqU2zTZmPgPykY2yv','');
 			function obtenerMaterialType(e){
 				e.preventDefault();
 				var majax = new Majax();
