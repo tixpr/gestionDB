@@ -13,17 +13,19 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::middleware('cors')->group(function(){
-    Route::get('materials','Api\MaterialController@index');
+Route::middleware('auth:api')->group(function(){
+    Route::middleware('cors')->group(function(){
+        Route::get('materials','Api\MaterialController@index');
+        
+        Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
+        Route::get('Languages','Api\LanguageController@index');
+        Route::get('MaterialTypes','Api\MaterialTypeController@index');
+        Route::get('MaterialPorIdioma','Api\MaterialController@getUserMaterialsLanguageView');
+        Route::get('materialsReadUser','Api\MaterialController@getMaterialsReadUser');
+        Route::get('material_views','Api\MaterialController@topViews');
+        Route::get('areas_views','Api\MaterialController@topAreas');
+        Route::get('material_type_count','Api\MaterialTypeController@materialRead');
+        Route::get('MaterialTop','Api\MaterialController@MaterialTop');
+    });
     
-    Route::get('user_materials_view','Api\MaterialController@getUserMaterialsView');
-    Route::get('Languages','Api\LanguageController@index');
-    Route::get('MaterialTypes','Api\MaterialTypeController@index');
-    Route::get('MaterialPorIdioma','Api\MaterialController@getUserMaterialsLanguageView');
-    Route::get('materialsReadUser','Api\MaterialController@getMaterialsReadUser');
-    Route::get('material_views','Api\MaterialController@topViews');
-    Route::get('areas_views','Api\MaterialController@topAreas');
-    Route::get('material_type_count','Api\MaterialTypeController@materialRead');
-    
-    Route::get('MaterialTop','Api\MaterialController@MaterialTop');
 });
