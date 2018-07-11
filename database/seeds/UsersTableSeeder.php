@@ -59,10 +59,10 @@ class UsersTableSeeder extends Seeder
 		//docentes
 		for ($i=2; $i <= 5; $i++) {
 			$user = User::create([
-				'name'	    =>	$this->getFullname(),
-				'email' 	=>	'usuario'.$i.'@sistemasuncp.edu.pe',
-				'password' 	=>	bcrypt('usuario')
-			]);
+                'name'	    =>	$this->getFullname(),
+                'email' 	=>	'usuario'.$i.'@sistemasuncp.edu.pe',
+                'password' 	=>	bcrypt('usuario')
+            ]);
 			$user->roles()->attach(5);
 			for($k=1;$k<=50;$k++){
 				$material = $user->materials()->create([

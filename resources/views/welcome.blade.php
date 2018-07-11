@@ -6,9 +6,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
         <script src="/js/majax.js"></script>
-        <link rel="stylesheet" href="/css/styles.css">
+        <!--<link rel="stylesheet" href="/css/styles.css">-->
     </head>
     <body>
+        <form id="login">
+            <legend>
+                Inicio de Sesion
+            </legend>
+            <label for="email">
+                Correo:
+            </label>
+            <input type="email" id="email" name="email">
+            <label for="password">
+                Contraseña:
+            </label>
+            <input type="password" id="password" name="password">
+            <button type="submit">
+                Ingresar
+            </button>
+        </form>
+        <script>
+            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
+            var form = document.getElementById('login'),
+                email = document.getElementById('email'),
+                password = document.getElementById('password');
+            form.addEventListener('submit',function (e) {
+                e.preventDefault();
+                var majax = new Majax();
+                majax.oauth(
+                    email.value,
+                    password.value,{
+                        valid:function (r) {
+                            alert('sesion iniciada');
+                            console.info(r);
+                        },
+                        error:function (error) {
+                            alert('error al ingresar');
+                            console.info(error);
+                        }
+                    }
+                );
+            },false);
+        </script>
+        <br><br><br><br>
         <ul id="buttons">
             <a id="btn1"><p>MATERIAL</p></a>
             <a id="btn2"><p>IDIOMAS</p></a>
@@ -16,7 +56,6 @@
             <a id="btn4"><p>USUARIOS</p></a>
         </ul>
         <script>
-            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
             function obetenerMateriales(e) {
                 e.preventDefault();
                 var majax= new Majax();
@@ -58,7 +97,6 @@
             document.getElementById('btn1').addEventListener('click',obetenerMateriales);
         </script>
         <script>
-            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
             function obetenerIdioma(e) {
                 e.preventDefault();
                 var majax= new Majax();
@@ -81,7 +119,6 @@
             document.getElementById('btn2').addEventListener('click',obetenerIdioma);
         </script>
         <script>
-            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
             function obetenerTipoMaterial(e) {
                 e.preventDefault();
                 var majax= new Majax();
@@ -104,7 +141,6 @@
             document.getElementById('btn3').addEventListener('click',obetenerTipoMaterial);
         </script>
         <script>
-            Majax.setConfig(2,'v6SYRt3gvXVj5wPW7gGLOmdlBF2fi6I0fmNFT9J8','');
             function obetenerUsuario(e) {
                 e.preventDefault();
                 var majax= new Majax();
