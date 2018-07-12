@@ -7,9 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\{Material , Area};
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\Api\{Material as MaterialResource, UserMaterialsView, LanguageMaterialsView , NameUserMaterials,MaterialsViews,AreaViews,AvgMaterialView,TypeView};
-use App\Http\Requests\UserMaterialsViewRequeste;
-use App\Http\Requests\LanguageMaterialsViewRequeste;
-use App\Http\Requests\NameUserMaterialRequeste;
+use App\Http\Requests\{UserMaterialsViewRequeste,NameUserMaterialRequeste};
 
 class MaterialController extends Controller
 {
