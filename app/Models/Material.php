@@ -24,7 +24,7 @@ class Material extends Model
         'language_id',
         'edition',
         'year',
-        'material_type',
+        'material_type_id',
         'file',
         'abstract',
         'isbn',

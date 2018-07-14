@@ -10,7 +10,7 @@
 	</ul>
 	<script>
 		var formulario = document.getElementById('formulario');
-		Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+		Majax.setConfig(2, 'iBSFp2p9tC8bsB2SznYdPbXIMQLooAGoJDWcX7nL','');
 		var contenido = document.getElementById('contenido');
 		formulario.addEventListener('submit',obtenerDatos,false);
 		function obtenerDatos(e){

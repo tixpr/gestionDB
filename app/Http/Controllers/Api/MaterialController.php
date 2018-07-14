@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{Material, Area};
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserMaterialsViewRequest;
+use App\Http\Requests\Api\{CreateMaterialRequest,UpdateMaterialRequest};
 use App\Http\Resources\Api\{
 	Material as MaterialResource,
 	UserMaterialsView,
@@ -26,49 +27,70 @@ class MaterialController extends Controller
         return MaterialResource::collection(Material::orderBy('title','asc')->get());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+	/**
+	 * Creando un nuevo material en la base de datos
+	 */
+    public function store(CreateMaterialRequest $request)
     {
-        //
+		$new_material = Material::create([
+			'title'				=>	$request->title,
+			'language_id'		=>	$request->language,
+			'edition'			=>	$request->edition,
+			'year'				=>	$request->year,
+			'material_type_id'	=>	$request->material_type,
+			'abstract'			=>	$request->abstract,
+			'isbn'				=>	$request->isbn,
+			'file'				=>	str_random(10),
+			'user_id'			=>	$request->user()->id
+		]);
+		return response()->json(
+			[
+				"message"		=> "Material creado satisfactoriamente",
+				"status_code"	=> 201
+			],
+			201
+		);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+	 * Obteniendo un recursoe especifico
+	 */
     public function show($id)
     {
-        //
+		$material = Material::findOrFail($id);
+		return new MaterialResource($material);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+	 * Actualizar un material especifico
+	 */
+    public function update(UpdateMaterialRequest $request, $id)
     {
-        //
+		$new_material = Material::findOrFail($id);
+		$new_material->update($request->all());
+		return response()->json(
+			[
+				"message"		=> "Material actualizado satisfactoriamente",
+				"status_code"	=> 201
+			],
+			201
+		);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+	 * Eliminado un amterial especifico
+	 */
     public function destroy($id)
     {
-        //
+		$material = Material::findOrFail($id);
+		$material->delete();
+		return response()->json(
+			[
+				"message"		=> "Material eliminado satisfactoriamente",
+				"status_code"	=> 201
+			],
+			201
+		);
 	}
 
 	public function getUserMaterialsView(UserMaterialsViewRequest $request)
@@ -107,5 +129,4 @@ class MaterialController extends Controller
 		->get();
 		return AreaViews::collection($resultados);
 	}
-	
 }

@@ -6,7 +6,7 @@
 <ol id="contenido">
 </ol>
 <script>
-	Majax.setConfig(2, 'iAgq88GUeVhyia0ije1q9bXAsRIZP8PbPDHupWsD','');
+	Majax.setConfig(2, 'iBSFp2p9tC8bsB2SznYdPbXIMQLooAGoJDWcX7nL','');
 	var boton = document.getElementById('obtener');
 	boton.addEventListener('click',function(e){
 		e.preventDefault();
